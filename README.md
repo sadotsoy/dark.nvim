@@ -18,6 +18,7 @@ This config uses [`lazy.nvim`](https://github.com/folke/lazy.nvim) to manage the
 - [Lang](#lang)
 - [Formatting](#formatting)
 - [cholorscheme](#colorscheme)
+- [todo](#todo)
 
 
 
@@ -83,3 +84,7 @@ This config uses [`lazy.nvim`](https://github.com/folke/lazy.nvim) to manage the
 ## Colorscheme
 
 - [catpuccin](https://github.com/catppuccin/nvim)
+
+## Todo
+
+- Keymaps table

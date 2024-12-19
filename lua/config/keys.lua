@@ -98,16 +98,6 @@ local keys = {
 		},
 		-- find
 		{
-			"<leader>fb",
-			"<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>",
-			desc = "[f]ind [b]uffers",
-		},
-		{
-			"<leader>ff",
-			"<cmd>FzfLua files<cr>",
-			desc = "[f]ind [f]iles (Root Dir)",
-		},
-		{
 			"<leader>fF",
 			"<cmd>FzfLua files root=true<cr>",
 			desc = "[f]ind [F]iles (cwd)",

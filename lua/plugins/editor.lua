@@ -175,4 +175,12 @@ return {
 		dependencies = { "kevinhwang91/promise-async" },
 		opts = {},
 	},
+	{
+		-- The fastest Neovim colorizer.
+		"norcalli/nvim-colorizer.lua",
+		opts = {},
+		config = function()
+			require("colorizer").setup()
+		end,
+	},
 }

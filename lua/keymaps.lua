@@ -31,6 +31,11 @@ keymap("n", "<C-W>.", "<cmd>vertical resize +10<CR>", { noremap = true })
 -- -- nop
 keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 --
+-- -- folds
+-- Using ufo provider need remap `zR` and `zM`.
+keymap("n", "zR", require("ufo").openAllFolds)
+keymap("n", "zM", require("ufo").closeAllFolds)
+--
 -- -- Remap for dealing with word wrap
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

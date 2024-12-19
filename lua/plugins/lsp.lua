@@ -104,9 +104,16 @@ return {
 				-- passing config.capabilities to blink.cmp merges with the capabilities in your
 				-- `opts[server].capabilities, if you've defined it
 				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+
+				-- add foldingRange capabilities to each server
+				config.capabilities.textDocument.foldingRange = {
+					dynamicRegistration = false,
+					lineFoldingOnly = true,
+				}
 				config.on_attach = utils.on_attach
 				lspconfig[server].setup(config)
 			end
+			require("ufo").setup()
 		end,
 	},
 	-- cmdline tools and lsp servers

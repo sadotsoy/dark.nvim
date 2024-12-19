@@ -169,4 +169,10 @@ return {
 		opts = {},
 		keys = keys.todocomment,
 	},
+	{
+		-- Not UFO in the sky, but an ultra fold in Neovim.
+		"kevinhwang91/nvim-ufo",
+		dependencies = { "kevinhwang91/promise-async" },
+		opts = {},
+	},
 }

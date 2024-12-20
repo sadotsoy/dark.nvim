@@ -10,17 +10,23 @@
 This configuration utilizes [`lazy.nvim`](https://github.com/folke/lazy.nvim) to manage plugins and
 follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn).
 
-- [Keymaps](#keymaps)
-  - [Files](#files)
-  - [Splits](#splits)
-  - [Folds](#folds)
-  - [Tabs](#tabs)
-  - [Snacks](#snacks)
-  - [FileNavigation](#filenavigation)
-  - [Treesitter](#treesitter)
-  - [mason](#mason)
-  - [Neotree](#neotree)
-  - [fzf](#fzf)
+## [Keymaps](#keymaps)
+
+- [Files](#files)
+- [Splits](#splits)
+- [Folds](#folds)
+- [Tabs](#tabs)
+- [Snacks](#snacks)
+- [FileNavigation](#filenavigation)
+- [Treesitter](#treesitter)
+- [mason](#mason)
+- [Neotree](#neotree)
+- [fzf](#fzf)
+- [grugfar](#grugfar)
+- [flash](#flash)
+
+## [Plugins](#plugins)
+
 - [UI](#ui)
 - [Coding](#coding)
 - [LSP](#lsp)
@@ -130,7 +136,7 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | `<leader>ee` | Explorer (root) | `n` |
   | `<leader>ef` | Explorer (cwd) | `n` |
 
-- ### Fzflua
+- ### Fzf
 
   | Keymap | Description | Mode |
   | ------ | ----------- | ---- |
@@ -143,23 +149,41 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | `<leader>fg` | Find git files | `n` |
   | `<leader>fr` | Find recent files | `n` |
   | ----- | ------ | ----- |
-  | `<leader>s"` | Find recent files | `n` |
-  | `<leader>sa` | Find autocmds | `n` |
-  | `<leader>sb` | Find grep current buffer | `n` |
-  | `<leader>sC` | Find commands | `n` |
-  | `<leader>sd` | Find document diagnostics | `n` |
-  | `<leader>sD` | Find diagnostics workspace | `n` |
-  | `<leader>sh` | Find help spaces | `n` |
-  | `<leader>sH` | Find highlight groups | `n` |
-  | `<leader>sj` | Find jumps | `n` |
-  | `<leader>sk` | Find keymaps | `n` |
-  | `<leader>sl` | Find loclist | `n` |
-  | `<leader>sM` | Find man pages | `n` |
-  | `<leader>sm` | Find marks | `n` |
-  | `<leader>sR` | Find resume | `n` |
-  | `<leader>sq` | Find quickfix | `n` |
+  | `<leader>s"` | Search recent files | `n` |
+  | `<leader>sa` | Search autocmds | `n` |
+  | `<leader>sb` | Search grep current buffer | `n` |
+  | `<leader>sC` | Search commands | `n` |
+  | `<leader>sd` | Search document diagnostics | `n` |
+  | `<leader>sD` | Search diagnostics workspace | `n` |
+  | `<leader>sh` | Search help spaces | `n` |
+  | `<leader>sH` | Search highlight groups | `n` |
+  | `<leader>sj` | Search jumps | `n` |
+  | `<leader>sk` | Search keymaps | `n` |
+  | `<leader>sl` | Search loclist | `n` |
+  | `<leader>sM` | Search man pages | `n` |
+  | `<leader>sm` | Search marks | `n` |
+  | `<leader>sR` | Search resume | `n` |
+  | `<leader>sq` | Search quickfix | `n` |
 
-## UI
+- ### Grugfar
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>sr` | Search and replace | `n`, `v` |
+
+- ### Flash
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `s` | Search label | `n`, `x`, `o` |
+  | `S` | Flash Treesitter | `n`, `x`, `o` |
+  | `r` | Remote flash | `o` |
+  | `R` | Tresitter search | `o`, `x` |
+  | `<c-s>` | Toggle flash search | `c` |
+
+## Plugins
+
+### UI
 
 - [Snacks](https://github.com/folke/snacks.nvim) 🍿 A collection of small QoL plugins for Neovim
   - Enabled
@@ -174,7 +198,7 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
     - words
     - zen
 
-## Coding
+### Coding
 
 - [ts-comments](https://github.com/folke/ts-comments.nvim) To enhance Neovim's native comments.
 - [mini.nvim](https://github.com/echasnovski/mini.nvim) Nice collection of plugins
@@ -184,12 +208,12 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
 - [blink.cmp](https://github.com/Saghen/blink.cmp) Performant, batteries-included completion plugin for Neovim
 - [lazydev](https://github.com/folke/lazydev.nvim) LuaLS setup for Neovim
 
-## LSP
+### LSP
 
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [mason.nvim](https://github.com/williamboman/mason.nvim) Cmdline tools and lsp server
 
-## Editor
+### Editor
 
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) Manage the file system and other tree like structures
@@ -200,25 +224,25 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
 - [todo-comments](https://github.com/folke/todo-comments.nvim) Higlight, list an search (Todo/Fix/Fixme/Bug/\\etc): comments
 - [whichkeys](https://github.com/folke/which-key.nvim) Temporaaal paaa knowwlodgear daaa keybindings
 
-## Linting
+### Linting
 
 - [nvim-lint](https://github.com/mfussenegger/nvim-lint)
 
-## Lang
+### Lang
 
 - **Markdown**
   - [preview](https://github.com/iamcco/markdown-preview.nvim)
 - **Kdl**
   - [syntax khlght](https://github.com/imsnif/kdl.vim)
 
-## Formatting
+### Formatting
 
 - [conformmmmm](https://github.com/stevearc/conform.nvim)
 
-## Colorscheme
+### Colorscheme
 
 - [catpuccin](https://github.com/catppuccin/nvim)
 
-## Todo
+### Todo
 
 - Keymaps table

@@ -1,13 +1,17 @@
+---@diagnostic disable: missing-fields
 -- See `:help vim.keymap.set()`
 
 local keymap = vim.keymap.set
 
 -- files
 keymap("n", "QQ", "<cmd>q!<cr>", { noremap = false })
+keymap("n", "qq", "<cmd>q<CR>", { silent = true, noremap = true, desc = "Close split" })
 keymap("n", "WW", "<cmd>w!<cr>", { silent = true })
 keymap("n", "E", "$", { noremap = false })
 keymap("n", "B", "^", { noremap = false })
 keymap("n", "ss", "<cmd>noh<CR>", { noremap = true })
+-- only
+keymap("n", "<leader>o", "<cmd>:only<CR>", { silent = true, noremap = true, desc = "Only" })
 --
 -- plugin manager
 keymap("n", "<leader>l", "<cmd>Lazy<CR>", { silent = true, desc = "Open Lazy" })
@@ -15,15 +19,11 @@ keymap("n", "<leader>l", "<cmd>Lazy<CR>", { silent = true, desc = "Open Lazy" })
 -- splits when am lazyyy
 keymap("n", "vv", "<c-w>v", { silent = true, desc = "Vertical split" })
 keymap("n", "vn", "<c-w>n", { silent = true, desc = "Horizontal split" })
--- --- close
-keymap("n", "qq", "<cmd>q<CR>", { silent = true, noremap = true, desc = "Close split" })
--- only
-keymap("n", "<leader>o", "<cmd>:only<CR>", { silent = true, noremap = true, desc = "Only" })
 -- --- move
-keymap("n", "<leader>vl", "<c-w>l", { silent = true, noremap = true, desc = "Go right" })
-keymap("n", "<leader>vh", "<c-w>j", { silent = true, noremap = true, desc = "Go left" })
-keymap("n", "<leader>vj", "<c-w>h", { silent = true, noremap = true, desc = "Go bottom" })
-keymap("n", "<leader>vk", "<c-w>k", { silent = true, noremap = true, desc = "Go up" })
+keymap("n", "<C-l>", "<c-w>l", { silent = true, noremap = true, desc = "Go right" })
+keymap("n", "<C-h>", "<c-w>j", { silent = true, noremap = true, desc = "Go left" })
+keymap("n", "<C-j>", "<c-w>h", { silent = true, noremap = true, desc = "Go bottom" })
+keymap("n", "<C-k>", "<c-w>k", { silent = true, noremap = true, desc = "Go up" })
 -- --- resize
 keymap("n", "<C-W>,", "<cmd>vertical resize -10<CR>", { noremap = true })
 keymap("n", "<C-W>.", "<cmd>vertical resize +10<CR>", { noremap = true })

@@ -7,8 +7,8 @@ local servers = {
 	"bashls",
 	"clangd",
 	"cssls",
-	"vtsls",
 	"lua_ls",
+	"vtsls",
 }
 
 return {

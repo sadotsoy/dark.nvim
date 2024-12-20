@@ -13,6 +13,7 @@ return {
 				lua = { "lua_ls", "stylua", stop_after_first = true },
 				-- Conform will run the first available formatter
 				javascript = { "prettierd", "prettier", stop_after_first = true },
+				markdown = { "mdformat" },
 			},
 			-- Set default options
 			default_format_opts = {

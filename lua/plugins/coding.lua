@@ -2,8 +2,14 @@ return {
 	{
 		-- comments
 		"folke/ts-comments.nvim",
-		opts = {
-			minipairs = {
+	},
+	{
+		-- better object
+		"echasnovski/mini.nvim",
+		config = function()
+			require("mini.surround").setup() -- surround
+			require("mini.cursorword").setup() -- cursorword
+			require("mini.pairs").setup({ -- pairs
 				modes = { insert = true, command = true, terminal = false },
 				-- skip autopair when next character is one of these
 				skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
@@ -14,17 +20,6 @@ return {
 				skip_unbalanced = true,
 				-- better deal with markdown code blocks
 				markdown = true,
-			},
-		},
-	},
-	{
-		-- better object
-		"echasnovski/mini.nvim",
-		config = function(_, opts)
-			require("mini.surround").setup() -- surround
-			require("mini.cursorword").setup() -- cursorword
-			require("mini.pairs").setup({ -- pairs
-				opts.minipairs,
 			})
 		end,
 	},
@@ -37,7 +32,6 @@ return {
 		-- allows extending the providers array elsewhere in your config
 		-- without having to redefine it
 		opts_extend = {
-			"sources.completion.enabled_providers",
 			"sources.default",
 		},
 
@@ -67,15 +61,12 @@ return {
 			sources = {
 				-- adding any nvim-cmp sources here will enable them
 				-- with blink.compat
-				default = { "lsp", "path", "snippets", "buffer" },
+				default = { "lsp", "path", "snippets", "buffer", "lazydev" },
 				-- add lazydev for yor completion providers
-				completion = {
-					enabled_providers = { "lsp", "path", "snippets", "buffer", "lazydev" },
-				},
 				providers = {
 					-- dont show LuaLS require statements when lazydev has items
 					---@diagnostic disable-next-line: missing-fields
-					lsp = { fallback_for = { "lazydev" } },
+					lsp = { fallbacks = { "lazydev" } },
 					---@diagnostic disable-next-line: missing-fields
 					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
 				},

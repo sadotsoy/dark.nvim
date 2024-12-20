@@ -25,7 +25,6 @@ local keys = {
 			{ "<leader>gl", desc = "[g] [l]og file ",function() Snacks.lazygit.log() end },
 			{ "<leader>un", desc = "[n]otification [h]ide ",function() Snacks.notifier.hide() end },
 			{ "<c-/>", desc = "Toggle terminal",function() Snacks. terminal() end },
-			{ "<c-_>", desc = "which_key_ignore",function() Snacks.terminal () end },
 			{ "]]", desc = "Next Reference", mode = { "n", "t" }, function() Snacks.words.jump(vim.v.count1) end },
       { "[[", desc = "Prev Reference", mode = { "n", "t" }, function() Snacks.words.jump(-vim.v.count1) end },
 
@@ -55,7 +54,7 @@ local keys = {
 		{ "<bs>", desc = "Decrement Selection", mode = "x" },
 	},
 	mason = {
-		{ "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" },
+		{ "<leader>cm", "<cmd>Mason<cr>", desc = "Open mason" },
 	},
 	neotree = {
 		{
@@ -118,8 +117,7 @@ local keys = {
 		-- search
 		{ '<leader>s"', "<cmd>FzfLua registers<cr>", desc = "[s] registers" },
 		{ "<leader>sa", "<cmd>FzfLua autocmds<cr>", desc = "Auto Commands" },
-		{ "<leader>sb", "<cmd>FzfLua grep_curbuf<cr>", desc = "Buffer" },
-		{ "<leader>sc", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
+		{ "<leader>sb", "<cmd>FzfLua grep_curbuf<cr>", desc = "Grep current buffer" },
 		{ "<leader>sC", "<cmd>FzfLua commands<cr>", desc = "Commands" },
 		{
 			"<leader>sd",

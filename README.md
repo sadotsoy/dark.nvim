@@ -15,6 +15,12 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   - [Splits](#splits)
   - [Folds](#folds)
   - [Tabs](#tabs)
+  - [Snacks](#snacks)
+  - [FileNavigation](#filenavigation)
+  - [Treesitter](#treesitter)
+  - [mason](#mason)
+  - [Neotree](#neotree)
+  - [fzf](#fzf)
 - [UI](#ui)
 - [Coding](#coding)
 - [LSP](#lsp)
@@ -65,9 +71,93 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | `<leader>t` | New tab | `n` |
   | `<leader>tc` | Tab close | `n` |
   | `<leader>tn` | Tab next | `n` |
-  | `<leader>tp` | Tab previous | `n` |
+  | `<leader>tp` | Tab prev | `n` |
   | `<leader>tf` | Tab first | `n` |
   | `<leader>tl` | Tab last | `n` |
+
+- ### Snacks
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>z` | Toggle zen mode | `n` |
+  | `<leader>Z` | Toggle zen Zoom | `n` |
+  | `<leader>.` | Toggle scratch buffer | `n` |
+  | `<leader>S` | Select scratch buffer | `n` |
+  | `<leader>n` | Notification history | `n` |
+  | `<leader>cd` | Run debug (lua) | `n` |
+  | `<leader>bd` | Buff delete | `n` |
+  | `<leader>rF` | Rename file | `n` |
+  | `<leader>un` | Notification hide | `n` |
+  | `<C-/>` | Toggle terminal | `n` |
+  | `<leader>N` | Neovim news | `n` |
+
+- ### Git
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>gB` | Git browse | `n` |
+  | `<leader>gb` | Git blame line | `n` |
+  | `<leader>gf` | Git file history | `n` |
+  | `<leader>gu` | Git ui (lazygit) | `n` |
+  | `<leader>gl` | Git log file | `n` |
+  | `<leader>gc` | Git commits | `n` |
+  | `<leader>gs` | Git status | `n` |
+
+- ### FileNavigation
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `]]` | Next reference | `n` |
+  | `[[` | Prev reference | `n` |
+
+- ### Treesitter
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<c-space>` | Increment selection | `n` |
+  | `<bs>` | Decrement selection | `n` |
+
+- ### Mason
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>cm` | Open mason | `n` |
+
+- ### Neotree
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>ee` | Explorer (root) | `n` |
+  | `<leader>ef` | Explorer (cwd) | `n` |
+
+- ### Fzflua
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>,` | Switch buffer | `n` |
+  | `<leader>/` | Live grep | `n` |
+  | `<leader>:` | Command history | `n` |
+  | `<leader><space>` | Find files (root) | `n` |
+  | ----- | ------ | ----- |
+  | `<leader>fF` | Find files (cwd) | `n` |
+  | `<leader>fg` | Find git files | `n` |
+  | `<leader>fr` | Find recent files | `n` |
+  | ----- | ------ | ----- |
+  | `<leader>s"` | Find recent files | `n` |
+  | `<leader>sa` | Find autocmds | `n` |
+  | `<leader>sb` | Find grep current buffer | `n` |
+  | `<leader>sC` | Find commands | `n` |
+  | `<leader>sd` | Find document diagnostics | `n` |
+  | `<leader>sD` | Find diagnostics workspace | `n` |
+  | `<leader>sh` | Find help spaces | `n` |
+  | `<leader>sH` | Find highlight groups | `n` |
+  | `<leader>sj` | Find jumps | `n` |
+  | `<leader>sk` | Find keymaps | `n` |
+  | `<leader>sl` | Find loclist | `n` |
+  | `<leader>sM` | Find man pages | `n` |
+  | `<leader>sm` | Find marks | `n` |
+  | `<leader>sR` | Find resume | `n` |
+  | `<leader>sq` | Find quickfix | `n` |
 
 ## UI
 

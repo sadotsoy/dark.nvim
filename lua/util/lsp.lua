@@ -21,6 +21,8 @@ function M.on_attach(_, bufnr)
   nmap('gd', vim.lsp.buf.definition, '[g]oto [d]efinition')
   nmap('gI', vim.lsp.buf.implementation, '[g]oto [I]mplementation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
+  nmap('<leader>cl', function() vim.diagnostic.open_float({ border = 'rounded' }) end, '[c]ode [l]ine diagnostic')
+  --
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')

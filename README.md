@@ -94,7 +94,7 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | `<leader>bd` | Buff delete | `n` |
   | `<leader>rF` | Rename file | `n` |
   | `<leader>un` | Notification hide | `n` |
-  | `<C-/>` | Toggle terminal | `n` |
+  | `<c-t>` | Toggle terminal | `n` |
   | `<leader>N` | Neovim news | `n` |
 
 - ### Git

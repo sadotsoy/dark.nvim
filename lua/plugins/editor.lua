@@ -132,7 +132,7 @@ return {
     -- ✅ Highlight, list and search todo comments in your projects
     -- TODO, HACK, WARN, PERF, NOTE, TEST
     "folke/todo-comments.nvim",
-    cmd = { "TodoTrouble", "TodoFzfLua" },
+    cmd = { "TodoFzfLua" },
     event = "VeryLazy",
     opts = {
       signs = true,
@@ -152,12 +152,5 @@ return {
     config = function()
       require("colorizer").setup()
     end,
-  },
-  {
-    -- 🚦 A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
-    "folke/trouble.nvim",
-    opts = {},
-    cmd = "Trouble",
-    keys = keys.trouble,
   }
 }

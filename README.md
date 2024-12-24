@@ -27,6 +27,7 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
 - [todocomment](#todocomment)
 - [conform](#conform)
 - [markdown](#markdown)
+- [lsp](#lsp-keymaps)
 
 ## [Plugins](#plugins)
 
@@ -147,11 +148,11 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | `<leader>/` | Live grep | `n` |
   | `<leader>:` | Command history | `n` |
   | `<leader><space>` | Find files (root) | `n` |
-  | ----- | ------ | ----- |
+  | --- Finds --- | | |
   | `<leader>fF` | Find files (cwd) | `n` |
   | `<leader>fg` | Find git files | `n` |
   | `<leader>fr` | Find recent files | `n` |
-  | ----- | ------ | ----- |
+  | --- Searchs --- | | |
   | `<leader>s"` | Search recent files | `n` |
   | `<leader>sa` | Search autocmds | `n` |
   | `<leader>sb` | Search grep current buffer | `n` |
@@ -204,6 +205,31 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | Keymap | Description | Mode |
   | ------ | ----------- | ---- |
   | `<leader>cp` | Toggle markdown preview | `n`, `v` |
+
+- ### Lsp keymaps
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>rn` | Rename buffer | `n` |
+  | `<leader>ca` | Code action | `n` |
+  | `K` | Hover documentation | `n` |
+  | `<C-k>` | Signature documentation | `n` |
+  | `gd` | Go to definition | `n` |
+  | `gD` | Go to declaration | `n` |
+  | `gI` | Go to implementation | `n` |
+  | `<leader>D` | Type definition | `n` |
+  | --- Folders --- | | |
+  | `<leader>wa` | Workspace add | `n` |
+  | `<leader>wr` | Workspace remove | `n` |
+  | `<leader>wl` | Workspace list folder | `n` |
+  | --- Diagnostics --- | | |
+  | `<leader>cl` | Code line diagnostic | `n` |
+  | `]d` | Next diagnostic | `n` |
+  | `[d` | Prev diagnostic | `n` |
+  | `]e` | Next error | `n` |
+  | `[e` | Prev error | `n` |
+  | `]w` | Next warning | `n` |
+  | `[w` | Prev warning | `n` |
 
 ## Plugins
 

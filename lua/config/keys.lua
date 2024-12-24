@@ -251,6 +251,15 @@ local keys = {
       "<cmd>MarkdownPreviewToggle<cr>",
       desc = "Markdown Preview",
     },
+  },
+  neogen = {
+    {
+      "<leader>cn",
+      function()
+        require("neogen").generate()
+      end,
+      desc = "Generate Annotations (Neogen)",
+    },
   }
 }
 

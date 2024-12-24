@@ -13,17 +13,20 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
 ## [Keymaps](#keymaps)
 
 - [Files](#files)
+- [FileNavigation](#filenavigation)
 - [Splits](#splits)
 - [Folds](#folds)
 - [Tabs](#tabs)
 - [Snacks](#snacks)
-- [FileNavigation](#filenavigation)
 - [Treesitter](#treesitter)
 - [mason](#mason)
 - [Neotree](#neotree)
 - [fzf](#fzf)
 - [grugfar](#grugfar)
 - [flash](#flash)
+- [todocomment](#todocomment)
+- [conform](#conform)
+- [markdown](#markdown)
 
 ## [Plugins](#plugins)
 
@@ -49,6 +52,13 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | `E` | go to final `$` | `n` |
   | `B` | go to start `^` | `n` |
   | `ss` | turn off search highlighting | `n` |
+
+- ### FileNavigation
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `]]` | Next reference | `n` |
+  | `[[` | Prev reference | `n` |
 
 - ### Splits
 
@@ -108,13 +118,6 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | `<leader>gl` | Git log file | `n` |
   | `<leader>gc` | Git commits | `n` |
   | `<leader>gs` | Git status | `n` |
-
-- ### FileNavigation
-
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `]]` | Next reference | `n` |
-  | `[[` | Prev reference | `n` |
 
 - ### Treesitter
 
@@ -180,6 +183,27 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | `r` | Remote flash | `o` |
   | `R` | Tresitter search | `o`, `x` |
   | `<c-s>` | Toggle flash search | `c` |
+
+- ### Todocomment
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `]t` | Next todo comment | `n` |
+  | `[t` | Prev todo comment | `n` |
+  | `<leader>st` | Search todos | `n` |
+  | `<leader>sT` | Search Todo,FIX,FIXME and bug | `n` |
+
+- ### Conform
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>cf` | Code format | `n`, `v` |
+
+- ### Markdown
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>cp` | Toggle markdown preview | `n`, `v` |
 
 ## Plugins
 

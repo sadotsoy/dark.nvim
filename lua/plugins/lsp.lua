@@ -14,6 +14,25 @@ local servers = {
 }
 
 return {
+  -- cmdline tools and lsp servers
+  {
+    "williamboman/mason.nvim",
+    cmd = "Mason",
+    keys = keys.mason,
+    build = ":MasonUpdate",
+    opts_extend = { "ensure_installed" },
+    opts = {
+      ensure_installed = servers,
+    },
+    ---@param opts MasonSettings | {ensure_installed: string[]}
+    config = function(_, opts)
+      require("mason").setup(opts)
+      ---@diagnostic disable-next-line: missing-fields
+      require("mason-lspconfig").setup({
+        ensure_installed = servers,
+      })
+    end,
+  },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -27,7 +46,6 @@ return {
         bashls = {},
         clangd = {},
         cssls = {},
-        eslint = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -49,12 +67,12 @@ return {
                 privateName = { "^_" },
               },
               hint = {
-                -- enable = true,
-                -- setType = false,
-                -- paramType = true,
-                -- paramName = "Disable",
-                -- semicolon = "Disable",
-                -- arrayIndex = "Disable",
+                enable = true,
+                setType = false,
+                paramType = true,
+                paramName = "Disable",
+                semicolon = "Disable",
+                arrayIndex = "Disable",
               },
             },
           },
@@ -102,6 +120,7 @@ return {
     },
     config = function(_, opts)
       local lspconfig = require("lspconfig")
+
       for server, config in pairs(opts.servers) do
         -- passing config.capabilities to blink.cmp merges with the capabilities in your
         -- `opts[server].capabilities, if you've defined it
@@ -119,25 +138,6 @@ return {
         lspconfig[server].setup(config)
       end
       require("ufo").setup()
-    end,
-  },
-  -- cmdline tools and lsp servers
-  {
-    "williamboman/mason.nvim",
-    cmd = "Mason",
-    keys = keys.mason,
-    build = ":MasonUpdate",
-    opts_extend = { "ensure_installed" },
-    opts = {
-      ensure_installed = servers,
-    },
-    ---@param opts MasonSettings | {ensure_installed: string[]}
-    config = function(_, opts)
-      require("mason").setup(opts)
-      ---@diagnostic disable-next-line: missing-fields
-      require("mason-lspconfig").setup({
-        ensure_installed = servers,
-      })
     end,
   },
 }

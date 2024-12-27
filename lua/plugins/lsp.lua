@@ -9,6 +9,7 @@ local servers = {
   "bashls",
   "clangd",
   "cssls",
+  "eslint",
   "lua_ls",
   "vtsls",
 }
@@ -39,6 +40,13 @@ return {
       "saghen/blink.cmp",
       "mason.nvim",
       { "williamboman/mason-lspconfig.nvim", config = function() end },
+      {
+        "yioneko/nvim-vtsls",
+        config = function()
+          require("lspconfig.configs").vtsls = require("vtsls")
+              .lspconfig -- set default server config, optional but recommended
+        end
+      }
     },
     -- example using `opts` for defining servers
     opts = {
@@ -46,37 +54,7 @@ return {
         bashls = {},
         clangd = {},
         cssls = {},
-        lua_ls = {
-          settings = {
-            Lua = {
-              diagnostics = {
-                globals = {
-                  "vim",
-                },
-              },
-              workspace = {
-                checkThirdParty = false,
-              },
-              codeLens = {
-                enable = true,
-              },
-              completion = {
-                callSnippet = "Replace",
-              },
-              doc = {
-                privateName = { "^_" },
-              },
-              hint = {
-                enable = true,
-                setType = false,
-                paramType = true,
-                paramName = "Disable",
-                semicolon = "Disable",
-                arrayIndex = "Disable",
-              },
-            },
-          },
-        },
+        eslint = {},
         vtsls = {
           -- explicitly add default filetypes, so that we can extend
           -- them in related extras
@@ -112,6 +90,37 @@ return {
                 parameterTypes = { enabled = true },
                 propertyDeclarationTypes = { enabled = true },
                 variableTypes = { enabled = false },
+              },
+            },
+          },
+        },
+        lua_ls = {
+          settings = {
+            Lua = {
+              diagnostics = {
+                globals = {
+                  "vim",
+                },
+              },
+              workspace = {
+                checkThirdParty = false,
+              },
+              codeLens = {
+                enable = true,
+              },
+              completion = {
+                callSnippet = "Replace",
+              },
+              doc = {
+                privateName = { "^_" },
+              },
+              hint = {
+                enable = true,
+                setType = false,
+                paramType = true,
+                paramName = "Disable",
+                semicolon = "Disable",
+                arrayIndex = "Disable",
               },
             },
           },

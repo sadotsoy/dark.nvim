@@ -4,6 +4,8 @@ return {
   {
     -- comments
     "folke/ts-comments.nvim",
+    opts = {},
+    event = "VeryLazy",
   },
   {
     -- A better annotation generator

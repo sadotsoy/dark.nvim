@@ -4,11 +4,6 @@
 
 return {
   {
-    -- dark status line
-    'sadotsoy/dark-statusline.nvim',
-    opts = {}
-  },
-  {
     -- 🍿 A collection of small QoL plugins for Neovim
     "folke/snacks.nvim",
     priority = 1000,

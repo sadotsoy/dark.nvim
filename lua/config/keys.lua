@@ -239,7 +239,7 @@ local keys = {
     {
       "<leader>cf",
       function()
-        require("conform").format({ async = true })
+        require("conform").format({ async = true, timeout_ms = 3000 })
       end,
       mode = { "n", "v" },
       desc = "[c]ode [f]ormat",

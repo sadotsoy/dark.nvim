@@ -12,32 +12,32 @@ opt.relativenumber = true
 
 opt.breakindent = true -- Enable break indent
 
-opt.undofile = true    -- Save undo history
+opt.undofile = true -- Save undo history
 
 -- Decrease update time
 opt.updatetime = 250
 vim.wo.signcolumn = "yes"
 
-opt.clipboard = "unnamedplus"    --vim.cmd()
+opt.clipboard = "unnamedplus" --vim.cmd()
 
-opt.autowrite = true             -- Enable auto write
+opt.autowrite = true -- Enable auto write
 opt.completeopt = "menu,menuone,noselect"
-opt.conceallevel = 2             -- Concealer for Neorg
-opt.confirm = true               -- Confirm to save changes before exiting modified buffer
-opt.cursorline = true            -- Enable highlighting of the current line
+opt.conceallevel = 2 -- Concealer for Neorg
+opt.confirm = true -- Confirm to save changes before exiting modified buffer
+opt.cursorline = true -- Enable highlighting of the current line
 vim.o.guicursor = table.concat({ -- cursor gui
-  "n-v-c:block-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100",
-  "i-ci:ver25-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100",
-  "r:hor50-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100"
+	"n-v-c:block-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100",
+	"i-ci:ver25-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100",
+	"r:hor50-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100",
 }, ",")
 opt.expandtab = true -- Use spaces instead of tabs
 opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  foldsep = " ",
-  diff = "╱",
-  eob = " ",
+	foldopen = "",
+	foldclose = "",
+	fold = " ",
+	foldsep = " ",
+	diff = "╱",
+	eob = " ",
 }
 opt.foldlevel = 99
 opt.foldlevelstart = 99
@@ -48,27 +48,27 @@ opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true
 opt.smartcase = true
 opt.inccommand = "nosplit" -- preview incremental substitute
-opt.laststatus = 3         -- global statusline
-opt.linebreak = true       -- Wrap lines at convenient points
-opt.list = true            -- Show some invisible characters (tabs...
-opt.showmode = false       -- hide the mode
-opt.pumblend = 10          -- Popup blend
-opt.pumheight = 10         -- Maximum number of entries in a popup
-opt.ruler = false          -- Disable the default ruler
-opt.scrolloff = 8          -- Lines of context
-opt.sidescrolloff = 8      -- Columns of context
+opt.laststatus = 3 -- global statusline
+opt.linebreak = true -- Wrap lines at convenient points
+opt.list = true -- Show some invisible characters (tabs...
+opt.showmode = false -- hide the mode
+opt.pumblend = 10 -- Popup blend
+opt.pumheight = 10 -- Maximum number of entries in a popup
+opt.ruler = false -- Disable the default ruler
+opt.scrolloff = 8 -- Lines of context
+opt.sidescrolloff = 8 -- Columns of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
-opt.shiftround = true      -- Round indent
-opt.shiftwidth = 2         -- Size of an indent
-opt.signcolumn = "yes"     -- Always show the signcolumn, otherwise it would shift the text each time
-opt.smartcase = true       -- Don't ignore case with capitals
-opt.smartindent = true     -- Insert indents automatically
+opt.shiftround = true -- Round indent
+opt.shiftwidth = 2 -- Size of an indent
+opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
+opt.smartcase = true -- Don't ignore case with capitals
+opt.smartindent = true -- Insert indents automatically
 opt.spelllang = { "en", "es" }
-opt.splitbelow = true      -- Put new windows below current
+opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
-opt.splitright = true      -- Put new windows right of current
-opt.tabstop = 2            -- Number of spaces tabs count for
-opt.termguicolors = true   -- True color support
+opt.splitright = true -- Put new windows right of current
+opt.tabstop = 2 -- Number of spaces tabs count for
+opt.termguicolors = true -- True color support
 opt.undofile = true
 opt.undolevels = 10000
 

@@ -19,11 +19,6 @@ keymap("n", "<leader>l", "<cmd>Lazy<CR>", { silent = true, desc = "Open Lazy" })
 -- splits when am lazyyy
 keymap("n", "vv", "<c-w>v", { silent = true, desc = "Vertical split" })
 keymap("n", "vn", "<c-w>n", { silent = true, desc = "Horizontal split" })
--- --- move
-keymap("n", "<C-l>", "<c-w>l", { silent = true, noremap = true, desc = "Go right" })
-keymap("n", "<C-h>", "<c-w>j", { silent = true, noremap = true, desc = "Go left" })
-keymap("n", "<C-j>", "<c-w>h", { silent = true, noremap = true, desc = "Go bottom" })
-keymap("n", "<C-k>", "<c-w>k", { silent = true, noremap = true, desc = "Go up" })
 -- --- resize
 keymap("n", "<C-W>,", "<cmd>vertical resize -10<CR>", { noremap = true })
 keymap("n", "<C-W>.", "<cmd>vertical resize +10<CR>", { noremap = true })
@@ -54,3 +49,6 @@ keymap({ "n", "v" }, "<leader>lr", vim.lsp.buf.references, { buffer = true })
 keymap("n", "<leader>ss", function()
 	require("util/gstore").get_store()
 end, { desc = "Print _G" })
+-- lua
+keymap("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute current line" })
+keymap("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })

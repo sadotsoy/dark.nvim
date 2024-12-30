@@ -147,8 +147,8 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | `<leader>,` | Switch buffer | `n` |
   | `<leader>/` | Live grep | `n` |
   | `<leader>:` | Command history | `n` |
-  | `<leader><space>` | Find files (root) | `n` |
   | --- Finds --- | | |
+  | `<leader>e` | Find files (root) | `n` |
   | `<leader>fF` | Find files (cwd) | `n` |
   | `<leader>fg` | Find git files | `n` |
   | `<leader>fr` | Find recent files | `n` |

@@ -29,7 +29,7 @@ return {
 		"saghen/blink.cmp",
 		lazy = false, -- lazy loading handled internally
 		-- optional: provides snippets for the snippet source
-		dependencies = "rafamadriz/friendly-snippets",
+		-- dependencies = "rafamadriz/friendly-snippets",
 		-- allows extending the providers array elsewhere in your config
 		-- without having to redefine it
 		opts_extend = {
@@ -48,7 +48,28 @@ return {
 			-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
 			-- see the "default configuration" section below for full documentation on how to define
 			-- your own keymap.
-			keymap = { preset = "super-tab" },
+			keymap = {
+				preset = "default",
+				["<Up>"] = { "select_prev", "fallback" },
+				["<Down>"] = { "select_next", "fallback" },
+				["<C-l>"] = { "hide" },
+				["<C-e>"] = {
+					"show",
+					"show_documentation",
+					"hide_documentation",
+				},
+				["<Tab>"] = {
+					function(cmp)
+						if cmp.snippet_active() then
+							return cmp.accept()
+						else
+							return cmp.select_and_accept()
+						end
+					end,
+					"snippet_forward",
+					"fallback",
+				},
+			},
 			---@diagnostic disable-next-line: missing-fields
 			appearance = {
 				-- sets the fallback highlight groups to nvim-cmp's highlight groups

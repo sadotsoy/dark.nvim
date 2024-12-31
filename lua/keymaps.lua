@@ -47,8 +47,11 @@ keymap({ "n" }, "<leader>tl", ":tablast<cr>", { silent = true })
 keymap({ "n", "v" }, "<leader>lr", vim.lsp.buf.references, { buffer = true })
 -- store
 keymap("n", "<leader>ss", function()
-	require("util/gstore").get_store()
+  require("util/gstore").get_store()
 end, { desc = "Print _G" })
 -- lua
 keymap("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute current line" })
 keymap("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
+-- JS, TS
+keymap("n", "<leader>ci", "<cmd>VtsExec add_missing_imports<CR>", {
+  desc = "TS: add missing imports" })

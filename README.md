@@ -25,7 +25,6 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
 - [grugfar](#grugfar)
 - [flash](#flash)
 - [todocomment](#todocomment)
-- [conform](#conform)
 - [markdown](#markdown)
 - [lsp](#lsp-keymaps)
 
@@ -194,11 +193,6 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | `<leader>st` | Search todos | `n` |
   | `<leader>sT` | Search Todo,FIX,FIXME and bug | `n` |
 
-- ### Conform
-
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>cf` | Code format | `n`, `v` |
 
 - ### Markdown
 
@@ -284,10 +278,6 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   - [preview](https://github.com/iamcco/markdown-preview.nvim)
 - **Kdl**
   - [syntax khlght](https://github.com/imsnif/kdl.vim)
-
-### Formatting
-
-- [conformmmmm](https://github.com/stevearc/conform.nvim)
 
 ### Colorscheme
 

@@ -20,8 +20,8 @@ keymap("n", "<leader>l", "<cmd>Lazy<CR>", { silent = true, desc = "Open Lazy" })
 keymap("n", "vv", "<c-w>v", { silent = true, desc = "Vertical split" })
 keymap("n", "vn", "<c-w>n", { silent = true, desc = "Horizontal split" })
 -- --- resize
-keymap("n", "<C-W>,", "<cmd>vertical resize -10<CR>", { noremap = true })
-keymap("n", "<C-W>.", "<cmd>vertical resize +10<CR>", { noremap = true })
+keymap("n", "<Left>", "<cmd>vertical resize -10<CR>", { noremap = true })
+keymap("n", "<Right>", "<cmd>vertical resize +10<CR>", { noremap = true })
 --
 -- -- nop
 keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
@@ -47,11 +47,12 @@ keymap({ "n" }, "<leader>tl", ":tablast<cr>", { silent = true })
 keymap({ "n", "v" }, "<leader>lr", vim.lsp.buf.references, { buffer = true })
 -- store
 keymap("n", "<leader>ss", function()
-  require("util/gstore").get_store()
+	require("util/gstore").get_store()
 end, { desc = "Print _G" })
 -- lua
 keymap("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute current line" })
 keymap("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
 -- JS, TS
 keymap("n", "<leader>ci", "<cmd>VtsExec add_missing_imports<CR>", {
-  desc = "TS: add missing imports" })
+	desc = "TS: add missing imports",
+})

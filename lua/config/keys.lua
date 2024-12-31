@@ -281,6 +281,16 @@ local keys = {
       desc = "Generate Annotations (Neogen)",
     },
   },
+  conform = {
+    {
+      "<leader>cf",
+      function()
+        require("conform").format({ async = true })
+      end,
+      mode = "",
+      desc = "Format buffer",
+    }
+  }
 }
 
 return keys

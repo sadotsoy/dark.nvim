@@ -21,4 +21,14 @@ return {
 			-- Additional plugin integrations can be found in the documentation
 		},
 	},
+	{
+		"cideM/yui",
+		name = "yui",
+		priority = 1000,
+		config = function()
+			vim.g.yui_line_numbers = "fade" -- "fade", "emphasize"
+			vim.g.yui_comments = "bg" -- "bg", "emphasize", "fade", "normal"
+			vim.g.yui_folds = "emphasize" -- "emphasize", "fade"
+		end,
+	},
 }

@@ -13,4 +13,6 @@ require("config.lazy")
 require("keymaps")
 
 -- Set colorscheme
+-- colorschemes
+-- catppuccin, yui
 vim.cmd.colorscheme("catppuccin")

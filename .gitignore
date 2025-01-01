@@ -138,3 +138,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+spell/es.utf-8.add
+spell/es.utf-8.add.spl

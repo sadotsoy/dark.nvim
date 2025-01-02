@@ -112,4 +112,4 @@ opt.termguicolors = true -- True color support
 opt.background = "dark"
 
 -- Mouse
-opt.mouse = "n"
+opt.mouse = "n" -- only enable mouse clicks for normal mode

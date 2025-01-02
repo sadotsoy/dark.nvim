@@ -14,5 +14,8 @@ require("keymaps")
 
 -- Set colorscheme
 -- colorschemes
--- catppuccin, yui
+-- + DARK
+-- ++ catppuccin
+-- + LIGHT
+-- ++ yui
 vim.cmd.colorscheme("catppuccin")

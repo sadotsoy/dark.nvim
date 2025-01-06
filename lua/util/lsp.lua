@@ -1,22 +1,22 @@
 local M = {}
 
+--- Function to set a key mapping for the current buffer
+---@param keys string # The sequence to bind
+---@param func function # The function to call when the key is pressed
+---@param desc string|nil # A description for the key binding
+local nmap = function(keys, func, desc)
+	if desc then
+		desc = "LSP: " .. desc
+	end
+
+	---@diagnostic disable-next-line: missing-fields
+	vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+end
+
 ---Function to setup key mappings and custome commands when a new LSP client attaches
 ---@param _ any
 ---@bufnr number
 function M.on_attach(_, bufnr)
-	--- Function to set a key mapping for the current buffer
-	---@param keys string # The sequence to bind
-	---@param func function # The function to call when the key is pressed
-	---@param desc string|nil # A description for the key binding
-	local nmap = function(keys, func, desc)
-		if desc then
-			desc = "LSP: " .. desc
-		end
-
-		---@diagnostic disable-next-line: missing-fields
-		vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
-	end
-
 	--function to reuse diagnostic_goto
 	---@param next boolean to control if is next or prev
 	---@param severity? string|integer|nil to control the severy level

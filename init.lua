@@ -15,7 +15,7 @@ require("keymaps")
 -- Set colorscheme
 -- colorschemes
 -- + DARK
--- ++ catppuccin
+-- ++ catppuccin, cyberdream, kanagawa
 -- + LIGHT
 -- ++ yui
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("kanagawa")

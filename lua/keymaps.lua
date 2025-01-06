@@ -4,8 +4,8 @@
 local keymap = vim.keymap.set
 
 -- files
-keymap("n", "QQ", "<cmd>q!<cr>", { noremap = false })
-keymap("n", "qq", "<cmd>q<CR>", { silent = true, noremap = true, desc = "Close split" })
+keymap("n", "QQ", "<cmd>q<cr>", { noremap = false })
+-- keymap("n", "qq", "<cmd>q<CR>", { silent = true, noremap = true, desc = "Close split" })
 keymap("n", "WW", "<cmd>w!<cr>", { silent = true })
 keymap("n", "E", "$", { noremap = false })
 keymap("n", "B", "^", { noremap = false })

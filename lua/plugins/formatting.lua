@@ -25,12 +25,12 @@ return {
 				quiet = false, -- not recommended to change
 			},
 			-- Set up format-on-save
-			format_on_save = {
-				timeout_ms = 3000,
-				lsp_format = "fallback",
-				async = false, -- not recommended to change
-				quiet = false, -- not recommended to change
-			},
+			-- format_on_save = {
+			-- 	timeout_ms = 3000,
+			-- 	lsp_format = "fallback",
+			-- 	async = false, -- not recommended to change
+			-- 	quiet = false, -- not recommended to change
+			-- },
 		},
 	},
 }

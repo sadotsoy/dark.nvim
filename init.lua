@@ -12,6 +12,9 @@ require("config.lazy")
 -- Keymaps
 require("keymaps")
 
+-- AutoCmd
+require('config.autocmd')
+
 -- Set colorscheme
 -- colorschemes
 -- + DARK

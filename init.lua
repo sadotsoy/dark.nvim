@@ -18,7 +18,7 @@ require('config.autocmd')
 -- Set colorscheme
 -- colorschemes
 -- + DARK
--- ++ catppuccin, cyberdream, kanagawa
+-- ++ catppuccin, cyberdream, kanagawa, tokyonight
 -- + LIGHT
 -- ++ yui
-vim.cmd.colorscheme("kanagawa")
+vim.cmd.colorscheme("catppuccin")

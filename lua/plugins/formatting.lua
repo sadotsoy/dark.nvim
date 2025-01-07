@@ -12,6 +12,7 @@ return {
 				fish = { "fish_indent" },
 				javascript = { "prettierd", "eslint_d" },
 				javascriptreact = { "prettierd", "eslint_d" },
+				json = { "prettierd", "eslint_d" },
 				lua = { "stylua" },
 				markdown = { "mdformat" },
 				sh = { "shfmt" },

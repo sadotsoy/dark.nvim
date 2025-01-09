@@ -2,10 +2,10 @@
 -- See `:help vim.keymap.set()`
 
 local keymap = vim.keymap.set
+local api = vim.api
 
 -- files
 keymap("n", "QQ", "<cmd>q<cr>", { noremap = false })
--- keymap("n", "qq", "<cmd>q<CR>", { silent = true, noremap = true, desc = "Close split" })
 keymap("n", "WW", "<cmd>w!<cr>", { silent = true })
 keymap("n", "E", "$", { noremap = false })
 keymap("n", "B", "^", { noremap = false })
@@ -55,3 +55,9 @@ keymap("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the curr
 -- JS, TS
 keymap("n", "<leader>ci", "<cmd>VtsExec add_missing_imports<CR>", { desc = "TS: add missing imports" })
 keymap("n", "<leader>cx", "<cmd>VtsExec remove_unused_imports<CR>", { desc = "TS: remove unused imports" })
+-- Marks
+keymap("n", "dm", function()
+	local key = vim.fn.getchar()
+	local mark = vim.fn.nr2char(key)
+	api.nvim_buf_del_mark(0, mark)
+end, { noremap = false, desc = "[d]elete [m]ark" })

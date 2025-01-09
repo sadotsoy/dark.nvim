@@ -13,32 +13,43 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
 ## [Keymaps](#keymaps)
 
 - [Files](#files)
-- [FileNavigation](#filenavigation)
-- [Splits](#splits)
-- [Folds](#folds)
-- [Tabs](#tabs)
-- [Snacks](#snacks)
-- [Treesitter](#treesitter)
-- [mason](#mason)
-- [Neotree](#neotree)
-- [fzf](#fzf)
-- [grugfar](#grugfar)
-- [flash](#flash)
-- [todocomment](#todocomment)
-- [markdown](#markdown)
-- [lsp](#lsp-keymaps)
 
-## [Plugins](#plugins)
+  - [FileNavigation](#file-navigation)
+  - [Splits](#splits)
+  - [FileResize](#file-resize)
+  - [Folds](#folds)
+  - [Tabs](#tabs)
+  - [Marks](#marks)
 
-- [UI](#ui)
-- [Coding](#coding)
-- [LSP](#lsp)
-- [Editor](#editor)
-- [Linting](#linting)
-- [Lang](#lang)
-- [Formatting](#formatting)
-- [cholorscheme](#colorscheme)
-- [todo](#todo)
+- [Coding Keymaps](#coding-keymaps)
+  - [Lua](#lua-keymaps)
+  - [JS,TS](#js-keymaps)
+
+- [Plugins Keymaps](#plugins-keymaps)
+
+  - [Snacks](#snacks)
+  - [Treesitter](#treesitter)
+  - [mason](#mason)
+  - [Neotree](#neotree)
+  - [fzf](#fzf)
+  - [grugfar](#grugfar)
+  - [flash](#flash)
+  - [todocomment](#todocomment)
+  - [markdown](#markdown)
+  - [lsp](#lsp-keymaps)
+  - [Lazy Nvim](#lazy-nvim)
+
+- [Plugins](#plugins)
+
+  - [UI](#ui)
+  - [Coding](#coding)
+  - [LSP](#lsp)
+  - [Editor](#editor)
+  - [Linting](#linting)
+  - [Lang](#lang)
+  - [Formatting](#formatting)
+  - [cholorscheme](#colorscheme)
+  - [todo](#todo)
 
 ## Keymaps
 
@@ -47,13 +58,13 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | Keymap | Description | Mode |
   | ------ | ----------- | ---- |
   | `QQ` | close buffer (force!) | `n` |
-  | `qq` | close buffer | `n` |
   | `WW` | write buffer | `n` |
   | `E` | go to final `$` | `n` |
   | `B` | go to start `^` | `n` |
   | `ss` | turn off search highlighting | `n` |
+  | `<leader>o` | Only file | `n` |
 
-- ### FileNavigation
+- ### File Navigation
 
   | Keymap | Description | Mode |
   | ------ | ----------- | ---- |
@@ -66,12 +77,13 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | ------ | ----------- | ---- |
   | `vv` | Vertical split | `n` |
   | `vn` | Horizontal split | `n` |
-  | `<C-l>` | Go to right | `n` |
-  | `<C-h>` | Go to left | `n` |
-  | `<C-j>` | Go to bottom | `n` |
-  | `<C-k>` | Go to up | `n` |
-  | `<C-W>.` | Vertical resize +10 | `n` |
-  | `<C-W>,` | Vertical resize -10 | `n` |
+
+- ### File Resize
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<Left>` | Vertical resize -10 | `n` |
+  | `<Right>` | Vertical resize +10 | `n` |
 
 - ### Folds
 
@@ -90,6 +102,30 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | `<leader>tp` | Tab prev | `n` |
   | `<leader>tf` | Tab first | `n` |
   | `<leader>tl` | Tab last | `n` |
+
+- ### Marks
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `dm{key}` | Delete mark {key} | `n` |
+
+## Coding Keymaps
+
+- ### Lua Keymaps
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>x` | Execute current lua line | `n` |
+  | `<leader><leader>x` | Execute the current file | `n` |
+
+- ### TS Keymaps
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>ci` | Add missing imports | `n` |
+  | `<leader>cx` | Remove unused imports | `n` |
+
+## Plugins Keymaps
 
 - ### Snacks
 
@@ -193,7 +229,6 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | `<leader>st` | Search todos | `n` |
   | `<leader>sT` | Search Todo,FIX,FIXME and bug | `n` |
 
-
 - ### Markdown
 
   | Keymap | Description | Mode |
@@ -224,6 +259,12 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | `[e` | Prev error | `n` |
   | `]w` | Next warning | `n` |
   | `[w` | Prev warning | `n` |
+
+- ### Lazy Nvim
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>l` | Open Lazy | `n` |
 
 ## Plugins
 

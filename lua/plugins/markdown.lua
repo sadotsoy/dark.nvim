@@ -17,16 +17,16 @@ return {
 			{ "<leader>ct", "<cmd>Markview splitToggle<CR>", desc = "Markdown split view" },
 		},
 	},
-	-- {
-	-- 	"iamcco/markdown-preview.nvim",
-	-- 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-	-- 	ft = { "markdown" },
-	-- 	build = function()
-	-- 		require("lazy").load({ plugins = { "markdown-preview.nvim" } })
-	-- 		vim.fn["mkdp#util#install"]()
-	-- 	end,
-	-- 	keys = keys.markdown,
-	-- },
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			require("lazy").load({ plugins = { "markdown-preview.nvim" } })
+			vim.fn["mkdp#util#install"]()
+		end,
+		keys = keys.markdown,
+	},
 	{
 		-- "sadotsoy/dark-present.nvim",
 		dir = "~/workspace/personal/dark-present.nvim/",

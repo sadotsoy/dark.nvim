@@ -97,6 +97,9 @@ return {
 			icons = {
 				mappings = false,
 			},
+			spec = {
+				{ "<leader>a", group = "ai" }, -- Define a group for AI-related commands
+			},
 		},
 		keys = keys.wichkey,
 	},

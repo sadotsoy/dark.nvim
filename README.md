@@ -22,6 +22,7 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   - [Marks](#marks)
 
 - [Coding Keymaps](#coding-keymaps)
+
   - [Lua](#lua-keymaps)
   - [JS,TS](#js-keymaps)
 
@@ -38,6 +39,11 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   - [markdown](#markdown)
   - [lsp](#lsp-keymaps)
   - [Lazy Nvim](#lazy-nvim)
+  - [whichkey](#which-key)
+  - [Neo gen](#neo-gen)
+  - [Conform](#conform)
+  - [Oil](#oil)
+  - [Copilot](#copilot)
 
 - [Plugins](#plugins)
 
@@ -233,7 +239,7 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
 
   | Keymap | Description | Mode |
   | ------ | ----------- | ---- |
-  | `<leader>cp` | Toggle markdown preview | `n`, `v` |
+  | `<leader>cx` | Toggle markdown preview | `n`, `v` |
 
 - ### Lsp keymaps
 
@@ -265,6 +271,51 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | Keymap | Description | Mode |
   | ------ | ----------- | ---- |
   | `<leader>l` | Open Lazy | `n` |
+
+- ### Which key
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>?` | Buffer local keymaps | `n` |
+
+- ### Neo gen
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>cn` | Generate annotations | `n` |
+
+- ### Conform
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>cf` | Format buffer | `all` |
+
+- ### Oil
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `-` | Open parent directory | |
+  | `<space>-` | Open parent floating window | |
+
+- ### Copilot
+
+  | Keymap | Description | Mode |
+  | ------ | ----------- | ---- |
+  | `<leader>ah` | Help actions | |
+  | `<leader>ap` | Prompt actions | |
+  | `<leader>ae` | Explain code | |
+  | `<leader>at` | Generate tests | |
+  | `<leader>ar` | Review code | |
+  | `<leader>aR` | Refactor code | |
+  | `<leader>an` | Better naming | |
+  | `<leader>ad` | Debug info | |
+  | `<leader>af` | Fix diagnostic | |
+  | `<leader>a?` | Select models | |
+  | `<leader>av` | Toggle Copilot chat | |
+  | `<leader>ax` | Inline chat | |
+  | `<leader>ai` | Ask input | |
+  | `<leader>am` | Generate commit message from staged | |
+  | `<leader>aq` | Quick chat | |
 
 ## Plugins
 

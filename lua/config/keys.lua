@@ -362,22 +362,11 @@ local keys = {
 			function()
 				local input = vim.fn.input("Quick Chat: ")
 				if input ~= "" then
-					vim.cmd("CopilotChatBuffer " .. input)
+					require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
 				end
 			end,
 			desc = "CopilotChat - Quick chat",
 		},
-		-- Quick chat with Copilot
-		-- {
-		-- 	"<leader>aq",
-		-- 	function()
-		-- 		local input = vim.fn.input("Quick Chat: ")
-		-- 		if input ~= "" then
-		-- 			require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-		-- 		end
-		-- 	end,
-		-- 	desc = "CopilotChat - Quick chat",
-		-- },
 		{ "<leader>ad", "<cmd>CopilotChatDebugInfo<cr>", desc = "CopilotChat - Debug Info" },
 		{ "<leader>af", "<cmd>CopilotChatFixDiagnostic<cr>", desc = "CopilotChat - Fix Diagnostic" },
 		{ "<leader>al", "<cmd>CopilotChatReset<cr>", desc = "CopilotChat - Clear buffer and chat history" },

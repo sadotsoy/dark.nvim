@@ -10,7 +10,6 @@ return {
 		build = "make tiktoken", -- Only on MacOS or Linux
 		dependencies = {
 			{ "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
-			{ "nvim-telescope/telescope.nvim" }, -- Dependency on Telescope plugin
 			{ "nvim-lua/plenary.nvim" }, -- for curl, log and async functions
 		},
 		opts = {
@@ -33,6 +32,22 @@ return {
 				show_context = { normal = "gms" },
 				show_help = { normal = "gmh" }, -- Keybinding to show help
 			},
+			contexts = {
+				git = {
+					description = "Requires `git`. Includes current git diff in chat context. Supports input (default unstaged).",
+					input = function(callback)
+						vim.ui.select({ "unstaged", "staged" }, {
+							prompt = "Select diff type> ",
+						}, callback)
+					end,
+					resolve = function(input, source)
+						input = input or "unstaged"
+						return {
+							require("CopilotChat.context").gitdiff(input, source.winnr),
+						}
+					end,
+				},
+			},
 		},
 		config = function(_, opts)
 			local chat = require("CopilotChat")
@@ -40,19 +55,6 @@ return {
 
 			-- Set default selection method
 			opts.selection = select.unnamed
-
-			-- Define custom prompts for commit messages
-			opts.prompts.Commit = {
-				prompt = "Write commit message for the change with commitizen convention",
-				selection = select.gitdiff,
-			}
-
-			opts.prompts.CommitStaged = {
-				prompt = "Write commit message for the change with commitizen convention",
-				selection = function(source)
-					return select.gitdiff(source, true)
-				end,
-			}
 
 			-- Setup Copilot Chat with the provided options
 			chat.setup(opts)

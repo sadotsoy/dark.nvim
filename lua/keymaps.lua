@@ -68,3 +68,6 @@ keymap("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the curr
 keymap("n", "<leader>ci", "<cmd>VtsExec add_missing_imports<CR>", { desc = "TS: add missing imports" })
 keymap("n", "<leader>cx", "<cmd>VtsExec remove_unused_imports<CR>", { desc = "TS: remove unused imports" })
 
+-- GIT
+keymap("n", "<leader>gvd", "<cmd>Gvdiffsplit<CR>", { desc = "Git: Diff split" })
+keymap("n", "<leader>gd", "<cmd>Git diff<CR>", { desc = "Git: Diff" })

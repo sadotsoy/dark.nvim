@@ -29,16 +29,16 @@ function M.on_attach(_, bufnr)
 		end
 	end
 
-	nmap("<leader>rn", vim.lsp.buf.rename, "[r]e [n]ame buff value")
-	nmap("<leader>ca", vim.lsp.buf.code_action, "[c]ode [a]ction")
-	nmap("gd", vim.lsp.buf.definition, "[g]oto [d]efinition")
-	nmap("gI", vim.lsp.buf.implementation, "[g]oto [I]mplementation")
-	nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
+	nmap("<leader>rn", vim.lsp.buf.rename, "re name buff value")
+	nmap("<leader>ca", vim.lsp.buf.code_action, "code action")
+	nmap("gd", vim.lsp.buf.definition, "goto definition")
+	nmap("gI", vim.lsp.buf.implementation, "goto Implementation")
+	nmap("<leader>D", vim.lsp.buf.type_definition, "Type Definition")
 	--
 	-- diagnostics
 	nmap("<leader>cl", function()
 		vim.diagnostic.open_float({ border = "rounded" })
-	end, "[c]ode [l]ine diagnostic")
+	end, "code line diagnostic")
 	--
 	-- diagnostics goto_mapping
 	nmap("]d", diagnostic_goto(true), "Next Diagnostic")
@@ -53,12 +53,12 @@ function M.on_attach(_, bufnr)
 	nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 
 	-- Lesser used LSP functionality
-	nmap("gD", vim.lsp.buf.declaration, "[g]oto [D]eclaration")
-	nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[w]orkspace [a]dd Folder")
-	nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[w]orkspace [r]emove Folder")
+	nmap("gD", vim.lsp.buf.declaration, "goto Declaration")
+	nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "workspace add Folder")
+	nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "workspace remove Folder")
 	nmap("<leader>wl", function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, "[w]orkspace [l]ist Folders")
+	end, "workspace list Folders")
 end
 
 return M

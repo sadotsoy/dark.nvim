@@ -16,7 +16,7 @@ keymap("n", "dm", function()
 	local key = vim.fn.getchar()
 	local mark = vim.fn.nr2char(key)
 	api.nvim_buf_del_mark(0, mark)
-end, { noremap = false, desc = "[d]elete [m]ark" })
+end, { noremap = false, desc = "delete mark" })
 
 -- only
 keymap("n", "<leader>o", "<cmd>:only<CR>", { silent = true, noremap = true, desc = "Only" })

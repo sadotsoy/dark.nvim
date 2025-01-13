@@ -10,20 +10,20 @@ local root = require("util.editor")
 local keys = {
   --stylua: ignore
   snacks = {
-    { "<leader>z",  desc = "[z] Toggle Zen mode",       function() Snacks.zen() end, },
-    { "<leader>Z",  desc = "[Z] Toggle Zoom",           function() Snacks.zen.zoom() end },
-    { "<leader>.",  desc = "[.] Toggle Scratch buffer", function() Snacks.scratch() end },
+    { "<leader>z",  desc = "z Toggle Zen mode",       function() Snacks.zen() end, },
+    { "<leader>Z",  desc = "Z Toggle Zoom",           function() Snacks.zen.zoom() end },
+    { "<leader>.",  desc = ". Toggle Scratch buffer", function() Snacks.scratch() end },
     { "<leader>S",  desc = "Select Scratch Buffer",     function() Snacks.scratch.select() end },
-    { "<leader>n",  desc = "[n]otificaton Historiy",    function() Snacks.notifier.show_history() end },
-    { "<leader>cd", desc = "[c]ode d[ebug]",            function() Snacks.debug.run() end },
-    { "<leader>bd", desc = "[b]uff [d]elete ",          function() Snacks.bufdelete() end },
-    { "<leader>rF", desc = "[r]ename [F]ile ",          function() Snacks.rename.rename_file() end },
-    { "<leader>gB", desc = "[g]it [B]rowse ",           function() Snacks.gitbrowse() end },
-    { "<leader>gb", desc = "[g]it [b]lame  line",       function() Snacks.git.blame_line() end },
-    { "<leader>gf", desc = "[g]it [f]ile  history",     function() Snacks.lazygit.log_file() end },
-    { "<leader>gu", desc = "[g]it [u]i ",               function() Snacks.lazygit() end },
-    { "<leader>gl", desc = "[g] [l]og file ",           function() Snacks.lazygit.log() end },
-    { "<leader>un", desc = "[n]otification [h]ide ",    function() Snacks.notifier.hide() end },
+    { "<leader>n",  desc = "notificaton Historiy",    function() Snacks.notifier.show_history() end },
+    { "<leader>cd", desc = "code debug",            function() Snacks.debug.run() end },
+    { "<leader>bd", desc = "buff delete ",          function() Snacks.bufdelete() end },
+    { "<leader>rF", desc = "rename File ",          function() Snacks.rename.rename_file() end },
+    { "<leader>gB", desc = "git Browse ",           function() Snacks.gitbrowse() end },
+    { "<leader>gb", desc = "git blame  line",       function() Snacks.git.blame_line() end },
+    { "<leader>gf", desc = "git file  history",     function() Snacks.lazygit.log_file() end },
+    { "<leader>gu", desc = "git ui ",               function() Snacks.lazygit() end },
+    { "<leader>gl", desc = "g log file ",           function() Snacks.lazygit.log() end },
+    { "<leader>un", desc = "notification hide ",    function() Snacks.notifier.hide() end },
     { "<c-t>",      desc = "Toggle terminal",           function() Snacks.terminal() end },
     {
       "]]",
@@ -46,7 +46,7 @@ local keys = {
 
     {
       "<leader>N",
-      desc = "[N]eovim News",
+      desc = "Neovim News",
       function()
         ---@diagnostic disable-next-line: missing-fields
         Snacks.win({
@@ -80,14 +80,14 @@ local keys = {
 			function()
 				require("neo-tree.command").execute({ toggle = true, dir = root.get_root_dir() })
 			end,
-			desc = "[e]xplorer (Root Dir)",
+			desc = "explorer (Root Dir)",
 		},
 		{
 			"<leader>ef",
 			function()
 				require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
 			end,
-			desc = "[e]xlorer [f] (cwd)",
+			desc = "exlorer f (cwd)",
 		},
 	},
 	fzflua = {
@@ -118,26 +118,26 @@ local keys = {
 		{
 			"<leader>ff",
 			"<cmd>FzfLua files<CR>",
-			desc = "[f]ind [e] Files (root)",
+			desc = "find e Files (root)",
 		},
 		{
 			"<leader>fF",
 			"<cmd>FzfLua files root=true<cr>",
-			desc = "[f]ind [F]iles (cwd)",
+			desc = "find Files (cwd)",
 		},
 		{
 			"<leader>fg",
 			"<cmd>FzfLua git_files<cr>",
-			desc = "[f]ind [g]it Files (git-files)",
+			desc = "find git Files (git-files)",
 		},
 		{
 			"<leader>fr",
 			"<cmd>FzfLua oldfiles<cr>",
-			desc = "[find] [r]ecent Files",
+			desc = "find recent Files",
 		},
 		-- git
-		{ "<leader>gc", "<cmd>FzfLua git_commits<CR>", desc = "[g]it [c]ommits" },
-		{ "<leader>gs", "<cmd>FzfLua git_status<CR>", desc = "[g]it [s]tatus" },
+		{ "<leader>gc", "<cmd>FzfLua git_commits<CR>", desc = "git commits" },
+		{ "<leader>gs", "<cmd>FzfLua git_status<CR>", desc = "git status" },
 		-- search
 		{ '<leader>s"', "<cmd>FzfLua registers<cr>", desc = "[s] registers" },
 		{ "<leader>sa", "<cmd>FzfLua autocmds<cr>", desc = "Auto Commands" },

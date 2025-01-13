@@ -44,7 +44,7 @@ return {
 							local path = node:get_id()
 							vim.fn.setreg("+", path, "c")
 						end,
-						desc = "[Y] Copy path to Clipboard",
+						desc = "Y Copy path to Clipboard",
 					},
 					["P"] = { "toggle_preview", config = { use_float = false } },
 				},

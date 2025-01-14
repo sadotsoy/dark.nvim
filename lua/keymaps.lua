@@ -70,4 +70,4 @@ keymap("n", "<leader>cx", "<cmd>VtsExec remove_unused_imports<CR>", { desc = "TS
 
 -- GIT
 keymap("n", "<leader>gvd", "<cmd>Gvdiffsplit<CR>", { desc = "Git: Diff split" })
-keymap("n", "<leader>gd", "<cmd>Git diff<CR>", { desc = "Git: Diff" })
+keymap("n", "<leader>gd", "<cmd>DiffviewOpen<CR>", { desc = "Git: Diff" })

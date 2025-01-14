@@ -29,6 +29,7 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
 - [Plugins Keymaps](#plugins-keymaps)
 
   - [Snacks](#snacks)
+  - [Git](#git)
   - [Treesitter](#treesitter)
   - [mason](#mason)
   - [Neotree](#neotree)
@@ -160,6 +161,8 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   | `<leader>gl` | Git log file | `n` |
   | `<leader>gc` | Git commits | `n` |
   | `<leader>gs` | Git status | `n` |
+  | `<leader>gvd` | Git diff vertical split | `n` |
+  | `<leader>gd` | Git diff | `n` |
 
 - ### Treesitter
 

@@ -7,8 +7,7 @@
 
 # NVIM CONFIG
 
-This configuration utilizes [`lazy.nvim`](https://github.com/folke/lazy.nvim) to manage plugins and
-follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn).
+This configuration utilizes [`lazy.nvim`](https://github.com/folke/lazy.nvim) to manage the plugins and keymaps. The configuration is written in lua and is organized in a modular way.
 
 ## [Keymaps](#keymaps)
 
@@ -57,268 +56,400 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
   - [Formatting](#formatting)
   - [cholorscheme](#colorscheme)
   - [todo](#todo)
+  - [Git](#git-pugins)
 
 ## Keymaps
 
-- ### Files
+### Files
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `QQ` | close buffer (force!) | `n` |
-  | `WW` | write buffer | `n` |
-  | `E` | go to final `$` | `n` |
-  | `B` | go to start `^` | `n` |
-  | `ss` | turn off search highlighting | `n` |
-  | `<leader>o` | Only file | `n` |
+<details>
+  <summary>Keymaps</summary>
 
-- ### File Navigation
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `QQ` | close buffer (force!) | `n` |
+| `WW` | write buffer | `n` |
+| `E` | go to final `$` | `n` |
+| `B` | go to start `^` | `n` |
+| `ss` | turn off search highlighting | `n` |
+| `<leader>o` | Only file | `n` |
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `]]` | Next reference | `n` |
-  | `[[` | Prev reference | `n` |
+</details>
 
-- ### Splits
+### File Navigation
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `vv` | Vertical split | `n` |
-  | `vn` | Horizontal split | `n` |
+<details>
+  <summary>Keymaps</summary>
 
-- ### File Resize
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `]]` | Next reference | `n` |
+| `[[` | Prev reference | `n` |
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<Left>` | Vertical resize -10 | `n` |
-  | `<Right>` | Vertical resize +10 | `n` |
+</details>
 
-- ### Folds
+### Splits
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `zR` | Open all folds | `n` |
-  | `zM` | Close all folds | `n` |
+<details>
+  <summary>Keymaps</summary>
 
-- ### Tabs
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `vv` | Vertical split | `n` |
+| `vn` | Horizontal split | `n` |
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>t` | New tab | `n` |
-  | `<leader>tc` | Tab close | `n` |
-  | `<leader>tn` | Tab next | `n` |
-  | `<leader>tp` | Tab prev | `n` |
-  | `<leader>tf` | Tab first | `n` |
-  | `<leader>tl` | Tab last | `n` |
+</details>
 
-- ### Marks
+### File Resize
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `dm{key}` | Delete mark {key} | `n` |
+<details>
+  <summary>Keymaps</summary>
+
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<Left>` | Vertical resize -10 | `n` |
+| `<Right>` | Vertical resize +10 | `n` |
+
+</details>
+
+### Folds
+
+<details>
+  <summary>Keymaps</summary>
+
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `zR` | Open all folds | `n` |
+| `zM` | Close all folds | `n` |
+
+</details>
+
+### Tabs
+
+<details>
+  <summary>Keymaps</summary>
+
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>t` | New tab | `n` |
+| `<leader>tc` | Tab close | `n` |
+| `<leader>tn` | Tab next | `n` |
+| `<leader>tp` | Tab prev | `n` |
+| `<leader>tf` | Tab first | `n` |
+| `<leader>tl` | Tab last | `n` |
+
+</details>
+
+### Marks
+
+<details>
+  <summary>Keymaps</summary>
+
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `dm{key}` | Delete mark {key} | `n` |
+
+</details>
 
 ## Coding Keymaps
 
-- ### Lua Keymaps
+### Lua Keymaps
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>x` | Execute current lua line | `n` |
-  | `<leader><leader>x` | Execute the current file | `n` |
+<details>
+  <summary>Keymaps</summary>
 
-- ### TS Keymaps
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>x` | Execute current lua line | `n` |
+| `<leader><leader>x` | Execute the current file | `n` |
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>ci` | Add missing imports | `n` |
-  | `<leader>cx` | Remove unused imports | `n` |
+</details>
+
+### TS Keymaps
+
+<details>
+  <summary>Keymaps</summary>
+
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>ci` | Add missing imports | `n` |
+| `<leader>cx` | Remove unused imports | `n` |
+
+</details>
 
 ## Plugins Keymaps
 
-- ### Snacks
+### Snacks
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>z` | Toggle zen mode | `n` |
-  | `<leader>Z` | Toggle zen Zoom | `n` |
-  | `<leader>.` | Toggle scratch buffer | `n` |
-  | `<leader>S` | Select scratch buffer | `n` |
-  | `<leader>n` | Notification history | `n` |
-  | `<leader>cd` | Run debug (lua) | `n` |
-  | `<leader>bd` | Buff delete | `n` |
-  | `<leader>rF` | Rename file | `n` |
-  | `<leader>un` | Notification hide | `n` |
-  | `<c-t>` | Toggle terminal | `n` |
-  | `<leader>N` | Neovim news | `n` |
+<details>
+  <summary>Keymaps</summary>
 
-- ### Git
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>z` | Toggle zen mode | `n` |
+| `<leader>Z` | Toggle zen Zoom | `n` |
+| `<leader>.` | Toggle scratch buffer | `n` |
+| `<leader>S` | Select scratch buffer | `n` |
+| `<leader>n` | Notification history | `n` |
+| `<leader>cd` | Run debug (lua) | `n` |
+| `<leader>bd` | Buff delete | `n` |
+| `<leader>rF` | Rename file | `n` |
+| `<leader>un` | Notification hide | `n` |
+| `<c-t>` | Toggle terminal | `n` |
+| `<leader>N` | Neovim news | `n` |
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>gB` | Git browse | `n` |
-  | `<leader>gb` | Git blame line | `n` |
-  | `<leader>gf` | Git file history | `n` |
-  | `<leader>gu` | Git ui (lazygit) | `n` |
-  | `<leader>gl` | Git log file | `n` |
-  | `<leader>gc` | Git commits | `n` |
-  | `<leader>gs` | Git status | `n` |
-  | `<leader>gvd` | Git diff vertical split | `n` |
-  | `<leader>gd` | Git diff | `n` |
+</details>
 
-- ### Treesitter
+### Git
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<c-space>` | Increment selection | `n` |
-  | `<bs>` | Decrement selection | `n` |
+<details>
+  <summary>Keymaps</summary>
 
-- ### Mason
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>gB` | Git browse | `n` |
+| `<leader>gb` | Git blame line | `n` |
+| `<leader>gf` | Git file history | `n` |
+| `<leader>gu` | Git ui (lazygit) | `n` |
+| `<leader>gl` | Git log file | `n` |
+| `<leader>gc` | Git commits | `n` |
+| `<leader>gs` | Git status | `n` |
+| `<leader>gvd` | Git diff vertical split | `n` |
+| `<leader>gd` | Git diff | `n` |
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>cm` | Open mason | `n` |
+</details>
 
-- ### Neotree
+### Treesitter
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>ee` | Explorer (root) | `n` |
-  | `<leader>ef` | Explorer (cwd) | `n` |
+<details>
+  <summary>Keymaps</summary>
 
-- ### Fzf
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<c-space>` | Increment selection | `n` |
+| `<bs>` | Decrement selection | `n` |
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>,` | Switch buffer | `n` |
-  | `<leader>/` | Live grep | `n` |
-  | `<leader>:` | Command history | `n` |
-  | --- Finds --- | | |
-  | `<leader>e` | Find files (root) | `n` |
-  | `<leader>fF` | Find files (cwd) | `n` |
-  | `<leader>fg` | Find git files | `n` |
-  | `<leader>fr` | Find recent files | `n` |
-  | --- Searchs --- | | |
-  | `<leader>s"` | Search recent files | `n` |
-  | `<leader>sa` | Search autocmds | `n` |
-  | `<leader>sb` | Search grep current buffer | `n` |
-  | `<leader>sC` | Search commands | `n` |
-  | `<leader>sd` | Search document diagnostics | `n` |
-  | `<leader>sD` | Search diagnostics workspace | `n` |
-  | `<leader>sh` | Search help spaces | `n` |
-  | `<leader>sH` | Search highlight groups | `n` |
-  | `<leader>sj` | Search jumps | `n` |
-  | `<leader>sk` | Search keymaps | `n` |
-  | `<leader>sl` | Search loclist | `n` |
-  | `<leader>sM` | Search man pages | `n` |
-  | `<leader>sm` | Search marks | `n` |
-  | `<leader>sR` | Search resume | `n` |
-  | `<leader>sq` | Search quickfix | `n` |
+</details>
 
-- ### Grugfar
+### Mason
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>sr` | Search and replace | `n`, `v` |
+<details>
+  <summary>Keymaps</summary>
 
-- ### Flash
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>cm` | Open mason | `n` |
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `s` | Search label | `n`, `x`, `o` |
-  | `S` | Flash Treesitter | `n`, `x`, `o` |
-  | `r` | Remote flash | `o` |
-  | `R` | Tresitter search | `o`, `x` |
-  | `<c-s>` | Toggle flash search | `c` |
+</details>
 
-- ### Todocomment
+### Neotree
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `]t` | Next todo comment | `n` |
-  | `[t` | Prev todo comment | `n` |
-  | `<leader>st` | Search todos | `n` |
-  | `<leader>sT` | Search Todo,FIX,FIXME and bug | `n` |
+<details>
+  <summary>Keymaps</summary>
 
-- ### Markdown
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>ee` | Explorer (root) | `n` |
+| `<leader>ef` | Explorer (cwd) | `n` |
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>cx` | Toggle markdown preview | `n`, `v` |
+</details>
 
-- ### Lsp keymaps
+### Fzf
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>rn` | Rename buffer | `n` |
-  | `<leader>ca` | Code action | `n` |
-  | `K` | Hover documentation | `n` |
-  | `<C-k>` | Signature documentation | `n` |
-  | `gd` | Go to definition | `n` |
-  | `gD` | Go to declaration | `n` |
-  | `gI` | Go to implementation | `n` |
-  | `<leader>D` | Type definition | `n` |
-  | --- Folders --- | | |
-  | `<leader>wa` | Workspace add | `n` |
-  | `<leader>wr` | Workspace remove | `n` |
-  | `<leader>wl` | Workspace list folder | `n` |
-  | --- Diagnostics --- | | |
-  | `<leader>cl` | Code line diagnostic | `n` |
-  | `]d` | Next diagnostic | `n` |
-  | `[d` | Prev diagnostic | `n` |
-  | `]e` | Next error | `n` |
-  | `[e` | Prev error | `n` |
-  | `]w` | Next warning | `n` |
-  | `[w` | Prev warning | `n` |
+<details>
+<summary>Keymaps</summary>
 
-- ### Lazy Nvim
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>,` | Switch buffer | `n` |
+| `<leader>/` | Live grep | `n` |
+| `<leader>:` | Command history | `n` |
+| --- Finds --- | | |
+| `<leader>e` | Find files (root) | `n` |
+| `<leader>fF` | Find files (cwd) | `n` |
+| `<leader>fg` | Find git files | `n` |
+| `<leader>fr` | Find recent files | `n` |
+| --- Searchs --- | | |
+| `<leader>s"` | Search recent files | `n` |
+| `<leader>sa` | Search autocmds | `n` |
+| `<leader>sb` | Search grep current buffer | `n` |
+| `<leader>sC` | Search commands | `n` |
+| `<leader>sd` | Search document diagnostics | `n` |
+| `<leader>sD` | Search diagnostics workspace | `n` |
+| `<leader>sh` | Search help spaces | `n` |
+| `<leader>sH` | Search highlight groups | `n` |
+| `<leader>sj` | Search jumps | `n` |
+| `<leader>sk` | Search keymaps | `n` |
+| `<leader>sl` | Search loclist | `n` |
+| `<leader>sM` | Search man pages | `n` |
+| `<leader>sm` | Search marks | `n` |
+| `<leader>sR` | Search resume | `n` |
+| `<leader>sq` | Search quickfix | `n` |
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>l` | Open Lazy | `n` |
+</details>
 
-- ### Which key
+### Grugfar
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>?` | Buffer local keymaps | `n` |
+<details>
+  <summary>Keymaps</summary>
 
-- ### Neo gen
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>sr` | Search and replace | `n`, `v` |
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>cn` | Generate annotations | `n` |
+</details>
 
-- ### Conform
+### Flash
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>cf` | Format buffer | `all` |
+<details>
+  <summary>Keymaps</summary>
 
-- ### Oil
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `s` | Search label | `n`, `x`, `o` |
+| `S` | Flash Treesitter | `n`, `x`, `o` |
+| `r` | Remote flash | `o` |
+| `R` | Tresitter search | `o`, `x` |
+| `<c-s>` | Toggle flash search | `c` |
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `-` | Open parent directory | |
-  | `<space>-` | Open parent floating window | |
+</details>
 
-- ### Copilot
+### Todocomment
 
-  | Keymap | Description | Mode |
-  | ------ | ----------- | ---- |
-  | `<leader>ah` | Help actions | |
-  | `<leader>ap` | Prompt actions | |
-  | `<leader>ae` | Explain code | |
-  | `<leader>at` | Generate tests | |
-  | `<leader>ar` | Review code | |
-  | `<leader>aR` | Refactor code | |
-  | `<leader>an` | Better naming | |
-  | `<leader>ad` | Debug info | |
-  | `<leader>af` | Fix diagnostic | |
-  | `<leader>a?` | Select models | |
-  | `<leader>av` | Toggle Copilot chat | |
-  | `<leader>ax` | Inline chat | |
-  | `<leader>ai` | Ask input | |
-  | `<leader>am` | Generate commit message from staged | |
-  | `<leader>aq` | Quick chat | |
+<details>
+  <summary>Keymaps</summary>
+
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `]t` | Next todo comment | `n` |
+| `[t` | Prev todo comment | `n` |
+| `<leader>st` | Search todos | `n` |
+| `<leader>sT` | Search Todo,FIX,FIXME and bug | `n` |
+
+</details>
+
+### Markdown
+
+<details>
+  <summary>Keymaps</summary>
+
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>cx` | Toggle markdown preview | `n`, `v` |
+
+</details>
+
+### Lsp keymaps
+
+<details>
+  <summary>Keymaps</summary>
+
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>rn` | Rename buffer | `n` |
+| `<leader>ca` | Code action | `n` |
+| `K` | Hover documentation | `n` |
+| `<C-k>` | Signature documentation | `n` |
+| `gd` | Go to definition | `n` |
+| `gD` | Go to declaration | `n` |
+| `gI` | Go to implementation | `n` |
+| `<leader>D` | Type definition | `n` |
+| --- Folders --- | | |
+| `<leader>wa` | Workspace add | `n` |
+| `<leader>wr` | Workspace remove | `n` |
+| `<leader>wl` | Workspace list folder | `n` |
+| --- Diagnostics --- | | |
+| `<leader>cl` | Code line diagnostic | `n` |
+| `]d` | Next diagnostic | `n` |
+| `[d` | Prev diagnostic | `n` |
+| `]e` | Next error | `n` |
+| `[e` | Prev error | `n` |
+| `]w` | Next warning | `n` |
+| `[w` | Prev warning | `n` |
+
+</details>
+
+### Lazy Nvim
+
+<details>
+  <summary>Keymaps</summary>
+
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>l` | Open Lazy | `n` |
+
+</details>
+
+### Which key
+
+<details>
+  <summary>Keymaps</summary>
+
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>?` | Buffer local keymaps | `n` |
+
+</details>
+
+### Neo gen
+
+<details>
+<summary>Keymaps</summary>
+
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>cn` | Generate annotations | `n` |
+
+</details>
+
+### Conform
+
+<details>
+<summary>Keymaps</summary>
+
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>cf` | Format buffer | `all` |
+
+</details>
+
+### Oil
+
+<details>
+
+<summary>Keymaps</summary>
+
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `-` | Open parent directory | |
+| `<space>-` | Open parent floating window | |
+
+</details>
+
+### Copilot
+
+<details>
+  <summary>Keymaps</summary>
+
+| Keymap | Description | Mode |
+| ------ | ----------- | ---- |
+| `<leader>ah` | Help actions | |
+| `<leader>ap` | Prompt actions | |
+| `<leader>ae` | Explain code | |
+| `<leader>at` | Generate tests | |
+| `<leader>ar` | Review code | |
+| `<leader>aR` | Refactor code | |
+| `<leader>an` | Better naming | |
+| `<leader>ad` | Debug info | |
+| `<leader>af` | Fix diagnostic | |
+| `<leader>a?` | Select models | |
+| `<leader>av` | Toggle Copilot chat | |
+| `<leader>ax` | Inline chat | |
+| `<leader>ai` | Ask input | |
+| `<leader>am` | Generate commit message from staged | |
+| `<leader>aq` | Quick chat | |
+
+</details>
 
 ## Plugins
 
@@ -381,3 +512,8 @@ follows the recommended settings from [`LazyVim`](http://www.lazyvim.org/#-learn
 ### Todo
 
 - Keymaps table
+
+### Git Pugins
+
+- [Fugitive](https://github.com/tpope/vim-fugitive)
+- [Diffview](https://github.com/sindrets/diffview.nvim)

@@ -2,13 +2,13 @@ local keys = require("config.keys")
 
 return {
 	{
-		-- comments
+		-- Comments plugin for better code annotations
 		"folke/ts-comments.nvim",
 		opts = {},
 		event = "VeryLazy",
 	},
 	{
-		-- A better annotation generator
+		-- A better annotation generator for Neovim
 		"danymat/neogen",
 		cmd = "Neogen",
 		config = true,
@@ -17,7 +17,7 @@ return {
 		-- version = "*"
 	},
 	{
-		-- Surround, cursorword and pairs
+		-- Surround, cursorword, and pairs plugin
 		"echasnovski/mini.nvim",
 		config = function()
 			require("mini.surround").setup() -- surround
@@ -25,7 +25,17 @@ return {
 		end,
 	},
 	{
-		-- Performant, batteries-included completion plugin for Neovim
+		-- Compatibility layer for using nvim-cmp sources on blink.cmp
+		"saghen/blink.compat",
+		-- use the latest release, via version = '*', if you also use the latest release for blink.cmp
+		version = "*",
+		-- lazy.nvim will automatically load the plugin when it's required by blink.cmp
+		lazy = true,
+		-- make sure to set opts so that lazy.nvim calls blink.compat's setup
+		opts = {},
+	},
+	{
+		-- Performant, batteries-included completion plugin for Neovim with advanced features
 		"saghen/blink.cmp",
 		lazy = false, -- lazy loading handled internally
 		-- optional: provides snippets for the snippet source
@@ -83,7 +93,7 @@ return {
 			sources = {
 				-- adding any nvim-cmp sources here will enable them
 				-- with blink.compat
-				default = { "lsp", "path", "snippets", "buffer", "lazydev" },
+				default = { "lsp", "path", "snippets", "buffer", "lazydev", "avante_commands", "avante_mentions", "avante_files" },
 				-- add lazydev for yor completion providers
 				providers = {
 					-- dont show LuaLS require statements when lazydev has items
@@ -91,6 +101,24 @@ return {
 					lsp = { fallbacks = { "lazydev" } },
 					---@diagnostic disable-next-line: missing-fields
 					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+					avante_commands = {
+						name = "avante_commands",
+						module = "blink.compat.source",
+						score_offset = 90, -- show at a higher priority than lsp
+						opts = {},
+					},
+					avante_files = {
+						name = "avante_commands",
+						module = "blink.compat.source",
+						score_offset = 100, -- show at a higher priority than lsp
+						opts = {},
+					},
+					avante_mentions = {
+						name = "avante_mentions",
+						module = "blink.compat.source",
+						score_offset = 1000, -- show at a higher priority than lsp
+						opts = {},
+					},
 				},
 			},
 			-- experimental signature help support
@@ -99,7 +127,7 @@ return {
 	},
 	--
 	{
-		--Faster LuaLS setup for Neovim
+		-- Faster LuaLS setup for Neovim
 		"folke/lazydev.nvim",
 		ft = "lua", -- only load on lua files
 		opts = {

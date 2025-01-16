@@ -21,6 +21,12 @@ return {
 				temperature = 0,
 				max_tokens = 4096,
 			},
+			file_selector = {
+				--- @alias FileSelectorProvider "native" | "fzf" | "telescope" | string
+				provider = "fzf",
+				-- Options override for custom providers
+				provider_opts = {},
+			},
 			behaviour = {
 				auto_suggestions = false, -- Experimental stage
 				auto_set_highlight_group = true,
@@ -114,7 +120,6 @@ return {
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
 			--- The below dependencies are optional,
-			"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
 			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
 			{ "github/copilot.vim", enabled = false }, -- or zbirenbaum/copilot.lua
 			{

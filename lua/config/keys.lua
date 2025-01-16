@@ -21,7 +21,7 @@ local keys = {
     { "<leader>gB", desc = "git Browse ",           function() Snacks.gitbrowse() end },
     { "<leader>gb", desc = "git blame  line",       function() Snacks.git.blame_line() end },
     { "<leader>gf", desc = "git file  history",     function() Snacks.lazygit.log_file() end },
-    { "<leader>gu", desc = "git ui ",               function() Snacks.lazygit() end },
+    { "<leader>gg", desc = "git ui ",               function() Snacks.lazygit() end },
     { "<leader>gl", desc = "g log file ",           function() Snacks.lazygit.log() end },
     { "<leader>un", desc = "notification hide ",    function() Snacks.notifier.hide() end },
     { "<c-t>",      desc = "Toggle terminal",           function() Snacks.terminal() end },
@@ -335,12 +335,8 @@ local keys = {
 			mode = "x",
 			desc = "CopilotChat - Prompt actions",
 		},
-		{ "<leader>ae", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
-		{ "<leader>at", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
-		{ "<leader>ar", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
-		{ "<leader>aR", "<cmd>CopilotChatRefactor<cr>", desc = "CopilotChat - Refactor code" },
-		{ "<leader>an", "<cmd>CopilotChatBetterNamings<cr>", desc = "CopilotChat - Better Naming" },
-		{ "<leader>av", ":CopilotChatVisual", mode = "x", desc = "CopilotChat - Open in vertical split" },
+		{ "<leader>av", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle" },
+		{ "<leader>av", "<cmd>CopilotChatVisual<cr>", mode = "x", desc = "CopilotChat - Open in vertical split" },
 		{ "<leader>ax", ":CopilotChatInline<cr>", mode = "x", desc = "CopilotChat - Inline chat" },
 		{
 			"<leader>ai",
@@ -357,21 +353,26 @@ local keys = {
 			"<cmd>CopilotChatCommit<cr>",
 			desc = "CopilotChat - Generate commit message for all changes",
 		},
-		{
-			"<leader>aq",
-			function()
-				local input = vim.fn.input("Quick Chat: ")
-				if input ~= "" then
-					require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-				end
-			end,
-			desc = "CopilotChat - Quick chat",
-		},
-		{ "<leader>ad", "<cmd>CopilotChatDebugInfo<cr>", desc = "CopilotChat - Debug Info" },
-		{ "<leader>af", "<cmd>CopilotChatFixDiagnostic<cr>", desc = "CopilotChat - Fix Diagnostic" },
-		{ "<leader>al", "<cmd>CopilotChatReset<cr>", desc = "CopilotChat - Clear buffer and chat history" },
-		{ "<leader>av", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle" },
 		{ "<leader>a?", "<cmd>CopilotChatModels<cr>", desc = "CopilotChat - Select Models" },
+		---PERF: check this commands to avoid conflicts with avante
+		-- {
+		-- 	"<leader>aq",
+		-- 	function()
+		-- 		local input = vim.fn.input("Quick Chat: ")
+		-- 		if input ~= "" then
+		-- 			require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+		-- 		end
+		-- 	end,
+		-- 	desc = "CopilotChat - Quick chat",
+		-- },
+		-- { "<leader>ad", "<cmd>CopilotChatDebugInfo<cr>", desc = "CopilotChat - Debug Info" },
+		-- { "<leader>af", "<cmd>CopilotChatFixDiagnostic<cr>", desc = "CopilotChat - Fix Diagnostic" },
+		-- { "<leader>al", "<cmd>CopilotChatReset<cr>", desc = "CopilotChat - Clear buffer and chat history" },
+		-- { "<leader>ae", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
+		-- { "<leader>at", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
+		-- { "<leader>ar", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
+		-- { "<leader>aR", "<cmd>CopilotChatRefactor<cr>", desc = "CopilotChat - Refactor code" },
+		-- { "<leader>an", "<cmd>CopilotChatBetterNamings<cr>", desc = "CopilotChat - Better Naming" },
 	},
 }
 

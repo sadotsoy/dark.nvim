@@ -135,6 +135,7 @@ return {
 				},
 			},
 		},
+		keys = keys.avante,
 	},
 	-- Copilot Chat plugin configuration
 	{

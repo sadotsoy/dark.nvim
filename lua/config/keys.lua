@@ -319,7 +319,7 @@ local keys = {
 				local actions = require("CopilotChat.actions")
 				require("CopilotChat.integrations.fzflua").pick(actions.help_actions())
 			end,
-			desc = "CopilotChat - Help actions",
+			desc = "CopilotChat: Help actions",
 		},
 		{
 			"<leader>ap",
@@ -327,17 +327,17 @@ local keys = {
 				local actions = require("CopilotChat.actions")
 				require("CopilotChat.integrations.fzflua").pick(actions.prompt_actions())
 			end,
-			desc = "CopilotChat - Prompt actions",
+			desc = "CopilotChat: Prompt actions",
 		},
 		{
 			"<leader>ap",
 			":lua require('CopilotChat.integrations.fzflua').pick(require('CopilotChat.actions').prompt_actions({selection = require('CopilotChat.select').visual}))<CR>",
 			mode = "x",
-			desc = "CopilotChat - Prompt actions",
+			desc = "CopilotChat: Prompt actions",
 		},
-		{ "<leader>av", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle" },
-		{ "<leader>av", "<cmd>CopilotChatVisual<cr>", mode = "x", desc = "CopilotChat - Open in vertical split" },
-		{ "<leader>ax", ":CopilotChatInline<cr>", mode = "x", desc = "CopilotChat - Inline chat" },
+		{ "<leader>av", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat: Toggle" },
+		{ "<leader>av", "<cmd>CopilotChatVisual<cr>", mode = "x", desc = "CopilotChat: Open in vertical split" },
+		{ "<leader>ax", ":CopilotChatInline<cr>", mode = "x", desc = "CopilotChat: Inline chat" },
 		{
 			"<leader>ai",
 			function()
@@ -346,14 +346,15 @@ local keys = {
 					vim.cmd("CopilotChat " .. input)
 				end
 			end,
-			desc = "CopilotChat - Ask input",
+			desc = "CopilotChat: Ask input",
 		},
 		{
 			"<leader>am",
 			"<cmd>CopilotChatCommit<cr>",
-			desc = "CopilotChat - Generate commit message for all changes",
+			desc = "CopilotChat: Generate commit message for all changes",
 		},
-		{ "<leader>a?", "<cmd>CopilotChatModels<cr>", desc = "CopilotChat - Select Models" },
+		{ "<leader>a?", "<cmd>CopilotChatModels<cr>", desc = "CopilotChat: Select Models" },
+		{ "<leader>al", "<cmd>CopilotChatReset<cr>", desc = "CopilotChat: Clear buffer and chat history" },
 		---PERF: check this commands to avoid conflicts with avante
 		-- {
 		-- 	"<leader>aq",
@@ -367,12 +368,14 @@ local keys = {
 		-- },
 		-- { "<leader>ad", "<cmd>CopilotChatDebugInfo<cr>", desc = "CopilotChat - Debug Info" },
 		-- { "<leader>af", "<cmd>CopilotChatFixDiagnostic<cr>", desc = "CopilotChat - Fix Diagnostic" },
-		-- { "<leader>al", "<cmd>CopilotChatReset<cr>", desc = "CopilotChat - Clear buffer and chat history" },
 		-- { "<leader>ae", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
 		-- { "<leader>at", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
 		-- { "<leader>ar", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
 		-- { "<leader>aR", "<cmd>CopilotChatRefactor<cr>", desc = "CopilotChat - Refactor code" },
 		-- { "<leader>an", "<cmd>CopilotChatBetterNamings<cr>", desc = "CopilotChat - Better Naming" },
+	},
+	avante = {
+		{ "<leader>ak", "<cmd>AvanteClear<cr>", desc = "avante: Clear buffer and chat history" },
 	},
 }
 

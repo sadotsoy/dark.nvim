@@ -117,6 +117,16 @@ return {
 			},
 			spec = {
 				{ "<leader>a", group = "ai" }, -- Define a group for AI-related commands
+				{ "<leader>b", group = "buffer" }, -- Define a group for buffer-related commands
+				{ "<leader>c", group = "code" }, -- Define a group for code-related commands
+				{ "<leader>e", group = "explorer" }, -- Define a group for explorer-related commands
+				{ "<leader>f", group = "find" }, -- Define a group for find-related commands
+				{ "<leader>g", group = "git" }, -- Define a group for git-related commands
+				{ "<leader>r", group = "rename" }, -- Define a group for rename-related commands
+				{ "<leader>s", group = "search" }, -- Define a group for search-related commands
+				{ "<leader>u", group = "toggles" }, -- Define a group for toggle-related commands
+				{ "<leader>w", group = "workspace" }, -- Define a group for workspace-related commands
+				{ "<leader><space>", group = "extras" }, -- Define a group for extra commands
 			},
 		},
 		keys = keys.wichkey,

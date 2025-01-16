@@ -13,7 +13,7 @@ require("config.lazy")
 require("keymaps")
 
 -- AutoCmd
-require('config.autocmd')
+require('config.autocmd.init')
 
 -- Set colorscheme
 -- colorschemes

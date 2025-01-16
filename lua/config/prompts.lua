@@ -18,6 +18,7 @@ local prompts = {
 	Spelling = "Correct any grammar and spelling errors in the following text.", -- Prompt to correct spelling and grammar
 	Wording = "Improve the grammar and wording of the following text.", -- Prompt to improve wording
 	Concise = "Rewrite the following text to make it more concise.", -- Prompt to make text concise
+	Commit = "'> #git:staged\n\nWrite commit message for the change with commitizen convention. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. Wrap the whole message in code block with language gitcommit.",
 }
 
 return prompts

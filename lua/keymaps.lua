@@ -9,7 +9,7 @@ keymap("n", "QQ", "<cmd>q<cr>", { noremap = false })
 keymap("n", "WW", "<cmd>w!<cr>", { silent = true })
 keymap("n", "E", "$", { noremap = false })
 keymap("n", "B", "^", { noremap = false })
-keymap("n", "ss", "<cmd>noh<CR>", { noremap = true })
+-- keymap("n", "SS", "<cmd>noh<CR>", { noremap = true })
 
 -- Marks
 keymap("n", "dm", function()

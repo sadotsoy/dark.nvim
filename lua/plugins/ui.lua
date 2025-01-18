@@ -27,7 +27,34 @@ return {
 			scope = { enabled = true },
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
-			zen = { enabled = true },
+			zen = {
+				enabled = true,
+				toogles = {
+					dim = true,
+					git_signs = false,
+					mini_diff_signs = false,
+					-- diagnostics = false,
+					-- inlay_hints = false,
+				},
+				show = {
+					statusline = false, -- can only be shown when using the global statusline
+					tabline = false,
+				},
+				---@type snacks.win.Config
+				---@diagnostic disable-next-line: missing-fields
+				win = { style = "zen" },
+				zoom = {
+					toogles = {},
+					show = {
+						statusline = true,
+						tabline = true,
+					},
+					win = {
+						backdrop = false,
+						width = 0, -- full width
+					},
+				},
+			},
 			styles = {
 				---@diagnostic disable-next-line: missing-fields
 				notification = {

@@ -7,9 +7,31 @@ local api = vim.api
 -- files
 keymap("n", "QQ", "<cmd>q<cr>", { noremap = false })
 keymap("n", "WW", "<cmd>w!<cr>", { silent = true })
+-- Alternative way to save and exit in Normal mode.
+-- NOTE: Adding `redraw` helps with `cmdheight=0` if buffer is not modified
+keymap("n", "<C-S>", "<Cmd>silent! update | redraw<CR>", { desc = "Save" })
+keymap({ "i", "x" }, "<C-S>", "<Esc><Cmd>silent! update | redraw<CR>", { desc = "Save and go to Normal mode" })
 keymap("n", "E", "$", { noremap = false })
 keymap("n", "B", "^", { noremap = false })
 -- keymap("n", "SS", "<cmd>noh<CR>", { noremap = true })
+-- - Condition on `v:count == 0` to allow easier use of relative line numbers.
+keymap({ "n", "x" }, "j", [[v:count == 0 ? 'gj' : 'j']], { expr = true })
+keymap({ "n", "x" }, "k", [[v:count == 0 ? 'gk' : 'k']], { expr = true })
+-- Copy/paste with system clipboard
+keymap({ "n", "x" }, "gy", '"+y', { desc = "Copy to system clipboard" })
+keymap("n", "gp", '"+p', { desc = "Paste from system clipboard" })
+-- - Paste in Visual with `P` to not copy selected text (`:h v_P`)
+keymap("x", "gp", '"+P', { desc = "Paste from system clipboard" })
+-- Reselect latest changed, put, or yanked text
+keymap(
+	"n",
+	"gV",
+	'"`[" . strpart(getregtype(), 0, 1) . "`]"',
+	{ expr = true, replace_keycodes = false, desc = "Visually select changed text" }
+)
+-- Search inside visually highlighted text. Use `silent = false` for it to
+-- make effect immediately.
+keymap("x", "g/", "<esc>/\\%V", { silent = false, desc = "Search inside visual selection" })
 
 -- Marks
 keymap("n", "dm", function()
@@ -29,8 +51,31 @@ keymap("n", "vv", "<c-w>v", { silent = true, desc = "Vertical split" })
 keymap("n", "vn", "<c-w>n", { silent = true, desc = "Horizontal split" })
 
 -- --- resize
-keymap("n", "<Left>", "<cmd>vertical resize -10<CR>", { noremap = true })
-keymap("n", "<Right>", "<cmd>vertical resize +10<CR>", { noremap = true })
+-- Window resize (respecting `v:count`)
+keymap(
+	"n",
+	"<Left>",
+	'"<Cmd>vertical resize -" . v:count1 . "<CR>"',
+	{ expr = true, replace_keycodes = false, desc = "Decrease window width" }
+)
+keymap(
+	"n",
+	"<Down>",
+	'"<Cmd>resize -"          . v:count1 . "<CR>"',
+	{ expr = true, replace_keycodes = false, desc = "Decrease window height" }
+)
+keymap(
+	"n",
+	"<Up>",
+	'"<Cmd>resize +"          . v:count1 . "<CR>"',
+	{ expr = true, replace_keycodes = false, desc = "Increase window height" }
+)
+keymap(
+	"n",
+	"<Right>",
+	'"<Cmd>vertical resize +" . v:count1 . "<CR>"',
+	{ expr = true, replace_keycodes = false, desc = "Increase window width" }
+)
 
 -- -- nop
 keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })

@@ -75,6 +75,8 @@ return {
 						["af"] = "@function.outer",
 						["if"] = "@function.inner",
 						["ac"] = "@class.outer",
+						["ap"] = "@parameter.outer",
+						["ip"] = "@parameter.inner",
 						-- You can optionally set descriptions to the mappings (used in the desc parameter of
 						-- nvim_buf_set_keymap) which plugins like which-key display
 						["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
@@ -103,6 +105,17 @@ return {
 						["[F"] = "@function.outer",
 						-- ["[C"] = "@class.outer",
 						["[A"] = "@parameter.inner",
+					},
+				},
+				lsp_interop = {
+					enable = true,
+					border = "rounded",
+					floating_preview_opts = {},
+					peek_definition_code = {
+						["<leader>df"] = "@function.outer",
+						["<leader>dF"] = "@class.outer",
+            ["<leader>dp"] = "@block.outer",
+            ["<leader>dP"] = "@block.inner",
 					},
 				},
 			},

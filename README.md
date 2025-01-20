@@ -471,10 +471,6 @@ This configuration utilizes [`lazy.nvim`](https://github.com/folke/lazy.nvim) to
 ### Coding
 
 - [ts-comments](https://github.com/folke/ts-comments.nvim) To enhance Neovim's native comments.
-- [mini.nvim](https://github.com/echasnovski/mini.nvim) Nice collection of plugins
-  - [mini.surround](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-surround.md) Fast and feature-rich surround actions
-  - [mini.cursorword](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-cursorword.md) Automatic highlighting of word under cursor
-  - [mini.pairs](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-pairs.md) Minimal and fast autopairs
 - [blink.cmp](https://github.com/Saghen/blink.cmp) Performant, batteries-included completion plugin for Neovim
 - [lazydev](https://github.com/folke/lazydev.nvim) LuaLS setup for Neovim
 

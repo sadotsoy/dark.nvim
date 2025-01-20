@@ -11,7 +11,6 @@ return {
 		},
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
 		},
 		keys = {
 			{ "<leader>ct", "<cmd>Markview splitToggle<CR>", desc = "Markdown split view" },

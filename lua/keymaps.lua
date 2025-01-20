@@ -97,9 +97,6 @@ keymap({ "n" }, "<leader>tp", ":tabp<cr>", { silent = true })
 keymap({ "n" }, "<leader>tf", ":tabfirst<cr>", { silent = true })
 keymap({ "n" }, "<leader>tl", ":tablast<cr>", { silent = true })
 
--- others
-keymap({ "n", "v" }, "<leader>lr", vim.lsp.buf.references, { buffer = true })
-
 -- store
 keymap("n", "<leader>ss", function()
 	require("util/gstore").get_store()

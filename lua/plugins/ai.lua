@@ -10,7 +10,7 @@ return {
 		opts = {
 			---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
 			provider = "copilot",
-			auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+			-- auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
 			---@type AvanteSupportedProvider
 			copilot = {
 				endpoint = "https://api.githubcopilot.com",
@@ -120,7 +120,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
 			--- The below dependencies are optional,
-			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+			"echasnovski/mini.icons", -- or echasnovski/mini.icons
 			{ "github/copilot.vim", enabled = false }, -- or zbirenbaum/copilot.lua
 			{
 				-- support for image pasting

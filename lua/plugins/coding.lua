@@ -1,5 +1,3 @@
-local keys = require("config.keys")
-
 return {
   {
     -- Tiny plugin to enhance Neovim's native comments

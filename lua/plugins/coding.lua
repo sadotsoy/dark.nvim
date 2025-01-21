@@ -2,10 +2,21 @@ local keys = require("config.keys")
 
 return {
   {
-    -- Comments plugin for better code annotations
+    -- Tiny plugin to enhance Neovim's native comments
     "folke/ts-comments.nvim",
     opts = {},
     event = "VeryLazy",
+  },
+  {
+    -- ✅ Highlight, list and search todo comments in your projects
+    -- TODO, HACK, WARN, PERF, NOTE, TEST
+    "folke/todo-comments.nvim",
+    cmd = { "TodoFzfLua" },
+    event = "VeryLazy",
+    opts = {
+      signs = true,
+    },
+    keys = keys.todocomment,
   },
   {
     -- A better annotation generator for Neovim

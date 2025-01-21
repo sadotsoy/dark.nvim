@@ -4,7 +4,7 @@
 --
 
 -- Global keys for plugins
-_G.keys = require("config/keys")
+_G.keys = require("config.plugins_keys")
 
 -- PLUGIN MANAGER
 require("config.lazy")

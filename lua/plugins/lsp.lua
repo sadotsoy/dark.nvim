@@ -1,6 +1,4 @@
-local utils = require("util.lsp")
-local utils_ui = require("util.ui")
-
+local lsp_utils = require("util.lsp")
 --
 -- LSP configs
 --
@@ -160,9 +158,9 @@ return {
 					lineFoldingOnly = true,
 				}
 				-- add custom on_attach
-				config.on_attach = utils.on_attach
+				config.on_attach = lsp_utils.on_attach
 				-- add custom handlers (with borders)
-				config.handlers = utils_ui.handlers
+				config.handlers = lsp_utils.handlers
 				lspconfig[server].setup(config)
 			end
 			require("ufo").setup()

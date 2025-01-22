@@ -91,7 +91,7 @@ return {
               enableMoveToFileCodeAction = true,
               autoUseWorkspaceTsdk = true,
               experimental = {
-                maxInlayHintLength = 30,
+                maxInlayHintLength = 40,
                 completion = {
                   enableServerSideFuzzyMatch = true,
                 },

@@ -2,6 +2,7 @@
 -- NVIM OPTIONS
 --
 
+local set = vim.o
 local opt = vim.opt
 
 -- Search
@@ -40,6 +41,8 @@ opt.updatetime = 250
 -- Sign column
 vim.wo.signcolumn = "yes"
 opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
+-- Reserve space for atleast two signs
+set.signcolumn = "yes:2"
 
 -- Clipboard
 opt.clipboard = "unnamedplus"
@@ -113,3 +116,20 @@ opt.background = "dark"
 
 -- Mouse
 opt.mouse = "n" -- only enable mouse clicks for normal mode
+
+-- Ignore these directories/files while expanding `find` searches
+opt.wildignore:append({
+  "*.o",
+  "*.pyc",
+  "*/.git/*",
+  "*/node_modules/*",
+  "*pycache*",
+  "*~",
+  "*.gif",
+  "*.avi",
+  "*.ico",
+  "*.jpeg",
+  "*.jpg",
+  "*.png",
+  "*.wav",
+})

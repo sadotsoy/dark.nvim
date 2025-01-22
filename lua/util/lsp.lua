@@ -1,3 +1,4 @@
+local keymap = require("util.maps").keymap
 local M = {}
 
 local border = {
@@ -41,60 +42,105 @@ function M.on_attach(args, bufnr)
     return
   end
 
-  --- Function to set a key mapping for the current buffer
-  ---@param keys string # The sequence to bind
-  ---@param cmd string|function # The function to call when the key is pressed
-  ---@param opts {desc: string} # A table containing desc and bufnr
-  local buff_keymap = function(keys, cmd, opts)
-    if opts.desc then
-      opts.desc = "LSP: " .. opts.desc
-    end
-
-    ---@diagnostic disable-next-line: missing-fields
-    vim.keymap.set("n", keys, cmd, { buffer = bufnr, desc = opts.desc, noremap = true })
-  end
+  local normalMode = "n"
+  local LSP_DESC_PREFFIX = "LSP: "
 
   -- code
-  buff_keymap("<leader>rn", vim.lsp.buf.rename, { desc = "re name buff value" })
-  buff_keymap("<leader>ca", vim.lsp.buf.code_action, { desc = "code action" })
-  buff_keymap("<leader>c=", function()
+  keymap(
+    normalMode,
+    "<leader>rn",
+    vim.lsp.buf.rename,
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "re name buff value" }
+  )
+  keymap(normalMode, "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "code action" })
+  keymap(normalMode, "<leader>c=", function()
     vim.lsp.buf.format({ timeout_ms = 5000 })
-  end, { desc = "code format" })
+  end, { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "code format" })
   -- diagnostics
-  buff_keymap("<leader>cl", show_line_diagnostics, { desc = "code line diagnostic" })
+  keymap(
+    normalMode,
+    "<leader>cl",
+    show_line_diagnostics,
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "code line diagnostic" }
+  )
   -- definitions and delcarations
-  buff_keymap("gd", vim.lsp.buf.definition, { desc = "goto definition" })
-  buff_keymap("gD", vim.lsp.buf.declaration, { desc = "goto declaration" })
-  buff_keymap("gI", vim.lsp.buf.implementation, { desc = "goto implementation" })
-  buff_keymap("gr", vim.lsp.buf.references, { desc = "list all references" })
-  buff_keymap("gt", vim.lsp.buf.type_definition, { desc = "goto type definitions" })
+  keymap(normalMode, "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "goto definition" })
+  keymap(normalMode, "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "goto declaration" })
+  keymap(
+    normalMode,
+    "gI",
+    vim.lsp.buf.implementation,
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "goto implementation" }
+  )
+  keymap(normalMode, "gr", vim.lsp.buf.references, { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "list all references" })
+  keymap(
+    normalMode,
+    "gt",
+    vim.lsp.buf.type_definition,
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "goto type definitions" }
+  )
   --
   -- diagnostics goto_mapping
-  buff_keymap("]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
-  buff_keymap("[d", diagnostic_goto(false), { desc = "Prev Diagnostic" })
-  buff_keymap("]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
-  buff_keymap("[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
-  buff_keymap("]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
-  buff_keymap("[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
+  keymap(normalMode, "]d", diagnostic_goto(true), { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Next Diagnostic" })
+  keymap(normalMode, "[d", diagnostic_goto(false), { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Prev Diagnostic" })
+  keymap(normalMode, "]e", diagnostic_goto(true, "ERROR"), { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Next Error" })
+  keymap(normalMode, "[e", diagnostic_goto(false, "ERROR"), { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Prev Error" })
+  keymap(normalMode, "]w", diagnostic_goto(true, "WARN"), { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Next Warning" })
+  keymap(normalMode, "[w", diagnostic_goto(false, "WARN"), { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Prev Warning" })
   --
   -- See `:help K` for why this keymap
-  buff_keymap("K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
-  buff_keymap("<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Documentation" })
+  keymap(normalMode, "K", vim.lsp.buf.hover, { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Hover Documentation" })
+  keymap(
+    normalMode,
+    "<C-k>",
+    vim.lsp.buf.signature_help,
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Signature Documentation" }
+  )
 
   -- Lesser used LSP functionality
-  buff_keymap("<leader>wa", vim.lsp.buf.add_workspace_folder, { desc = "workspace add Folder" })
-  buff_keymap("<leader>wr", vim.lsp.buf.remove_workspace_folder, { desc = "workspace remove Folder" })
-  buff_keymap("<leader>wl", function()
+  keymap(
+    normalMode,
+    "<leader>wa",
+    vim.lsp.buf.add_workspace_folder,
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "workspace add Folder" }
+  )
+  keymap(
+    normalMode,
+    "<leader>wr",
+    vim.lsp.buf.remove_workspace_folder,
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "workspace remove Folder" }
+  )
+  keymap(normalMode, "<leader>wl", function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, { desc = "workspace list Folders" })
+  end, { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "workspace list Folders" })
 
   -- Keymaps by language
   -- TS | JS
   if client == "vtsls" then
-    buff_keymap("<leader>co", "<Cmd>VtsExec organize_imports<CR>", { desc = "Organize imports" })
-    buff_keymap("<leader>ci", "<Cmd>VtsExec add_missing_imports<CR>", { desc = "Add missing imports" })
-    buff_keymap("<leader>cx", "<Cmd>VtsExec remove_unused_imports<CR>", { desc = "Removed unused imports" })
-    buff_keymap("<leader>rf", "<Cmd>VtsExec rename_file<CR>", { desc = "Rename file" })
+    keymap(
+      normalMode,
+      "<leader>co",
+      "<Cmd>VtsExec organize_imports<CR>",
+      { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Organize imports" }
+    )
+    keymap(
+      normalMode,
+      "<leader>ci",
+      "<Cmd>VtsExec add_missing_imports<CR>",
+      { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Add missing imports" }
+    )
+    keymap(
+      normalMode,
+      "<leader>cx",
+      "<Cmd>VtsExec remove_unused_imports<CR>",
+      { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Removed unused imports" }
+    )
+    keymap(
+      normalMode,
+      "<leader>rf",
+      "<Cmd>VtsExec rename_file<CR>",
+      { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Rename file" }
+    )
   end
 end
 

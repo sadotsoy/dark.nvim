@@ -26,8 +26,10 @@ return {
     -- version = "*"
   },
   {
-    -- Surround, cursorword, and pairs plugin
-    "tpope/vim-surround",
+    -- Add/change/delete surrounding delimiter pairs with ease. Written with ❤️ in Lua.
+    "kylechui/nvim-surround",
+    event = { "BufReadPost", "BufNewFile" },
+    config = true,
   },
   {
     -- Compatibility layer for using nvim-cmp sources on blink.cmp

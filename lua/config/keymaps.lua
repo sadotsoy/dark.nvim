@@ -1,4 +1,4 @@
-local keymap = require('util.maps').keymap
+local keymap = require("util.maps").keymap
 local api = vim.api
 
 -- files
@@ -113,3 +113,7 @@ keymap("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the curr
 -- GIT
 keymap("n", "<leader>gvd", "<cmd>Gvdiffsplit<CR>", { desc = "Git: Diff split" })
 keymap("n", "<leader>gd", "<cmd>DiffviewOpen<CR>", { desc = "Git: Diff" })
+
+---CODE
+-- UndoTree
+keymap("n", "<leader>cu", vim.cmd.UndotreeToggle, { desc = "Toggle undo tree" })

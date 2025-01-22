@@ -10,7 +10,7 @@ _G.keys = require("config.plugins_keys")
 require("config.lazy")
 
 -- Keymaps
-require("keymaps")
+require("config.keymaps")
 
 -- AutoCmd
 require('config.autocmd.init')

@@ -4,13 +4,13 @@
 --
 
 -- Global keys for plugins
-_G.keys = require("config.plugins_keys")
+_G.keys = require('config.plugins_keys')
 
 -- PLUGIN MANAGER
-require("config.lazy")
+require('config.lazy')
 
 -- Keymaps
-require("config.keymaps")
+require('config.keymaps')
 
 -- AutoCmd
 require('config.autocmd.init')
@@ -21,4 +21,4 @@ require('config.autocmd.init')
 -- ++ catppuccin, cyberdream, kanagawa, tokyonight
 -- + LIGHT
 -- ++ yui
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme('catppuccin')

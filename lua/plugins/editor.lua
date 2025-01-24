@@ -46,6 +46,7 @@ return {
         { "<leader>g", group = "git" }, -- Define a group for git-related commands
         { "<leader>r", group = "rename" }, -- Define a group for rename-related commands
         { "<leader>s", group = "search" }, -- Define a group for search-related commands
+        { "<leader>t", group = "tabs" }, -- Define a group for tabs commands
         { "<leader>u", group = "toggles" }, -- Define a group for toggle-related commands
         { "<leader>w", group = "workspace" }, -- Define a group for workspace-related commands
         { "<leader><space>", group = "extras" }, -- Define a group for extra commands

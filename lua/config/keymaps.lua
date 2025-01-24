@@ -94,7 +94,7 @@ keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- --- Tabs
-keymap({ "n" }, "<leader>t", ":tabnew<cr>", { silent = true })
+keymap({ "n" }, "<leader>tt", ":tabnew<cr>", { silent = true })
 keymap({ "n" }, "<leader>tc", ":tabclose<cr>", { silent = true })
 keymap({ "n" }, "<leader>tn", ":tabn<cr>", { silent = true })
 keymap({ "n" }, "<leader>tp", ":tabp<cr>", { silent = true })

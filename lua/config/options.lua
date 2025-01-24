@@ -11,7 +11,7 @@ opt.smartcase = true -- Don't ignore case with capitals
 opt.ignorecase = true
 
 -- Spelling
-opt.spelllang = { "en", "es" }
+opt.spelllang = { "en_us", "es_mx" }
 
 -- Splits
 opt.splitbelow = true -- Put new windows below current
@@ -40,8 +40,8 @@ opt.updatetime = 250
 
 -- Sign column
 vim.wo.signcolumn = "yes"
-opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
--- Reserve space for atleast two signs
+opt.signcolumn = "yes" -- Always show the sign column, otherwise it would shift the text each time
+-- Reserve space for at least two signs
 set.signcolumn = "yes:2"
 
 -- Clipboard

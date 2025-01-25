@@ -1,7 +1,3 @@
---
--- NVIM OPTIONS
---
-
 local set = vim.o
 local opt = vim.opt
 

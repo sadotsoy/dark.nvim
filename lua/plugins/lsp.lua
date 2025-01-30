@@ -44,15 +44,15 @@ return {
             -- Options related to the notification window and buffer
             window = {
               normal_hl = "Comment", -- Base highlight group in the notification window
-              winblend = 0,   -- Background color opacity in the notification window
-              border = "none", -- Border around the notification window
-              zindex = 45,    -- Stacking priority of the notification window
-              max_width = 0,  -- Maximum width of the notification window
-              max_height = 0, -- Maximum height of the notification window
-              x_padding = 1,  -- Padding from right edge of window boundary
-              y_padding = 0,  -- Padding from bottom edge of window boundary
-              align = "bottom", -- How to align the notification window
-              relative = "editor", -- What the notification window position is relative to
+              winblend = 0,          -- Background color opacity in the notification window
+              border = "none",       -- Border around the notification window
+              zindex = 45,           -- Stacking priority of the notification window
+              max_width = 0,         -- Maximum width of the notification window
+              max_height = 0,        -- Maximum height of the notification window
+              x_padding = 1,         -- Padding from right edge of window boundary
+              y_padding = 0,         -- Padding from bottom edge of window boundary
+              align = "bottom",      -- How to align the notification window
+              relative = "editor",   -- What the notification window position is relative to
             },
           },
         },
@@ -63,7 +63,7 @@ return {
         "yioneko/nvim-vtsls",
         config = function()
           require("lspconfig.configs").vtsls = require("vtsls")
-          .lspconfig                                                 -- set default server config, optional but recommended
+              .lspconfig -- set default server config, optional but recommended
         end,
       },
     },
@@ -87,6 +87,7 @@ return {
           },
           settings = {
             complete_function_calls = true,
+            autoImports = true,
             vtsls = {
               enableMoveToFileCodeAction = true,
               autoUseWorkspaceTsdk = true,
@@ -95,6 +96,48 @@ return {
                 completion = {
                   enableServerSideFuzzyMatch = true,
                 },
+              },
+            },
+            javascriptreact = {
+              updateImportsOnFileMove = { enabled = "always" },
+              suggest = {
+                completeFunctionCalls = true,
+              },
+              inlayHints = {
+                enumMemberValues = { enabled = true },
+                functionLikeReturnTypes = { enabled = true },
+                parameterNames = { enabled = "literals" },
+                parameterTypes = { enabled = true },
+                propertyDeclarationTypes = { enabled = true },
+                variableTypes = { enabled = true },
+              },
+            },
+            javascript = {
+              updateImportsOnFileMove = { enabled = "always" },
+              suggest = {
+                completeFunctionCalls = true,
+              },
+              inlayHints = {
+                enumMemberValues = { enabled = true },
+                functionLikeReturnTypes = { enabled = true },
+                parameterNames = { enabled = "literals" },
+                parameterTypes = { enabled = true },
+                propertyDeclarationTypes = { enabled = true },
+                variableTypes = { enabled = true },
+              },
+            },
+            typescriptreact = {
+              updateImportsOnFileMove = { enabled = "always" },
+              suggest = {
+                completeFunctionCalls = true,
+              },
+              inlayHints = {
+                enumMemberValues = { enabled = true },
+                functionLikeReturnTypes = { enabled = true },
+                parameterNames = { enabled = "literals" },
+                parameterTypes = { enabled = true },
+                propertyDeclarationTypes = { enabled = true },
+                variableTypes = { enabled = true },
               },
             },
             typescript = {

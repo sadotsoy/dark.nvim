@@ -24,7 +24,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- leader
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
 
 -- OPTIONS
 require("config.options")

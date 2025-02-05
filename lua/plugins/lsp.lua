@@ -13,8 +13,8 @@ local servers = {
 }
 
 return {
-  -- cmdline tools and lsp servers
   {
+    -- cmdline tools and lsp servers
     "williamboman/mason.nvim",
     cmd = "Mason",
     keys = keys.mason,
@@ -89,6 +89,9 @@ return {
             complete_function_calls = true,
             autoImports = true,
             vtsls = {
+              hover = {
+                includeTypes = true,
+              },
               enableMoveToFileCodeAction = true,
               autoUseWorkspaceTsdk = true,
               experimental = {
@@ -106,7 +109,7 @@ return {
               inlayHints = {
                 enumMemberValues = { enabled = true },
                 functionLikeReturnTypes = { enabled = true },
-                parameterNames = { enabled = "literals" },
+                parameterNames = { enabled = "all" },
                 parameterTypes = { enabled = true },
                 propertyDeclarationTypes = { enabled = true },
                 variableTypes = { enabled = true },
@@ -118,13 +121,13 @@ return {
                 completeFunctionCalls = true,
               },
               inlayHints = {
-                enumMemberValues = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
                 parameterNames = { enabled = "literals" },
                 parameterTypes = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
                 variableTypes = { enabled = true },
-              },
+                propertyDeclarationTypes = { enabled = true },
+                functionLikeReturnTypes = { enabled = true },
+                enumMemberValues = { enabled = true },
+              }
             },
           },
         },

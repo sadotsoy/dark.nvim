@@ -110,6 +110,9 @@ return {
           "avante_mentions",
           "avante_files",
         },
+        per_filetype = {
+          codecompanion = { "codecompanion" },
+        },
         -- add lazydev for yor completion providers
         providers = {
           -- dont show LuaLS require statements when lazydev has items
@@ -150,10 +153,10 @@ return {
         -- See the configuration section for more details
         -- Load {X} types when the `X` word is found
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        { path = "snacks.nvim", words = { "Snacks" } },
+        { path = "snacks.nvim",        words = { "Snacks" } },
         -- Load the wezterm types when the `wezterm` module is required
         -- Needs `justinsgithub/wezterm-types` to be installed
-        { path = "wezterm-types", mods = { "wezterm" } },
+        { path = "wezterm-types",      mods = { "wezterm" } },
       },
     },
   },

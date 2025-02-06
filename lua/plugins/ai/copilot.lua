@@ -49,7 +49,7 @@ return {
     },
     opts = {
       chat_auto_complete = true,
-      model = "claude-3.5-sonnet",                                                     -- o1-preview | o1-mini | claude-3.5-sonnet | gpt-4o-2024-08-06
+      model = "gpt-4o-2024-08-06",                                                     -- o1-preview | o1-mini | claude-3.5-sonnet | gpt-4o-2024-08-06
       question_header = "## User ",                                                    -- Header for user questions
       answer_header = "## Copilot ",                                                   -- Header for Copilot answers
       error_header = "## Error ",                                                      -- Header for errors

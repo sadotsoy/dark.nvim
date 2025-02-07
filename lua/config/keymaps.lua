@@ -119,7 +119,10 @@ keymap("n", "<leader>gd", "<cmd>DiffviewOpen<CR>", { desc = "Git: Diff" })
 keymap("n", "<leader>cu", vim.cmd.UndotreeToggle, { desc = "Toggle undo tree" })
 -- CodeCompanion AI
 keymap({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { silent = true, noremap = true })
-keymap({ "n", "v" }, "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { silent = true, noremap = true, desc="AI: companion chat Toggle" })
-keymap( "n", "ga", "<cmd>CodeCompanionChat Add<cr>", { silent = true, noremap = true })
+keymap({ "n", "v" }, "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>",
+  { silent = true, noremap = true, desc = "AI: companion chat Toggle" })
+keymap("n", "ga", "<cmd>CodeCompanionChat Add<cr>", { silent = true, noremap = true })
 -- Expand 'cc' into 'CodeCompanion' in the command line
 vim.cmd([[cab cc CodeCompanion]])
+-- copy relative path
+keymap("n", "<leader>cp", "<cmd>let @+ = expand('%')<cr>", { desc = "Copy: relative path" })

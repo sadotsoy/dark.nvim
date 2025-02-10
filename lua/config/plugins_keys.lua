@@ -13,20 +13,36 @@ local keys = {
     { "<leader>z",  desc = "z Toggle Zen mode",       function() Snacks.zen() end, },
     { "<leader>Z",  desc = "Z Toggle Zoom",           function() Snacks.zen.zoom() end },
     { "<leader>.",  desc = ". Toggle Scratch buffer", function() Snacks.scratch() end },
-    { "<leader>S",  desc = "Select Scratch Buffer",     function() Snacks.scratch.select() end },
+    { "<leader>S",  desc = "Select Scratch Buffer",   function() Snacks.scratch.select() end },
     { "<leader>n",  desc = "notificaton Historiy",    function() Snacks.notifier.show_history() end },
-    { "<leader>cd", desc = "code debug",            function() Snacks.debug.run() end },
-    { "<leader>bd", desc = "buff delete ",          function() Snacks.bufdelete() end },
-    { "<leader>rF", desc = "rename File ",          function() Snacks.rename.rename_file() end },
-    { "<leader>gB", desc = "git Browse ",           function() Snacks.gitbrowse() end },
-    { "<leader>gb", desc = "git blame  line",       function() Snacks.git.blame_line() end },
-    { "<leader>gf", desc = "git file  history",     function() Snacks.lazygit.log_file() end },
-    { "<leader>gg", desc = "git ui ",               function() Snacks.lazygit() end },
-    { "<leader>gl", desc = "g log file ",           function() Snacks.lazygit.log() end },
-    { "<leader>un", desc = "notification hide ",    function() Snacks.notifier.hide() end },
-    { "<c-t>",      desc = "Toggle terminal",           function() Snacks.terminal() end },
-    { "]]", desc = "Next Reference", mode = { "n", "t" }, function() Snacks .words.jump(vim.v.count1) end },
-    { "[[", desc = "Prev Reference", mode = { "n", "t" }, function() Snacks .words.jump(-vim.v.count1) end },
+    { "<leader>cd", desc = "code debug",              function() Snacks.debug.run() end },
+    { "<leader>bd", desc = "buff delete ",            function() Snacks.bufdelete() end },
+    { "<leader>rF", desc = "rename File ",            function() Snacks.rename.rename_file() end },
+    { "<leader>gB", desc = "git Browse ",             function() Snacks.gitbrowse() end },
+    { "<leader>gb", desc = "git blame  line",         function() Snacks.git.blame_line() end },
+    { "<leader>gf", desc = "git file  history",       function() Snacks.lazygit.log_file() end },
+    { "<leader>gg", desc = "git ui ",                 function() Snacks.lazygit() end },
+    { "<leader>gl", desc = "g log file ",             function() Snacks.lazygit.log() end },
+    { "<leader>un", desc = "notification hide ",      function() Snacks.notifier.hide() end },
+    { "<c-t>",      desc = "Toggle terminal",         function() Snacks.terminal() end },
+    {
+      "]]",
+      desc = "Next Reference",
+      mode = { "n", "t" },
+      function()
+        Snacks
+            .words.jump(vim.v.count1)
+      end
+    },
+    {
+      "[[",
+      desc = "Prev Reference",
+      mode = { "n", "t" },
+      function()
+        Snacks
+            .words.jump(-vim.v.count1)
+      end
+    },
     {
       "<leader>N",
       desc = "Neovim News",
@@ -52,7 +68,7 @@ local keys = {
   },
   treesitter = {
     { "<c-space>", desc = "Increment Selection" },
-    { "<bs>", desc = "Decrement Selection", mode = "x" },
+    { "<bs>",      desc = "Decrement Selection", mode = "x" },
   },
   mason = {
     { "<leader>cm", "<cmd>Mason<cr>", desc = "Open mason" },
@@ -120,12 +136,12 @@ local keys = {
     },
     -- git
     { "<leader>gc", "<cmd>FzfLua git_commits<CR>", desc = "git commits" },
-    { "<leader>gs", "<cmd>FzfLua git_status<CR>", desc = "git status" },
+    { "<leader>gs", "<cmd>FzfLua git_status<CR>",  desc = "git status" },
     -- search
-    { '<leader>s"', "<cmd>FzfLua registers<cr>", desc = "[s] registers" },
-    { "<leader>sa", "<cmd>FzfLua autocmds<cr>", desc = "Auto Commands" },
+    { '<leader>s"', "<cmd>FzfLua registers<cr>",   desc = "[s] registers" },
+    { "<leader>sa", "<cmd>FzfLua autocmds<cr>",    desc = "Auto Commands" },
     { "<leader>sb", "<cmd>FzfLua grep_curbuf<cr>", desc = "Grep current buffer" },
-    { "<leader>sC", "<cmd>FzfLua commands<cr>", desc = "Commands" },
+    { "<leader>sC", "<cmd>FzfLua commands<cr>",    desc = "Commands" },
     {
       "<leader>sd",
       "<cmd>FzfLua diagnostics_document<cr>",
@@ -142,13 +158,13 @@ local keys = {
       "<cmd>FzfLua highlights<cr>",
       desc = "Search Highlight Groups",
     },
-    { "<leader>sj", "<cmd>FzfLua jumps<cr>", desc = "Jumplist" },
-    { "<leader>sk", "<cmd>FzfLua keymaps<cr>", desc = "Key Maps" },
-    { "<leader>sl", "<cmd>FzfLua loclist<cr>", desc = "Location List" },
+    { "<leader>sj", "<cmd>FzfLua jumps<cr>",     desc = "Jumplist" },
+    { "<leader>sk", "<cmd>FzfLua keymaps<cr>",   desc = "Key Maps" },
+    { "<leader>sl", "<cmd>FzfLua loclist<cr>",   desc = "Location List" },
     { "<leader>sM", "<cmd>FzfLua man_pages<cr>", desc = "Man Pages" },
-    { "<leader>sm", "<cmd>FzfLua marks<cr>", desc = "Jump to Mark" },
-    { "<leader>sR", "<cmd>FzfLua resume<cr>", desc = "Resume" },
-    { "<leader>sq", "<cmd>FzfLua quickfix<cr>", desc = "Quickfix List" },
+    { "<leader>sm", "<cmd>FzfLua marks<cr>",     desc = "Jump to Mark" },
+    { "<leader>sR", "<cmd>FzfLua resume<cr>",    desc = "Resume" },
+    { "<leader>sq", "<cmd>FzfLua quickfix<cr>",  desc = "Quickfix List" },
   },
   grugfar = {
     {
@@ -168,13 +184,13 @@ local keys = {
     },
   },
   --stylua: ignore
-	flash = {
-		{ "ss", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-		{ "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-		{ "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-    { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-		{ "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-	},
+  flash = {
+    { "ss",    mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+    { "S",     mode = { "n", "o", "x" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+    { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+    { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+  },
   wichkey = {
     {
       "<leader>?",
@@ -285,8 +301,8 @@ local keys = {
       desc = "CopilotChat: Prompt actions",
     },
     { "<leader>av", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat: Toggle" },
-    { "<leader>av", "<cmd>CopilotChatVisual<cr>", mode = "x", desc = "CopilotChat: Open in vertical split" },
-    { "<leader>ax", ":CopilotChatInline<cr>", mode = "x", desc = "CopilotChat: Inline chat" },
+    { "<leader>av", "<cmd>CopilotChatVisual<cr>", mode = "x",                  desc = "CopilotChat: Open in vertical split" },
+    { "<leader>ax", ":CopilotChatInline<cr>",     mode = "x",                  desc = "CopilotChat: Inline chat" },
     {
       "<leader>ai",
       function()
@@ -303,7 +319,7 @@ local keys = {
       desc = "CopilotChat: Generate commit message for all changes",
     },
     { "<leader>a?", "<cmd>CopilotChatModels<cr>", desc = "CopilotChat: Select Models" },
-    { "<leader>al", "<cmd>CopilotChatReset<cr>", desc = "CopilotChat: Clear buffer and chat history" },
+    { "<leader>al", "<cmd>CopilotChatReset<cr>",  desc = "CopilotChat: Clear buffer and chat history" },
     ---PERF: check this commands to avoid conflicts with avante
     -- {
     -- 	"<leader>aq",
@@ -326,6 +342,30 @@ local keys = {
   avante = {
     { "<leader>ak", "<cmd>AvanteClear<cr>", desc = "avante: Clear buffer and chat history" },
   },
+  companion = {
+    {
+      "<leader>ae",
+      "<cmd>CodeCompanionChat Toggle<cr>",
+      desc = "Compaion: chat toggle",
+      mode = { 'n', 'v' }
+    },
+    {
+      "<C-a>",
+      "<cmd>CodeCompanionActions<cr>",
+      mode = { 'n', 'v' }
+    },
+    {
+      "ga",
+      "<cmd>CodeCompanionChat Add<cr>"
+    }
+  },
+  undotree = {
+    {
+      "<leader>cu",
+      vim.cmd.UndotreeToggle,
+      desc = "UndoTree: toggle",
+    }
+  }
 }
 
 return keys

@@ -8,6 +8,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
+    keys = keys.companion,
     opts = {
       display = {
         chat = {

@@ -31,7 +31,7 @@ return {
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
               model = {
-                default = "gpt-4o-2024-08-06",
+                default = ai_model,
               },
             },
           })

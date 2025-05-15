@@ -15,7 +15,7 @@ local servers = {
 return {
   {
     -- cmdline tools and lsp servers
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     cmd = "Mason",
     keys = keys.mason,
     build = ":MasonUpdate",
@@ -58,7 +58,7 @@ return {
         },
       },
       "mason.nvim",
-      { "williamboman/mason-lspconfig.nvim", config = function() end },
+      { "mason-org/mason-lspconfig.nvim", config = function() end },
       {
         "yioneko/nvim-vtsls",
         config = function()

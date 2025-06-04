@@ -9,15 +9,17 @@ return {
       ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
       provider = "copilot",
       -- auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
-      ---@type AvanteSupportedProvider
-      copilot = {
-        endpoint = "https://api.githubcopilot.com",
-        model = ai_model, -- o1-preview | o1-mini | claude-3.5-sonnet | gpt-4o-2024-08-06
-        -- proxy = nil,                 -- [protocol://]host[:port] Use this proxy
-        -- allow_insecure = false,      -- Allow insecure server connections
-        -- timeout = 30000,             -- Timeout in milliseconds
-        -- temperature = 0,
-        -- max_tokens = 4096,
+      providers = {
+        ---@type AvanteSupportedProvider
+        copilot = {
+          endpoint = "https://api.githubcopilot.com",
+          model = ai_model, -- o1-preview | o1-mini | claude-3.5-sonnet | gpt-4o-2024-08-06
+          -- proxy = nil,                 -- [protocol://]host[:port] Use this proxy
+          -- allow_insecure = false,      -- Allow insecure server connections
+          -- timeout = 30000,             -- Timeout in milliseconds
+          -- temperature = 0,
+          -- max_tokens = 4096,
+        },
       },
       file_selector = {
         --- @alias FileSelectorProvider "native" | "fzf" | "telescope" | string
@@ -69,10 +71,10 @@ return {
       windows = {
         ---@type "right" | "left" | "top" | "bottom"
         position = "right", -- the position of the sidebar
-        wrap = true,      -- similar to vim.o.wrap
-        width = 30,       -- default % based on available width
+        wrap = true,        -- similar to vim.o.wrap
+        width = 30,         -- default % based on available width
         sidebar_header = {
-          enabled = false, -- true, false to enable/disable the header
+          enabled = false,  -- true, false to enable/disable the header
           align = "center", -- left, center, right for title
           rounded = true,
         },
@@ -85,7 +87,7 @@ return {
           start_insert = true, -- Start insert mode when opening the edit window
         },
         ask = {
-          floating = false,  -- Open the 'AvanteAsk' prompt in a floating window
+          floating = false,    -- Open the 'AvanteAsk' prompt in a floating window
           start_insert = true, -- Start insert mode when opening the ask window
           border = "rounded",
           ---@type "ours" | "theirs"
@@ -118,7 +120,7 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
-      "echasnovski/mini.icons",   -- or echasnovski/mini.icons
+      "echasnovski/mini.icons",     -- or echasnovski/mini.icons
       { "zbirenbaum/copilot.lua" }, -- or `zbirenbaum/copilot.lua` or `github/copilot.vim`
       {
         -- support for image pasting

@@ -29,10 +29,19 @@ end
 ---@param severity? string|integer|nil to control the severy level
 ---@return function
 local diagnostic_goto = function(next, severity)
-  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-  severity = severity and vim.diagnostic.severity[severity] or nil
+  -- go function according next or prev
+  -- https://neovim.io/doc/user/diagnostic.html#vim.diagnostic.JumpOpts
+  local go = vim.diagnostic.jump({
+    severity = severity and vim.diagnostic.severity[severity] or nil,
+    count = next and 1 or -1
+  })
   return function()
-    go({ severity = severity, float = float_options })
+    if go then
+      go({ severity = severity, float = float_options })
+      -- go({ severity = severity, count = 1 })
+    else
+      print("Failes to jump top diagnostic", severity)
+    end
   end
 end
 
@@ -59,7 +68,7 @@ function M.on_attach(args, bufnr)
   -- diagnostics
   keymap(
     normalMode,
-    "<leader>cl",
+    "<leader>cL",
     show_line_diagnostics,
     { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "code line diagnostic" }
   )
@@ -81,15 +90,22 @@ function M.on_attach(args, bufnr)
   )
   --
   -- diagnostics goto_mapping
-  keymap(normalMode, "]d", diagnostic_goto(true), { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Next Diagnostic" })
-  keymap(normalMode, "[d", diagnostic_goto(false), { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Prev Diagnostic" })
-  keymap(normalMode, "]e", diagnostic_goto(true, "ERROR"), { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Next Error" })
-  keymap(normalMode, "[e", diagnostic_goto(false, "ERROR"), { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Prev Error" })
-  keymap(normalMode, "]w", diagnostic_goto(true, "WARN"), { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Next Warning" })
-  keymap(normalMode, "[w", diagnostic_goto(false, "WARN"), { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Prev Warning" })
+  keymap(normalMode, "]d", function() diagnostic_goto(true) end,
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Next Diagnostic" })
+  keymap(normalMode, "[d", function() diagnostic_goto(false) end,
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Prev Diagnostic" })
+  keymap(normalMode, "]e", function() diagnostic_goto(true, "ERROR") end,
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Next Error" })
+  keymap(normalMode, "[e", function() diagnostic_goto(false, "ERROR") end,
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Prev Error" })
+  keymap(normalMode, "]w", function() diagnostic_goto(true, "WARN") end,
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Next Warning" })
+  keymap(normalMode, "[w", function() diagnostic_goto(false, "WARN") end,
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Prev Warning" })
   --
   -- See `:help K` for why this keymap
-  keymap(normalMode, "K", vim.lsp.buf.hover, { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Hover Documentation" })
+  keymap(normalMode, "K", function() vim.lsp.buf.hover({ border = "rounded" }) end,
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Hover Documentation" })
   keymap(
     normalMode,
     "<C-k>",

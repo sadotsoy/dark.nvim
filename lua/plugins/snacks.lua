@@ -71,6 +71,7 @@ return {
           _G.bt = function()
             Snacks.debug.backtrace()
           end
+          vim.print = _G.dd
 
           -- Create some toggle mappings
           Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")

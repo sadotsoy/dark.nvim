@@ -16,13 +16,14 @@ local border = {
 local float_options = {
   focusable = false,
   width = 80,
-  border = "rounded",
+  border = border,
 }
 
 ---Function to show line diagnostics
 local show_line_diagnostics = function()
   vim.diagnostic.open_float(float_options)
 end
+
 
 ---Function to reuse diagnostic_goto
 ---@param next boolean to control if is next or prev
@@ -32,17 +33,31 @@ local diagnostic_goto = function(next, severity)
   -- go function according next or prev
   -- https://neovim.io/doc/user/diagnostic.html#vim.diagnostic.JumpOpts
   local go = vim.diagnostic.jump({
-    severity = severity and vim.diagnostic.severity[severity] or nil,
-    count = next and 1 or -1
+    count = next and 1 or -1,
+    severity = severity and vim.diagnostic.severity[severity] or nil
   })
   return function()
     if go then
-      go({ severity = severity, float = float_options })
-      -- go({ severity = severity, count = 1 })
+      go()
     else
       print("Failes to jump top diagnostic", severity)
     end
   end
+end
+
+
+---Function to show the diagnostics in the virtual line
+local virt_lines_ns = vim.api.nvim_create_namespace 'on_diagnostic_jump'
+--- @param diagnostic? vim.Diagnostic
+--- @param bufnr integer
+function M.on_jump(diagnostic, bufnr)
+  if not diagnostic then return end
+  vim.diagnostic.show(
+    virt_lines_ns,
+    bufnr,
+    { diagnostic },
+    { virtual_lines = { current_line = true }, virtual_text = true }
+  )
 end
 
 function M.on_attach(args, bufnr)
@@ -104,7 +119,7 @@ function M.on_attach(args, bufnr)
     { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Prev Warning" })
   --
   -- See `:help K` for why this keymap
-  keymap(normalMode, "K", function() vim.lsp.buf.hover({ border = "rounded" }) end,
+  keymap(normalMode, "K", function() vim.lsp.buf.hover({ border = border }) end,
     { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Hover Documentation" })
   keymap(
     normalMode,
@@ -160,12 +175,9 @@ function M.on_attach(args, bufnr)
   end
 end
 
-M.handlers = {
-  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border, width = 80 }),
-  ["textDocument/signatureHelp"] = vim.lsp.with(
-    vim.lsp.handlers.signature_help,
-    { border = border, close_events = { "CursorMoved", "BufHidden", "InsertCharPre" } }
-  ),
-}
+-- LSP HANDLERS
+-- https://neovim.io/doc/user/diagnostic.html#_handlers
+M.handlers = {}
+
 
 return M

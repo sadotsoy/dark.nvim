@@ -130,7 +130,3 @@ opt.wildignore:append({
   "*.png",
   "*.wav",
 })
-
--- Enable virtual text
--- vim.diagnostic.config({ virtual_text = false, virtual_lines = true })
-vim.diagnostic.config({ jump = { on_jump = on_jump } })

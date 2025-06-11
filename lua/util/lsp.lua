@@ -34,7 +34,8 @@ local diagnostic_goto = function(next, severity)
   -- https://neovim.io/doc/user/diagnostic.html#vim.diagnostic.JumpOpts
   local go = vim.diagnostic.jump({
     count = next and 1 or -1,
-    severity = severity and vim.diagnostic.severity[severity] or nil
+    severity = severity and vim.diagnostic.severity[severity] or nil,
+    float = float_options,
   })
   return function()
     if go then

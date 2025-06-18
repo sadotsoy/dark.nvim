@@ -1,25 +1,6 @@
 -- Shortcut for vim global option
 local opt = vim.opt
 
-vim.g.markdown_recommended_style = 0 -- Fix markdown indentation settings
-
--- Ignore these directories/files while expanding `find` searches
-opt.wildignore:append({
-  "*.o",
-  "*.pyc",
-  "*/.git/*",
-  "*/node_modules/*",
-  "*pycache*",
-  "*~",
-  "*.gif",
-  "*.avi",
-  "*.ico",
-  "*.jpeg",
-  "*.jpg",
-  "*.png",
-  "*.wav",
-})
-
 local global_options = {
   -- Search
   hlsearch       = true,
@@ -113,3 +94,23 @@ local global_options = {
 for option, value in pairs(global_options) do
   opt[option] = value
 end
+
+-- Plugins options
+vim.g.markdown_recommended_style = 0 -- Fix markdown indentation settings
+
+-- Ignore these directories/files while expanding `find` searches
+opt.wildignore:append({
+  "*.o",
+  "*.pyc",
+  "*/.git/*",
+  "*/node_modules/*",
+  "*pycache*",
+  "*~",
+  "*.gif",
+  "*.avi",
+  "*.ico",
+  "*.jpeg",
+  "*.jpg",
+  "*.png",
+  "*.wav",
+})

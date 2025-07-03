@@ -344,7 +344,7 @@ local keys = {
   },
   companion = {
     {
-      "<leader>ac",
+      "<leader>acm",
       "<cmd>CodeCompanionChat Toggle<cr>",
       desc = "Compaion: chat toggle",
       mode = { 'n', 'v' }

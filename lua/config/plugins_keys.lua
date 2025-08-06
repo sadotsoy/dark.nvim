@@ -27,42 +27,42 @@ local keys = {
         })
       end
     },
-    { "<leader>ff",  desc = "Find Files",        function() Snacks.picker.files() end },
-    { "<leader>fg",  desc = "Find Git Files",    function() Snacks.picker.git_files() end },
-    { "<leader>fp",  desc = "Projects",          function() Snacks.picker.projects() end },
-    { "<leader>fr",  desc = "Recent",            function() Snacks.picker.recent() end },
+    { "<leader>ff",  desc = "Find Files",              function() Snacks.picker.files() end },
+    { "<leader>fg",  desc = "Find Git Files",          function() Snacks.picker.git_files() end },
+    { "<leader>fp",  desc = "Projects",                function() Snacks.picker.projects() end },
+    { "<leader>fr",  desc = "Recent",                  function() Snacks.picker.recent() end },
     -- git
-    { "<leader>gSb", desc = "Git Branches",      function() Snacks.picker.git_branches() end },
-    { "<leader>gSl", desc = "Git Log",           function() Snacks.picker.git_log() end },
-    { "<leader>gSL", desc = "Git Log Line",      function() Snacks.picker.git_log_line() end },
-    { "<leader>gSs", desc = "Git Status",        function() Snacks.picker.git_status() end },
-    { "<leader>gSS", desc = "Git Stash",         function() Snacks.picker.git_stash() end },
-    { "<leader>gSd", desc = "Git Diff (Hunks)",  function() Snacks.picker.git_diff() end },
-    { "<leader>gSf", desc = "Git Log File",      function() Snacks.picker.git_log_file() end },
+    { "<leader>gSb", desc = "Git Branches",            function() Snacks.picker.git_branches() end },
+    { "<leader>gSl", desc = "Git Log",                 function() Snacks.picker.git_log() end },
+    { "<leader>gSL", desc = "Git Log Line",            function() Snacks.picker.git_log_line() end },
+    { "<leader>gSs", desc = "Git Status",              function() Snacks.picker.git_status() end },
+    { "<leader>gSS", desc = "Git Stash",               function() Snacks.picker.git_stash() end },
+    { "<leader>gSd", desc = "Git Diff (Hunks)",        function() Snacks.picker.git_diff() end },
+    { "<leader>gSf", desc = "Git Log File",            function() Snacks.picker.git_log_file() end },
     -- Grep
-    { "<leader>sb",  desc = "Buffer Lines",      function() Snacks.picker.lines() end },
-    { "<leader>sB",  desc = "Grep Open Buffers", function() Snacks.picker.grep_buffers() end },
+    { "<leader>sb",  desc = "Buffer Lines",            function() Snacks.picker.lines() end },
+    { "<leader>sB",  desc = "Grep Open Buffers",       function() Snacks.picker.grep_buffers() end },
     -- LSP
-    { "gI",         desc = "Goto Implementation",     function() Snacks.picker.lsp_implementations() end },
-    { "gy",         desc = "Goto T[y]pe Definition",  function() Snacks.picker.lsp_type_definitions() end },
-    { "<leader>ss", desc = "LSP Symbols",             function() Snacks.picker.lsp_symbols() end },
-    { "<leader>sS", desc = "LSP Workspace Symbols",   function() Snacks.picker.lsp_workspace_symbols() end },
+    { "gI",          desc = "Goto Implementation",     function() Snacks.picker.lsp_implementations() end },
+    { "gy",          desc = "Goto T[y]pe Definition",  function() Snacks.picker.lsp_type_definitions() end },
+    { "<leader>ss",  desc = "LSP Symbols",             function() Snacks.picker.lsp_symbols() end },
+    { "<leader>sS",  desc = "LSP Workspace Symbols",   function() Snacks.picker.lsp_workspace_symbols() end },
     -- Other
-    { "<leader>n",  desc = "notificaton Historiy",    function() Snacks.notifier.show_history() end },
-    { "<leader>z",  desc = "z Toggle Zen mode",       function() Snacks.zen() end, },
-    { "<leader>Z",  desc = "Z Toggle Zoom",           function() Snacks.zen.zoom() end },
-    { "<leader>.",  desc = ". Toggle Scratch buffer", function() Snacks.scratch() end },
-    { "<leader>S",  desc = "Select Scratch Buffer",   function() Snacks.scratch.select() end },
-    { "<leader>cd", desc = "code debug",              function() Snacks.debug.run() end },
-    { "<leader>bd", desc = "buff delete ",            function() Snacks.bufdelete() end },
-    { "<leader>rF", desc = "rename File ",            function() Snacks.rename.rename_file() end },
-    { "<leader>gB", desc = "git Browse ",             function() Snacks.gitbrowse() end },
-    { "<leader>gb", desc = "git blame  line",         function() Snacks.git.blame_line() end },
-    { "<leader>gf", desc = "git file  history",       function() Snacks.lazygit.log_file() end },
-    { "<leader>gg", desc = "git ui ",                 function() Snacks.lazygit() end },
-    { "<leader>gl", desc = "g log file ",             function() Snacks.lazygit.log() end },
-    { "<leader>un", desc = "notification hide ",      function() Snacks.notifier.hide() end },
-    { "<c-t>",      desc = "Toggle terminal",         function() Snacks.terminal() end },
+    { "<leader>n",   desc = "notificaton Historiy",    function() Snacks.notifier.show_history() end },
+    { "<leader>z",   desc = "z Toggle Zen mode",       function() Snacks.zen() end, },
+    { "<leader>Z",   desc = "Z Toggle Zoom",           function() Snacks.zen.zoom() end },
+    { "<leader>.",   desc = ". Toggle Scratch buffer", function() Snacks.scratch() end },
+    { "<leader>S",   desc = "Select Scratch Buffer",   function() Snacks.scratch.select() end },
+    { "<leader>cd",  desc = "code debug",              function() Snacks.debug.run() end },
+    { "<leader>bd",  desc = "buff delete ",            function() Snacks.bufdelete() end },
+    { "<leader>rF",  desc = "rename File ",            function() Snacks.rename.rename_file() end },
+    { "<leader>gB",  desc = "git Browse ",             function() Snacks.gitbrowse() end },
+    { "<leader>gb",  desc = "git blame  line",         function() Snacks.git.blame_line() end },
+    { "<leader>gf",  desc = "git file  history",       function() Snacks.lazygit.log_file() end },
+    { "<leader>gg",  desc = "git ui ",                 function() Snacks.lazygit() end },
+    { "<leader>gl",  desc = "g log file ",             function() Snacks.lazygit.log() end },
+    { "<leader>un",  desc = "notification hide ",      function() Snacks.notifier.hide() end },
+    { "<c-t>",       desc = "Toggle terminal",         function() Snacks.terminal() end },
     {
       "]]",
       desc = "Next Reference",
@@ -315,11 +315,11 @@ local keys = {
       end,
       desc = "CopilotChat: Ask input",
     },
-    {
-      "<leader>am",
-      "<cmd>CopilotChatCommit<cr>",
-      desc = "CopilotChat: Generate commit message for all changes",
-    },
+    -- {
+    --   "<leader>am",
+    --   "<cmd>CopilotChatCommit<cr>",
+    --   desc = "CopilotChat: Generate commit message for all changes",
+    -- },
     { "<leader>a?", "<cmd>CopilotChatModels<cr>", desc = "CopilotChat: Select Models" },
     { "<leader>al", "<cmd>CopilotChatReset<cr>",  desc = "CopilotChat: Clear buffer and chat history" },
     ---PERF: check this commands to avoid conflicts with avante
@@ -340,15 +340,6 @@ local keys = {
     -- { "<leader>ar", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
     -- { "<leader>aR", "<cmd>CopilotChatRefactor<cr>", desc = "CopilotChat - Refactor code" },
     -- { "<leader>an", "<cmd>CopilotChatBetterNamings<cr>", desc = "CopilotChat - Better Naming" },
-  },
-  avante = {
-    { "<leader>aa", "<cmd>AvanteAsk<cr>", desc = "Avante: Ask Claude", mode = { "n", "v" } },
-    { "<leader>ae", "<cmd>AvanteEdit<cr>", desc = "Avante: Edit with Claude", mode = "v" },
-    { "<leader>ac", "<cmd>AvanteChat<cr>", desc = "Avante: Chat with Claude" },
-    { "<leader>at", "<cmd>AvanteToggle<cr>", desc = "Avante: Toggle sidebar" },
-    { "<leader>ar", "<cmd>AvanteRefresh<cr>", desc = "Avante: Refresh" },
-    { "<leader>af", "<cmd>AvanteFocus<cr>", desc = "Avante: Focus" },
-    { "<leader>ak", "<cmd>AvanteClear<cr>", desc = "Avante: Clear buffer and chat history" },
   },
   companion = {
     {
@@ -374,12 +365,12 @@ local keys = {
       "<cmd>CodeCompanionChat Add<cr>",
       desc = "CodeCompanion: Add selection to chat"
     },
-    {
-      "<leader>acm",
-      "<cmd>CodeCompanionChat Toggle<cr>",
-      desc = "Companion: chat toggle (legacy)",
-      mode = { 'n', 'v' }
-    },
+    -- {
+    --   "<leader>acm",
+    --   "<cmd>CodeCompanionChat Toggle<cr>",
+    --   desc = "Companion: chat toggle (legacy)",
+    --   mode = { 'n', 'v' }
+    -- },
   },
   undotree = {
     {
@@ -387,6 +378,24 @@ local keys = {
       vim.cmd.UndotreeToggle,
       desc = "UndoTree: toggle",
     }
+  },
+  coderclaude = {
+    { "<leader>ac", "<cmd>ClaudeCode<cr>",            desc = "Claude: Toggle" },
+    { "<leader>af", "<cmd>ClaudeCodeFocus<cr>",       desc = "Claude: Focus" },
+    { "<leader>ar", "<cmd>ClaudeCode --resume<cr>",   desc = "Claude: Resume" },
+    { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Claude: Continue" },
+    { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Claude: Select model" },
+    { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>",       desc = "Claude: Add current buffer" },
+    { "<leader>as", "<cmd>ClaudeCodeSend<cr>",        mode = "v",                         desc = "Claude: Send to ..." },
+    {
+      "<leader>as",
+      "<cmd>ClaudeCodeTreeAdd<cr>",
+      desc = "Claude: Add file",
+      ft = { "NvimTree", "neo-tree", "oil", "minifiles" },
+    },
+    -- Diff management
+    { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Claude: Accept diff" },
+    { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>",   desc = "Claude: Deny diff" },
   }
 }
 

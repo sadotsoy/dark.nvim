@@ -5,31 +5,58 @@ return {
     priority = 1000,
     opts = {
       -- latte, frappe, macchiato, mocha
-      flavour = 'frappe',
+      flavour = 'mocha',
+      background = {
+        light = "latte",
+        dark = "mocha"
+      },
       transparent_background = true,
-      -- transparent_background = true,
-      -- use lighter color for comments so that I can actually *see* them
-      highlight_overrides = {
-        mocha = function(mocha)
-          return {
-            ['@comment'] = { fg = mocha.overlay1, style = { 'italic' } },
-          }
-        end,
+      float = {
+        transparent = false,      -- enable transparent floating windows
+        solid = false,            -- use solid styling for floating windows, see |winborder|
       },
+      show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+      term_colors = false,        -- sets terminal colors (e.g. `g:terminal_color_0`)
+      dim_inactive = {
+        enabled = false,          -- dims the background color of inactive window
+        shade = "dark",
+        percentage = 0.15,        -- percentage of the shade to apply to the inactive window
+      },
+      no_italic = false,          -- Force no italic
+      no_bold = false,            -- Force no bold
+      no_underline = false,       -- Force no underline
+      styles = {                  -- Handles the styles of general hi groups (see `:h highlight-args`):
+        comments = { "italic" },  -- Change the style of comments
+        conditionals = { "italic" },
+        loops = {},
+        functions = {},
+        keywords = {},
+        strings = {},
+        variables = {},
+        numbers = {},
+        booleans = {},
+        properties = {},
+        types = {},
+        operators = {},
+        -- miscs = {}, -- Uncomment to turn off hard-coded styles
+      },
+      custom_highlights = {},
+      default_integrations = true,
+      auto_integrations = false,
       color_overrides = require('util.colorscheme.catpuccin_overrides').dark,
-    },
-    integrations = {
-      fidget = true,
-      cmp = true, -- Enable integration with nvim-cmp
-      gitsigns = true, -- Enable integration with gitsigns
-      nvimtree = true, -- Enable integration with nvim-tree
-      treesitter = true, -- Enable integration with treesitter
-      notify = false, -- Disable integration with nvim-notify
-      mini = {
-        enabled = true, -- Enable mini plugin integration
-        indentscope_color = '', -- Set indentscope color (empty means default)
+      integrations = {
+        fidget = true,
+        cmp = true,               -- Enable integration with nvim-cmp
+        gitsigns = true,          -- Enable integration with gitsigns
+        nvimtree = true,          -- Enable integration with nvim-tree
+        treesitter = true,        -- Enable integration with treesitter
+        notify = false,           -- Disable integration with nvim-notify
+        mini = {
+          enabled = true,         -- Enable mini plugin integration
+          indentscope_color = '', -- Set indentscope color (empty means default)
+        },
+        -- Additional plugin integrations can be found in the documentation
       },
-      -- Additional plugin integrations can be found in the documentation
     },
   },
   {
@@ -38,8 +65,8 @@ return {
     priority = 1000,
     config = function()
       vim.g.yui_line_numbers = 'fade' -- "fade", "emphasize"
-      vim.g.yui_comments = 'bg' -- "bg", "emphasize", "fade", "normal"
-      vim.g.yui_folds = 'emphasize' -- "emphasize", "fade"
+      vim.g.yui_comments = 'bg'       -- "bg", "emphasize", "fade", "normal"
+      vim.g.yui_folds = 'emphasize'   -- "emphasize", "fade"
     end,
   },
   {
@@ -58,7 +85,7 @@ return {
         variables = {},
         -- Background styles. Can be "dark", "transparent" or "normal"
         sidebars = 'dark', -- style for sidebars, see below
-        floats = 'dark', -- style for floating windows
+        floats = 'dark',   -- style for floating windows
       },
     },
   },

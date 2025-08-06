@@ -148,32 +148,30 @@ function M.on_attach(args, bufnr)
 
   -- Keymaps by language
   -- TS | JS
-  if client == "vtsls" then
-    keymap(
-      normalMode,
-      "<leader>co",
-      "<Cmd>VtsExec organize_imports<CR>",
-      { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Organize imports" }
-    )
-    keymap(
-      normalMode,
-      "<leader>ci",
-      "<Cmd>VtsExec add_missing_imports<CR>",
-      { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Add missing imports" }
-    )
-    keymap(
-      normalMode,
-      "<leader>cx",
-      "<Cmd>VtsExec remove_unused_imports<CR>",
-      { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Removed unused imports" }
-    )
-    keymap(
-      normalMode,
-      "<leader>rf",
-      "<Cmd>VtsExec rename_file<CR>",
-      { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Rename file" }
-    )
-  end
+  keymap(
+    normalMode,
+    "<leader>co",
+    "<Cmd>VtsExec organize_imports<CR>",
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Organize imports" }
+  )
+  keymap(
+    normalMode,
+    "<leader>ci",
+    "<Cmd>VtsExec add_missing_imports<CR>",
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Add missing imports" }
+  )
+  keymap(
+    normalMode,
+    "<leader>cx",
+    "<Cmd>VtsExec remove_unused_imports<CR>",
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Removed unused imports" }
+  )
+  keymap(
+    normalMode,
+    "<leader>rf",
+    "<Cmd>VtsExec rename_file<CR>",
+    { buffer = bufnr, desc = LSP_DESC_PREFFIX .. "Rename file" }
+  )
 end
 
 -- LSP HANDLERS

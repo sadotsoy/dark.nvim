@@ -10,11 +10,49 @@ local root = require("util.editor")
 local keys = {
   -- stylua: ignore
   snacks = {
+    -- Top Pickers & Explorer
+    { "<leader><space>", desc = "Smart Find Files", function() Snacks.picker.smart() end },
+    { "<leader>,",       desc = "Buffers",          function() Snacks.picker.buffers() end },
+    { "<leader>/",       desc = "Grep",             function() Snacks.picker.grep() end },
+    { "<leader>:",       desc = "Command History",  function() Snacks.picker.command_history() end },
+    { "<leader>e",       desc = "File Explorer",    function() Snacks.explorer() end },
+    -- find
+    {
+      "<leader>fc",
+      desc = "Find Config File",
+      function()
+        Snacks.picker.files({
+          cwd = vim.fn.stdpath(
+            "config")
+        })
+      end
+    },
+    { "<leader>ff",  desc = "Find Files",        function() Snacks.picker.files() end },
+    { "<leader>fg",  desc = "Find Git Files",    function() Snacks.picker.git_files() end },
+    { "<leader>fp",  desc = "Projects",          function() Snacks.picker.projects() end },
+    { "<leader>fr",  desc = "Recent",            function() Snacks.picker.recent() end },
+    -- git
+    { "<leader>gSb", desc = "Git Branches",      function() Snacks.picker.git_branches() end },
+    { "<leader>gSl", desc = "Git Log",           function() Snacks.picker.git_log() end },
+    { "<leader>gSL", desc = "Git Log Line",      function() Snacks.picker.git_log_line() end },
+    { "<leader>gSs", desc = "Git Status",        function() Snacks.picker.git_status() end },
+    { "<leader>gSS", desc = "Git Stash",         function() Snacks.picker.git_stash() end },
+    { "<leader>gSd", desc = "Git Diff (Hunks)",  function() Snacks.picker.git_diff() end },
+    { "<leader>gSf", desc = "Git Log File",      function() Snacks.picker.git_log_file() end },
+    -- Grep
+    { "<leader>sb",  desc = "Buffer Lines",      function() Snacks.picker.lines() end },
+    { "<leader>sB",  desc = "Grep Open Buffers", function() Snacks.picker.grep_buffers() end },
+    -- LSP
+    { "gI",         desc = "Goto Implementation",     function() Snacks.picker.lsp_implementations() end },
+    { "gy",         desc = "Goto T[y]pe Definition",  function() Snacks.picker.lsp_type_definitions() end },
+    { "<leader>ss", desc = "LSP Symbols",             function() Snacks.picker.lsp_symbols() end },
+    { "<leader>sS", desc = "LSP Workspace Symbols",   function() Snacks.picker.lsp_workspace_symbols() end },
+    -- Other
+    { "<leader>n",  desc = "notificaton Historiy",    function() Snacks.notifier.show_history() end },
     { "<leader>z",  desc = "z Toggle Zen mode",       function() Snacks.zen() end, },
     { "<leader>Z",  desc = "Z Toggle Zoom",           function() Snacks.zen.zoom() end },
     { "<leader>.",  desc = ". Toggle Scratch buffer", function() Snacks.scratch() end },
     { "<leader>S",  desc = "Select Scratch Buffer",   function() Snacks.scratch.select() end },
-    { "<leader>n",  desc = "notificaton Historiy",    function() Snacks.notifier.show_history() end },
     { "<leader>cd", desc = "code debug",              function() Snacks.debug.run() end },
     { "<leader>bd", desc = "buff delete ",            function() Snacks.bufdelete() end },
     { "<leader>rF", desc = "rename File ",            function() Snacks.rename.rename_file() end },
@@ -30,8 +68,7 @@ local keys = {
       desc = "Next Reference",
       mode = { "n", "t" },
       function()
-        Snacks
-            .words.jump(vim.v.count1)
+        Snacks.words.jump(vim.v.count1)
       end
     },
     {
@@ -47,16 +84,12 @@ local keys = {
       "<leader>N",
       desc = "Neovim News",
       function()
-        ---@diagnostic disable-next-line: missing-fields
         Snacks.win({
           file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
-          minimal = true,
-          fixbuf = true,
-          position = "float",
-          width = 0.66,
-          heigt = 0.66,
+          width = 0.6,
+          height = 0.6,
           wo = {
-            spell = true,
+            spell = false,
             wrap = false,
             signcolumn = "yes",
             statuscolumn = " ",
@@ -64,7 +97,7 @@ local keys = {
           },
         })
       end,
-    },
+    }
   },
   treesitter = {
     { "<c-space>", desc = "Increment Selection" },
@@ -73,40 +106,9 @@ local keys = {
   mason = {
     { "<leader>cm", "<cmd>Mason<cr>", desc = "Open mason" },
   },
-  neotree = {
-    {
-      "<leader>ee",
-      function()
-        require("neo-tree.command").execute({ toggle = true, dir = root.get_root_dir() })
-      end,
-      desc = "explorer (Root Dir)",
-    },
-    {
-      "<leader>ef",
-      function()
-        require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
-      end,
-      desc = "exlorer f (cwd)",
-    },
-  },
   fzflua = {
     { "<c-j>", "<c-j>", ft = "fzf", mode = "t", nowait = true },
     { "<c-k>", "<c-k>", ft = "fzf", mode = "t", nowait = true },
-    {
-      "<leader>,",
-      "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>",
-      desc = "[,] switch buffer",
-    },
-    {
-      "<leader>/",
-      "<cmd>FzfLua live_grep<cr>",
-      desc = "[/] greep (Root dir)",
-    },
-    {
-      "<leader>:",
-      "<cmd>FzfLua command_history<cr>",
-      desc = "[:] command history",
-    },
     --- configs
     {
       "<leader>f,",
@@ -140,7 +142,7 @@ local keys = {
     -- search
     { '<leader>s"', "<cmd>FzfLua registers<cr>",   desc = "[s] registers" },
     { "<leader>sa", "<cmd>FzfLua autocmds<cr>",    desc = "Auto Commands" },
-    { "<leader>sb", "<cmd>FzfLua grep_curbuf<cr>", desc = "Grep current buffer" },
+    -- { "<leader>sb", "<cmd>FzfLua grep_curbuf<cr>", desc = "Grep current buffer" },
     { "<leader>sC", "<cmd>FzfLua commands<cr>",    desc = "Commands" },
     {
       "<leader>sd",
@@ -340,24 +342,44 @@ local keys = {
     -- { "<leader>an", "<cmd>CopilotChatBetterNamings<cr>", desc = "CopilotChat - Better Naming" },
   },
   avante = {
-    { "<leader>ak", "<cmd>AvanteClear<cr>", desc = "avante: Clear buffer and chat history" },
+    { "<leader>aa", "<cmd>AvanteAsk<cr>", desc = "Avante: Ask Claude", mode = { "n", "v" } },
+    { "<leader>ae", "<cmd>AvanteEdit<cr>", desc = "Avante: Edit with Claude", mode = "v" },
+    { "<leader>ac", "<cmd>AvanteChat<cr>", desc = "Avante: Chat with Claude" },
+    { "<leader>at", "<cmd>AvanteToggle<cr>", desc = "Avante: Toggle sidebar" },
+    { "<leader>ar", "<cmd>AvanteRefresh<cr>", desc = "Avante: Refresh" },
+    { "<leader>af", "<cmd>AvanteFocus<cr>", desc = "Avante: Focus" },
+    { "<leader>ak", "<cmd>AvanteClear<cr>", desc = "Avante: Clear buffer and chat history" },
   },
   companion = {
     {
-      "<leader>acm",
+      "<leader>cc",
       "<cmd>CodeCompanionChat Toggle<cr>",
-      desc = "Compaion: chat toggle",
+      desc = "CodeCompanion: Chat with Claude",
+      mode = { 'n', 'v' }
+    },
+    {
+      "<leader>ci",
+      "<cmd>CodeCompanion<cr>",
+      desc = "CodeCompanion: Inline chat with Claude",
       mode = { 'n', 'v' }
     },
     {
       "<C-a>",
       "<cmd>CodeCompanionActions<cr>",
+      desc = "CodeCompanion: Actions",
       mode = { 'n', 'v' }
     },
     {
       "ga",
-      "<cmd>CodeCompanionChat Add<cr>"
-    }
+      "<cmd>CodeCompanionChat Add<cr>",
+      desc = "CodeCompanion: Add selection to chat"
+    },
+    {
+      "<leader>acm",
+      "<cmd>CodeCompanionChat Toggle<cr>",
+      desc = "Companion: chat toggle (legacy)",
+      mode = { 'n', 'v' }
+    },
   },
   undotree = {
     {

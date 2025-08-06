@@ -19,6 +19,7 @@ return {
         -- Available style: "compact"|"fancy"|"minimal"
         style = "compact",
       },
+      explorer = { enabled = true },
       quickfile = { enabled = true },
       scope = { enabled = true },
       statuscolumn = { enabled = true },
@@ -57,7 +58,7 @@ return {
           wo = { wrap = true }, -- Wrap notifications
         },
       },
-      -- scroll = { enabled = true },
+      scroll = { enabled = true },
     },
     -- stylua: ignore
     keys = keys.snacks,

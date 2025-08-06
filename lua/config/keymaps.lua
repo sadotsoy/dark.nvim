@@ -102,13 +102,13 @@ keymap({ "n" }, "<leader>tf", ":tabfirst<cr>", { silent = true })
 keymap({ "n" }, "<leader>tl", ":tablast<cr>", { silent = true })
 
 -- store
-keymap("n", "<leader>ss", function()
+keymap("n", "<leader>pg", function()
   require("util/gstore").get_store()
 end, { desc = "Print _G" })
 
 -- lua
 keymap("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute current line" })
-keymap("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
+-- keymap("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
 
 -- GIT
 keymap("n", "<leader>gvd", "<cmd>Gvdiffsplit<CR>", { desc = "Git: Diff split" })

@@ -12,6 +12,7 @@ return {
       bigfile = { enabled = true },
       debug = { enabled = true },
       indent = { enabled = true },
+      picker = { enabled = true },
       lazygit = { enabled = true },
       notifier = {
         enabled = true,

@@ -45,11 +45,11 @@ return {
     build = "make tiktoken",          -- Only on MacOS or Linux
     dependencies = {
       { "zbirenbaum/copilot.lua" },   -- or zbirenbaum/copilot.lua
-      { "nvim-lua/plenary.nvim" },    -- for curl, log and async functions
+      { "nvim-lua/plenary.nvim", branch = "master" },
     },
     opts = {
       chat_auto_complete = true,
-      model = ai_model,                                                     -- o1-preview | o1-mini | claude-3.5-sonnet | gpt-4o-2024-08-06
+      model = ai_model,                                                                -- o1-preview | o1-mini | claude-3.5-sonnet | gpt-4o-2024-08-06
       question_header = "## User ",                                                    -- Header for user questions
       answer_header = "## Copilot ",                                                   -- Header for Copilot answers
       error_header = "## Error ",                                                      -- Header for errors

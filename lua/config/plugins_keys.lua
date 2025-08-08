@@ -16,6 +16,7 @@ local keys = {
     { "<leader>/",       desc = "Grep",             function() Snacks.picker.grep() end },
     { "<leader>:",       desc = "Command History",  function() Snacks.picker.command_history() end },
     { "<leader>e",       desc = "File Explorer",    function() Snacks.explorer() end },
+    { "<leader>pa",      desc = "Snacks: List of pickers",  function() Snacks.picker.pick() end },
     -- find
     {
       "<leader>fc",
@@ -281,26 +282,12 @@ local keys = {
   },
   copilot = {
     {
-      "<leader>ah",
-      function()
-        local actions = require("CopilotChat.actions")
-        require("CopilotChat.integrations.fzflua").pick(actions.help_actions())
-      end,
-      desc = "CopilotChat: Help actions",
-    },
-    {
       "<leader>ap",
       function()
-        local actions = require("CopilotChat.actions")
-        require("CopilotChat.integrations.fzflua").pick(actions.prompt_actions())
+        local chat = require("CopilotChat")
+        require("snacks.picker").pick('cmd', chat.prompts())
       end,
-      desc = "CopilotChat: Prompt actions",
-    },
-    {
-      "<leader>ap",
-      ":lua require('CopilotChat.integrations.fzflua').pick(require('CopilotChat.actions').prompt_actions({selection = require('CopilotChat.select').visual}))<CR>",
-      mode = "x",
-      desc = "CopilotChat: Prompt actions",
+      desc = "CopilotChat: Prompts",
     },
     { "<leader>av", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat: Toggle" },
     { "<leader>av", "<cmd>CopilotChatVisual<cr>", mode = "x",                  desc = "CopilotChat: Open in vertical split" },

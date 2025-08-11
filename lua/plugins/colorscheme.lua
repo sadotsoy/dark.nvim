@@ -12,7 +12,7 @@ return {
       },
       transparent_background = true,
       float = {
-        transparent = false,      -- enable transparent floating windows
+        transparent = true,       -- enable transparent floating windows
         solid = false,            -- use solid styling for floating windows, see |winborder|
       },
       show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
@@ -57,6 +57,11 @@ return {
         },
         -- Additional plugin integrations can be found in the documentation
       },
+      notification = {
+        window = {
+          winblend = 0
+        }
+      }
     },
   },
   {

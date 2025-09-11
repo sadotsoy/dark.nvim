@@ -12,7 +12,7 @@ return {
     opts = {
       display = {
         chat = {
-          show_settings = true,
+          show_settings = false,
         }
       },
       prompt_library = {
@@ -27,15 +27,17 @@ return {
         },
       },
       adapters = {
-        copilot = function()
-          return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-              model = {
-                default = ai_model,
+        http = {
+          copilot = function()
+            return require("codecompanion.adapters").extend("copilot", {
+              schema = {
+                model = {
+                  default = ai_model,
+                },
               },
-            },
-          })
-        end,
+            })
+          end,
+        },
       },
     },
   },

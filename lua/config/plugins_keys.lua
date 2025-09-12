@@ -283,10 +283,7 @@ local keys = {
   copilot = {
     {
       "<leader>ap",
-      function()
-        local chat = require("CopilotChat")
-        require("snacks.picker").pick('cmd', chat.prompts())
-      end,
+      "<cmd>CopilotChatPrompts<cr>",
       desc = "CopilotChat: Prompts",
     },
     { "<leader>av", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat: Toggle" },

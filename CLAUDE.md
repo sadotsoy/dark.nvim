@@ -28,7 +28,6 @@ nvim -u NONE +qa                  # Test without config
 ```
 
 ## Architecture & Structure
-
 ### Core Configuration Files
 - `init.lua` - Entry point that sets global variables, loads lazy.nvim, keymaps, and autocmds
 - `lua/config/lazy.lua` - Bootstrap lazy.nvim and configure plugin loading
@@ -37,10 +36,10 @@ nvim -u NONE +qa                  # Test without config
 
 ### Plugin Organization
 - `lua/plugins/` - Plugin specifications organized by category:
-  - `ai/` - AI-related plugins (copilot, codecompanion, coderclaude)
+  - `ai/` - AI-related plugins (copilot, codecompanion, coderclaude, avante)
   - `languages/` - Language-specific configurations
-  - `file_manager/` - File management plugins (oil.lua)
-  - Individual files for categories (coding.lua, editor.lua, ui.lua, etc.)
+  - Individual files for categories (editor.lua, lsp.lua, git.lua, etc.)
+- Core plugins: `snacks.nvim` provides picker, explorer, and various QoL features
 
 ### Utility Modules
 - `lua/util/` - Helper utilities:
@@ -60,9 +59,10 @@ The configuration uses lazy.nvim's import system:
 
 ### AI Integration Architecture
 Multiple AI providers are configured:
-- **Copilot**: GitHub Copilot integration with chat
-- **CodeCompanion**: Claude-based coding assistance  
+- **Copilot**: GitHub Copilot integration with chat and suggestions
+- **CodeCompanion**: Claude-based coding assistance
 - **CoderClaude**: Direct Claude Code integration
+- **Avante**: AI-powered code editing and chat interface
 
 All AI keymaps are prefixed with `<leader>a` and defined in the centralized keymap system.
 
@@ -74,6 +74,12 @@ Centralized in `lua/config/plugins_keys.lua`:
 - File operations under `<leader>f`
 - Git operations under `<leader>g`
 - Search operations under `<leader>s`
+
+Main interface provided by Snacks picker:
+- `<leader><space>` - Smart file finder
+- `<leader>,` - Buffer switcher
+- `<leader>/` - Live grep
+- `<leader>e` - File explorer
 
 ### Theme Configuration
 - Default: Catppuccin Mocha

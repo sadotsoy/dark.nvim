@@ -162,4 +162,10 @@ return {
       },
     },
   },
+  {
+    -- autopairs for neovim written in lua
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+  }
 }

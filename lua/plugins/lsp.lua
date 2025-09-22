@@ -63,8 +63,8 @@ return {
       {
         "yioneko/nvim-vtsls",
         config = function()
-          require("lspconfig.configs").vtsls = require("vtsls")
-              .lspconfig -- set default server config, optional but recommended
+          -- Set default server config for vtsls using the new API
+          vim.lsp.config.vtsls = require("vtsls").lspconfig
         end,
       },
     },
@@ -166,8 +166,6 @@ return {
       },
     },
     config = function(_, opts)
-      local lspconfig = require("lspconfig")
-
       for server, config in pairs(opts.servers) do
         -- passing config.capabilities to blink.cmp merges with the capabilities in your
         -- `opts[server].capabilities, if you've defined it
@@ -182,7 +180,9 @@ return {
         config.on_attach = lsp_utils.on_attach
         -- add custom handlers (with borders)
         config.handlers = lsp_utils.handlers
-        lspconfig[server].setup(config)
+
+        -- Use the new vim.lsp.config API instead of lspconfig
+        vim.lsp.config[server] = config
       end
       require("ufo").setup()
     end,

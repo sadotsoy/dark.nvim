@@ -10,6 +10,7 @@ return {
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
       bigfile = { enabled = true },
+      gh = { enabled = true },
       debug = { enabled = true },
       indent = { enabled = true },
       picker = { enabled = true },

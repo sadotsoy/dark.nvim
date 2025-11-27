@@ -49,29 +49,47 @@ local keys = {
     { "<leader>sb",  desc = "Buffer Lines",                                    function() Snacks.picker.lines() end },
     { "<leader>sB",  desc = "Grep Open Buffers",                               function() Snacks.picker.grep_buffers() end },
     -- LSP
-    { "gI",          desc = "Goto Implementation",                             function() Snacks.picker
-          .lsp_implementations() end },
-    { "gy",          desc = "Goto T[y]pe Definition",                          function() Snacks.picker
-          .lsp_type_definitions() end },
-    { "<leader>ss",  desc = "LSP Symbols",                                     function() Snacks.picker.lsp_symbols() end },
-    { "<leader>sS",  desc = "LSP Workspace Symbols",                           function() Snacks.picker
-          .lsp_workspace_symbols() end },
+    {
+      "gI",
+      desc = "Goto Implementation",
+      function()
+        Snacks.picker
+            .lsp_implementations()
+      end
+    },
+    {
+      "gy",
+      desc = "Goto T[y]pe Definition",
+      function()
+        Snacks.picker
+            .lsp_type_definitions()
+      end
+    },
+    { "<leader>ss", desc = "LSP Symbols",             function() Snacks.picker.lsp_symbols() end },
+    {
+      "<leader>sS",
+      desc = "LSP Workspace Symbols",
+      function()
+        Snacks.picker
+            .lsp_workspace_symbols()
+      end
+    },
     -- Other
-    { "<leader>n",   desc = "notificaton Historiy",                            function() Snacks.notifier.show_history() end },
-    { "<leader>z",   desc = "z Toggle Zen mode",                               function() Snacks.zen() end, },
-    { "<leader>Z",   desc = "Z Toggle Zoom",                                   function() Snacks.zen.zoom() end },
-    { "<leader>.",   desc = ". Toggle Scratch buffer",                         function() Snacks.scratch() end },
-    { "<leader>S",   desc = "Select Scratch Buffer",                           function() Snacks.scratch.select() end },
-    { "<leader>cd",  desc = "code debug",                                      function() Snacks.debug.run() end },
-    { "<leader>bd",  desc = "buff delete ",                                    function() Snacks.bufdelete() end },
-    { "<leader>rF",  desc = "rename File ",                                    function() Snacks.rename.rename_file() end },
-    { "<leader>gB",  desc = "git Browse ",                                     function() Snacks.gitbrowse() end },
-    { "<leader>gb",  desc = "git blame  line",                                 function() Snacks.git.blame_line() end },
-    { "<leader>gf",  desc = "git file  history",                               function() Snacks.lazygit.log_file() end },
-    { "<leader>gg",  desc = "git ui ",                                         function() Snacks.lazygit() end },
-    { "<leader>gl",  desc = "g log file ",                                     function() Snacks.lazygit.log() end },
-    { "<leader>un",  desc = "notification hide ",                              function() Snacks.notifier.hide() end },
-    { "<c-t>",       desc = "Toggle terminal",                                 function() Snacks.terminal() end },
+    { "<leader>n",  desc = "notificaton Historiy",    function() Snacks.notifier.show_history() end },
+    { "<leader>z",  desc = "z Toggle Zen mode",       function() Snacks.zen() end, },
+    { "<leader>Z",  desc = "Z Toggle Zoom",           function() Snacks.zen.zoom() end },
+    { "<leader>.",  desc = ". Toggle Scratch buffer", function() Snacks.scratch() end },
+    { "<leader>S",  desc = "Select Scratch Buffer",   function() Snacks.scratch.select() end },
+    { "<leader>cd", desc = "code debug",              function() Snacks.debug.run() end },
+    { "<leader>bd", desc = "buff delete ",            function() Snacks.bufdelete() end },
+    { "<leader>rF", desc = "rename File ",            function() Snacks.rename.rename_file() end },
+    { "<leader>gB", desc = "git Browse ",             function() Snacks.gitbrowse() end },
+    { "<leader>gb", desc = "git blame  line",         function() Snacks.git.blame_line() end },
+    { "<leader>gf", desc = "git file  history",       function() Snacks.lazygit.log_file() end },
+    { "<leader>gg", desc = "git ui ",                 function() Snacks.lazygit() end },
+    { "<leader>gl", desc = "g log file ",             function() Snacks.lazygit.log() end },
+    { "<leader>un", desc = "notification hide ",      function() Snacks.notifier.hide() end },
+    { "<c-t>",      desc = "Toggle terminal",         function() Snacks.terminal() end },
     {
       "]]",
       desc = "Next Reference",
@@ -398,6 +416,9 @@ local keys = {
     { "<leader>aCa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Claude: Accept diff" },
     { "<leader>aCd", "<cmd>ClaudeCodeDiffDeny<cr>",   desc = "Claude: Deny diff" },
   },
+  fyler = {
+    { "__", "<cmd>Fyler<cr>", desc = "Explorer" }
+  }
 }
 
 return keys

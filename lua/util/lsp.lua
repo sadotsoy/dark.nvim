@@ -14,7 +14,7 @@ local border = {
 
 ---Float diagnostic options
 local float_options = {
-  focusable = false,
+  focusable = true,
   width = 80,
   border = border,
 }

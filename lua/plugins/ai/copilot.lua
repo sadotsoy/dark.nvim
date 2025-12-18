@@ -4,6 +4,7 @@ return {
   {
     -- Fully featured & enhanced replacement for copilot.vim complete with API for interacting with Github Copilot
     "zbirenbaum/copilot.lua",
+    enabled = false,
     cmd = "Copilot",
     event = "VeryLazy",
     config = function()
@@ -43,6 +44,7 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim", -- Load the Copilot Chat plugin
     -- branch = "canary", -- Use the 'canary' branch
     build = "make tiktoken",          -- Only on MacOS or Linux
+    enabled = false,
     dependencies = {
       { "zbirenbaum/copilot.lua" },   -- or zbirenbaum/copilot.lua
       { "nvim-lua/plenary.nvim", branch = "master" },

@@ -353,13 +353,13 @@ local keys = {
   },
   companion = {
     {
-      "<leader>cc",
+      "<leader>acc",
       "<cmd>CodeCompanionChat Toggle<cr>",
       desc = "CodeCompanion: Chat with Claude",
       mode = { 'n', 'v' }
     },
     {
-      "<leader>ci",
+      "<leader>aci",
       "<cmd>CodeCompanion<cr>",
       desc = "CodeCompanion: Inline chat with Claude",
       mode = { 'n', 'v' }
@@ -384,7 +384,7 @@ local keys = {
   },
   undotree = {
     {
-      "<leader>cu",
+      "<leader>acu",
       vim.cmd.UndotreeToggle,
       desc = "UndoTree: toggle",
     }

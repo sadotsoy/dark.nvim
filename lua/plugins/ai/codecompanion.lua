@@ -18,7 +18,7 @@ return {
       prompt_library = {
         ["Code Expert"] = codecompanion_prompts.codeExpert,
       },
-      stategies = {
+      interactions = {
         chat = {
           adapter = "copilot",
         },

@@ -13,12 +13,13 @@ return {
       gh = { enabled = true },
       debug = { enabled = true },
       indent = { enabled = true },
-      -- Grep preview runs Tree-sitter on many files (incl. injections); Neovim 0.12 can error in
+      -- Grep / find-files preview runs Tree-sitter on many files (incl. injections); Neovim 0.12 can error in
       -- nvim-treesitter query_predicates when match[capture_id] is a node list (see nvim-treesitter#8636).
-      -- Disable preview for live grep sources until upstream fixes; use <a-p> in picker to toggle preview if needed.
+      -- Disable preview for these sources until upstream fixes; use <a-p> in picker to toggle preview if needed.
       picker = {
         enabled = true,
         sources = {
+          files = { layout = { preview = false } },
           grep = { layout = { preview = false } },
           grep_buffers = { layout = { preview = false } },
           grep_word = { layout = { preview = false } },

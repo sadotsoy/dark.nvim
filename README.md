@@ -11,6 +11,7 @@ This configuration utilizes [`lazy.nvim`](https://github.com/folke/lazy.nvim) to
 
 Plugins
 
+    ● claudecode.nvim
     ● blink.cmp
     ● conform.nvim
     ● diffview.nvim

@@ -36,9 +36,15 @@ nvim -u NONE +qa                  # Test without config
 
 ### Plugin Organization
 - `lua/plugins/` - Plugin specifications organized by category:
+  - `ai/claudecode.lua` - [claudecode.nvim](https://github.com/coder/claudecode.nvim) (Claude Code IDE integration; depends on `folke/snacks.nvim`)
   - `languages/` - Language-specific configurations
   - Individual files for categories (editor.lua, lsp.lua, git.lua, etc.)
 - Core plugins: `snacks.nvim` provides picker, explorer, and various QoL features
+
+### Claude Code (claudecode.nvim)
+- Spec: [`lua/plugins/ai/claudecode.lua`](lua/plugins/ai/claudecode.lua) uses `config = true` and sets `opts.terminal_cmd` to `vim.fn.expand("~/.claude/local/claude")` for a typical [local installation](https://github.com/coder/claudecode.nvim#configuring-for-local-installation) after `claude migrate-installer`. If your CLI is elsewhere, set `terminal_cmd` to the output of `which claude` or run `claude doctor`.
+- Keymaps are centralized in [`lua/config/plugins_keys.lua`](lua/config/plugins_keys.lua) under `claudecode` (default upstream bindings under `<leader>a`). Which-key group: `<leader>a` → `ai`.
+- **Note:** Undotree uses `<leader>acu` while Claude toggle is `<leader>ac`; Neovim may wait `timeoutlen` to disambiguate.
 
 ### Utility Modules
 - `lua/util/` - Helper utilities:
@@ -59,6 +65,7 @@ The configuration uses lazy.nvim's import system:
 Centralized in `lua/config/plugins_keys.lua`:
 - Plugin-specific keymaps organized by plugin name
 - Consistent leader key mappings (`<space>` as leader)
+- Claude Code commands under `<leader>a` (see `claudecode` table)
 - File operations under `<leader>f`
 - Git operations under `<leader>g`
 - Search operations under `<leader>s`

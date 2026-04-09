@@ -38,6 +38,7 @@ return {
         mappings = false,
       },
       spec = {
+        { "<leader>a",       group = "ai" },
         { "<leader>b",       group = "buffer" },            -- Define a group for buffer-related commands
         { "<leader>c",       group = "code" },              -- Define a group for code-related commands
         { "<leader>e",       group = "explorer" },          -- Define a group for explorer-related commands

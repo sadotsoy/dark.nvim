@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a comprehensive Neovim configuration built with Lua, using `lazy.nvim` as the plugin manager. The configuration is modular and focuses on modern development workflows with AI integration.
+This is a comprehensive Neovim configuration built with Lua, using `lazy.nvim` as the plugin manager. The configuration is modular and focuses on modern development workflows.
 
 ## Development Commands
 
@@ -36,7 +36,6 @@ nvim -u NONE +qa                  # Test without config
 
 ### Plugin Organization
 - `lua/plugins/` - Plugin specifications organized by category:
-  - `ai/` - AI-related plugins (copilot, codecompanion, coderclaude, avante)
   - `languages/` - Language-specific configurations
   - Individual files for categories (editor.lua, lsp.lua, git.lua, etc.)
 - Core plugins: `snacks.nvim` provides picker, explorer, and various QoL features
@@ -49,28 +48,17 @@ nvim -u NONE +qa                  # Test without config
 
 ### Key Global Variables
 - `_G.keys` - Centralized keymap definitions loaded from `config.plugins_keys`
-- `_G.ai_model` - Default AI model setting (currently "gpt-4o")
 
 ### Plugin Loading Strategy
 The configuration uses lazy.nvim's import system:
 1. Main spec imports from `plugins/` directory
 2. Subdirectories auto-imported via `plugins/init.lua`
-3. AI plugins, languages, and file managers are modular
-
-### AI Integration Architecture
-Multiple AI providers are configured:
-- **Copilot**: GitHub Copilot integration with chat and suggestions
-- **CodeCompanion**: Claude-based coding assistance
-- **CoderClaude**: Direct Claude Code integration
-- **Avante**: AI-powered code editing and chat interface
-
-All AI keymaps are prefixed with `<leader>a` and defined in the centralized keymap system.
+3. Languages and file managers are modular
 
 ### Keymap System
 Centralized in `lua/config/plugins_keys.lua`:
 - Plugin-specific keymaps organized by plugin name
 - Consistent leader key mappings (`<space>` as leader)
-- AI commands under `<leader>a`
 - File operations under `<leader>f`
 - Git operations under `<leader>g`
 - Search operations under `<leader>s`

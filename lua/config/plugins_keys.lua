@@ -306,115 +306,12 @@ local keys = {
       desc = "Open parent floating window",
     },
   },
-  copilot = {
-    {
-      "<leader>ap",
-      "<cmd>CopilotChatPrompts<cr>",
-      desc = "CopilotChat: Prompts",
-    },
-    { "<leader>av", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat: Toggle" },
-    { "<leader>av", "<cmd>CopilotChatVisual<cr>", mode = "x",                  desc = "CopilotChat: Open in vertical split" },
-    { "<leader>ax", ":CopilotChatInline<cr>",     mode = "x",                  desc = "CopilotChat: Inline chat" },
-    {
-      "<leader>ai",
-      function()
-        local input = vim.fn.input("Ask Copilot: ")
-        if input ~= "" then
-          vim.cmd("CopilotChat " .. input)
-        end
-      end,
-      desc = "CopilotChat: Ask input",
-    },
-    -- {
-    --   "<leader>am",
-    --   "<cmd>CopilotChatCommit<cr>",
-    --   desc = "CopilotChat: Generate commit message for all changes",
-    -- },
-    { "<leader>a?", "<cmd>CopilotChatModels<cr>", desc = "CopilotChat: Select Models" },
-    { "<leader>al", "<cmd>CopilotChatReset<cr>",  desc = "CopilotChat: Clear buffer and chat history" },
-    ---PERF: check this commands to avoid conflicts with avante
-    -- {
-    -- 	"<leader>aq",
-    -- 	function()
-    -- 		local input = vim.fn.input("Quick Chat: ")
-    -- 		if input ~= "" then
-    -- 			require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-    -- 		end
-    -- 	end,
-    -- 	desc = "CopilotChat - Quick chat",
-    -- },
-    -- { "<leader>ad", "<cmd>CopilotChatDebugInfo<cr>", desc = "CopilotChat - Debug Info" },
-    -- { "<leader>af", "<cmd>CopilotChatFixDiagnostic<cr>", desc = "CopilotChat - Fix Diagnostic" },
-    -- { "<leader>ae", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
-    -- { "<leader>at", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
-    -- { "<leader>ar", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
-    -- { "<leader>aR", "<cmd>CopilotChatRefactor<cr>", desc = "CopilotChat - Refactor code" },
-    -- { "<leader>an", "<cmd>CopilotChatBetterNamings<cr>", desc = "CopilotChat - Better Naming" },
-  },
-  companion = {
-    {
-      "<leader>acc",
-      "<cmd>CodeCompanionChat Toggle<cr>",
-      desc = "CodeCompanion: Chat with Claude",
-      mode = { 'n', 'v' }
-    },
-    {
-      "<leader>aci",
-      "<cmd>CodeCompanion<cr>",
-      desc = "CodeCompanion: Inline chat with Claude",
-      mode = { 'n', 'v' }
-    },
-    {
-      "<C-a>",
-      "<cmd>CodeCompanionActions<cr>",
-      desc = "CodeCompanion: Actions",
-      mode = { 'n', 'v' }
-    },
-    {
-      "ga",
-      "<cmd>CodeCompanionChat Add<cr>",
-      desc = "CodeCompanion: Add selection to chat"
-    },
-    -- {
-    --   "<leader>acm",
-    --   "<cmd>CodeCompanionChat Toggle<cr>",
-    --   desc = "Companion: chat toggle (legacy)",
-    --   mode = { 'n', 'v' }
-    -- },
-  },
   undotree = {
     {
       "<leader>acu",
       vim.cmd.UndotreeToggle,
       desc = "UndoTree: toggle",
     }
-  },
-  avante = {
-    { "<leader>aAa", "<cmd>AvanteAsk<cr>",     desc = "Avante: Ask ",                         mode = { "n", "v" } },
-    { "<leader>ae",  "<cmd>AvanteEdit<cr>",    desc = "Avante: Edit with ",                   mode = "v" },
-    { "<leader>aAc", "<cmd>AvanteChat<cr>",    desc = "Avante: Chat with " },
-    { "<leader>aAt", "<cmd>AvanteToggle<cr>",  desc = "Avante: Toggle sidebar" },
-    { "<leader>aAr", "<cmd>AvanteRefresh<cr>", desc = "Avante: Refresh" },
-    { "<leader>aAf", "<cmd>AvanteFocus<cr>",   desc = "Avante: Focus" },
-    { "<leader>aAk", "<cmd>AvanteClear<cr>",   desc = "Avante: Clear buffer and chat history" },
-  },
-  coderclaude = {
-    { "<leader>aCt", "<cmd>ClaudeCode<cr>",            desc = "Claude: Toggle" },
-    { "<leader>aCf", "<cmd>ClaudeCodeFocus<cr>",       desc = "Claude: Focus" },
-    { "<leader>aCr", "<cmd>ClaudeCode --resume<cr>",   desc = "Claude: Resume" },
-    { "<leader>aCc", "<cmd>ClaudeCode --continue<cr>", desc = "Claude: Continue" },
-    { "<leader>aCm", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Claude: Select model" },
-    { "<leader>aCb", "<cmd>ClaudeCodeAdd %<cr>",       desc = "Claude: Add current buffer" },
-    { "<leader>aCs", "<cmd>ClaudeCodeSend<cr>",        mode = "v",                         desc = "Claude: Send to ..." },
-    {
-      "<leader>aCs",
-      "<cmd>ClaudeCodeTreeAdd<cr>",
-      desc = "Claude: Add file",
-      ft = { "NvimTree", "neo-tree", "oil", "minifiles" },
-    },
-    -- Diff management
-    { "<leader>aCa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Claude: Accept diff" },
-    { "<leader>aCd", "<cmd>ClaudeCodeDiffDeny<cr>",   desc = "Claude: Deny diff" },
   },
   fyler = {
     { "__", "<cmd>Fyler<cr>", desc = "Explorer" }

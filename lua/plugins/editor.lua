@@ -38,7 +38,6 @@ return {
         mappings = false,
       },
       spec = {
-        { "<leader>a",       group = "ai" },                -- Define a group for AI-related commands
         { "<leader>b",       group = "buffer" },            -- Define a group for buffer-related commands
         { "<leader>c",       group = "code" },              -- Define a group for code-related commands
         { "<leader>e",       group = "explorer" },          -- Define a group for explorer-related commands
@@ -51,9 +50,6 @@ return {
         { "<leader>w",       group = "workspace" },         -- Define a group for workspace-related commands
         { "<leader><space>", group = "extras" },            -- Define a group for extra commands
         { "<leader>gS",      group = "git snacks search" },
-        { "<leader>aA",      group = "Avante keys" },       -- Define group for Avante
-        { "<leader>aC",      group = "CoderClaude keys" },  -- Define group for CodeClaude
-        { "<leader>ac",      group = "CodeCompanion keys" } -- Define group for CodeCompanion
 
       },
     },

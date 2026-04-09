@@ -11,12 +11,8 @@ This configuration utilizes [`lazy.nvim`](https://github.com/folke/lazy.nvim) to
 
 Plugins
 
-    ● avante.nvim
     ● blink.cmp
-    ● blink.compat
     ● conform.nvim
-    ● copilot.lua
-    ● CopilotChat.nvim
     ● diffview.nvim
     ● dressing.nvim
     ● fidget.nvim

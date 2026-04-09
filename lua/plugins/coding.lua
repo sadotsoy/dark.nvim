@@ -32,16 +32,6 @@ return {
     config = true,
   },
   {
-    -- Compatibility layer for using nvim-cmp sources on blink.cmp
-    "saghen/blink.compat",
-    -- use the latest release, via version = '*', if you also use the latest release for blink.cmp
-    version = "*",
-    -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
-    lazy = true,
-    -- make sure to set opts so that lazy.nvim calls blink.compat's setup
-    opts = {},
-  },
-  {
     -- Performant, batteries-included completion plugin for Neovim with advanced features
     "saghen/blink.cmp",
     lazy = false, -- lazy loading handled internally
@@ -98,22 +88,13 @@ return {
         nerd_font_variant = "mono",
       },
       sources = {
-        -- adding any nvim-cmp sources here will enable them
-        -- with blink.compat
         default = {
           "lsp",
           "path",
           "snippets",
           "buffer",
           "lazydev",
-          "avante_commands",
-          "avante_mentions",
-          "avante_files",
         },
-        per_filetype = {
-          codecompanion = { "codecompanion" },
-        },
-        -- add lazydev for yor completion providers
         providers = {
           lsp = { fallbacks = { "lazydev" } },
           lazydev = {
@@ -121,24 +102,6 @@ return {
             module = "lazydev.integrations.blink",
             -- make lazydev completions top priority (see `:h blink.cmp`)
             score_offset = 100,
-          },
-          avante_commands = {
-            name = "avante_commands",
-            module = "blink.compat.source",
-            score_offset = 90, -- show at a higher priority than lsp
-            opts = {},
-          },
-          avante_files = {
-            name = "avante_commands",
-            module = "blink.compat.source",
-            score_offset = 100, -- show at a higher priority than lsp
-            opts = {},
-          },
-          avante_mentions = {
-            name = "avante_mentions",
-            module = "blink.compat.source",
-            score_offset = 1000, -- show at a higher priority than lsp
-            opts = {},
           },
         },
       },

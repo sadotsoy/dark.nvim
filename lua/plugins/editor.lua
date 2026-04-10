@@ -64,7 +64,7 @@ return {
   },
   {
     -- The fastest Neovim colorizer.
-    "norcalli/nvim-colorizer.lua",
+    "catgoose/nvim-colorizer.lua",
     opts = {},
     config = function()
       require("colorizer").setup()

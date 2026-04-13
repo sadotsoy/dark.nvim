@@ -10,14 +10,14 @@ return {
 		opts = {
 			formatters_by_ft = {
 				fish = { "fish_indent" },
-				javascript = { "prettierd", "eslint_d" },
-				javascriptreact = { "prettierd", "eslint_d" },
-				json = { "prettierd", "eslint_d" },
+				javascript = { "prettierd" },
+				javascriptreact = { "prettierd" },
+				json = { "prettierd" },
 				lua = { "stylua" },
 				markdown = { "mdformat" },
 				sh = { "shfmt" },
-				typescript = { "prettierd", "eslint_d" },
-				typescriptreact = { "prettierd", "eslint_d" },
+				typescript = { "prettierd" },
+				typescriptreact = { "prettierd" },
 			},
 			-- Set default options
 			default_format_opts = {

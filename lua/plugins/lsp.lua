@@ -10,6 +10,7 @@ local servers = {
   "vtsls",
   "eslint",
   "lua_ls",
+  "emmet_language_server",
 }
 
 return {
@@ -130,6 +131,14 @@ return {
                 enumMemberValues = { enabled = true },
               }
             },
+          },
+        },
+        emmet_language_server = {
+          filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact" },
+          init_options = {
+            showExpandedAbbreviation = "always",
+            showAbbreviationSuggestions = true,
+            showSuggestionsAsSnippets = false,
           },
         },
         lua_ls = {

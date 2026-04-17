@@ -7,10 +7,10 @@ return {
 			events = { "BufWritePost", "BufReadPost", "InsertLeave" },
 			linters_by_ft = {
 				fish = { "fish" },
-				javascript = { "eslint_d" },
-				typescript = { "eslint_d" },
-				typescriptreact = { "eslint_d" },
-				javascriptreact = { "eslint_d" },
+				javascript = { "eslint_d", "oxlint" },
+				typescript = { "eslint_d", "oxlint" },
+				typescriptreact = { "eslint_d", "oxlint" },
+				javascriptreact = { "eslint_d", "oxlint" },
 			},
 		},
 		config = function(_, opts)

@@ -1,73 +1,73 @@
-local lsp_utils = require("util.lsp")
+local lsp_utils = require('util.lsp')
 --
 -- LSP configs
 --
 
 local servers = {
-  "bashls",
-  "clangd",
-  "cssls",
-  "vtsls",
-  "lua_ls",
-  "emmet_language_server",
-  "gopls",
-  "marksman",
-  "html",
+  'bashls',
+  'clangd',
+  'cssls',
+  'vtsls',
+  'lua_ls',
+  'emmet_language_server',
+  'gopls',
+  'marksman',
+  'html',
 }
 
 return {
   {
     -- cmdline tools and lsp servers
-    "mason-org/mason.nvim",
-    cmd = "Mason",
+    'mason-org/mason.nvim',
+    cmd = 'Mason',
     keys = keys.mason,
-    build = ":MasonUpdate",
-    opts_extend = { "ensure_installed" },
+    build = ':MasonUpdate',
+    opts_extend = { 'ensure_installed' },
     opts = {
       ensure_installed = servers,
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}
     config = function(_, opts)
-      require("mason").setup(opts)
+      require('mason').setup(opts)
       ---@diagnostic disable-next-line: missing-fields
-      require("mason-lspconfig").setup({
+      require('mason-lspconfig').setup({
         ensure_installed = servers,
       })
     end,
   },
   {
-    "neovim/nvim-lspconfig",
+    'neovim/nvim-lspconfig',
     dependencies = {
-      "saghen/blink.cmp",
+      'saghen/blink.cmp',
       {
         -- 💫 Extensible UI for Neovim notifications and LSP progress messages.
-        "j-hui/fidget.nvim",
+        'j-hui/fidget.nvim',
         opts = {
           notification = {
             -- Options related to the notification window and buffer
             window = {
-              normal_hl = "Comment", -- Base highlight group in the notification window
-              winblend = 0,        -- Background color opacity in the notification window
-              border = "none",       -- Border around the notification window
-              zindex = 45,           -- Stacking priority of the notification window
-              max_width = 0,         -- Maximum width of the notification window
-              max_height = 0,        -- Maximum height of the notification window
-              x_padding = 1,         -- Padding from right edge of window boundary
-              y_padding = 0,         -- Padding from bottom edge of window boundary
-              align = "bottom",      -- How to align the notification window
-              relative = "editor",   -- What the notification window position is relative to
-              tabstop = 8,           -- Width of each tab character in the notification window
+              normal_hl = 'Comment', -- Base highlight group in the notification window
+              winblend = 0, -- Background color opacity in the notification window
+              border = 'none', -- Border around the notification window
+              zindex = 45, -- Stacking priority of the notification window
+              max_width = 0, -- Maximum width of the notification window
+              max_height = 0, -- Maximum height of the notification window
+              x_padding = 1, -- Padding from right edge of window boundary
+              y_padding = 0, -- Padding from bottom edge of window boundary
+              align = 'bottom', -- How to align the notification window
+              relative = 'editor', -- What the notification window position is relative to
+              tabstop = 8, -- Width of each tab character in the notification window
             },
           },
         },
       },
-      "mason.nvim",
-      { "mason-org/mason-lspconfig.nvim", config = function() end },
+      'mason.nvim',
+      { 'mason-org/mason-lspconfig.nvim', config = function() end },
       {
-        "yioneko/nvim-vtsls",
+        'yioneko/nvim-vtsls',
         config = function()
           -- Set default server config for vtsls using the new API
-          vim.lsp.config.vtsls = require("vtsls").lspconfig
+          vim.lsp.config.vtsls = require('vtsls').lspconfig
         end,
       },
     },
@@ -77,12 +77,12 @@ return {
         bashls = {},
         clangd = {
           cmd = {
-            "clangd",
-            "--background-index",
-            "--clang-tidy",
-            "--header-insertion=iwyu",
-            "--completion-style=detailed",
-            "--function-arg-placeholders",
+            'clangd',
+            '--background-index',
+            '--clang-tidy',
+            '--header-insertion=iwyu',
+            '--completion-style=detailed',
+            '--function-arg-placeholders',
           },
         },
         cssls = {},
@@ -119,12 +119,12 @@ return {
           -- explicitly add default filetypes, so that we can extend
           -- them in related extras
           filetypes = {
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
+            'javascript',
+            'javascriptreact',
+            'javascript.jsx',
+            'typescript',
+            'typescriptreact',
+            'typescript.tsx',
           },
           settings = {
             complete_function_calls = true,
@@ -143,39 +143,39 @@ return {
               },
             },
             javascript = {
-              updateImportsOnFileMove = { enabled = "always" },
+              updateImportsOnFileMove = { enabled = 'always' },
               suggest = {
                 completeFunctionCalls = true,
               },
               inlayHints = {
                 enumMemberValues = { enabled = true },
                 functionLikeReturnTypes = { enabled = true },
-                parameterNames = { enabled = "all" },
+                parameterNames = { enabled = 'all' },
                 parameterTypes = { enabled = true },
                 propertyDeclarationTypes = { enabled = true },
                 variableTypes = { enabled = true },
               },
             },
             typescript = {
-              updateImportsOnFileMove = { enabled = "always" },
+              updateImportsOnFileMove = { enabled = 'always' },
               suggest = {
                 completeFunctionCalls = true,
               },
               inlayHints = {
-                parameterNames = { enabled = "literals" },
+                parameterNames = { enabled = 'literals' },
                 parameterTypes = { enabled = true },
                 variableTypes = { enabled = true },
                 propertyDeclarationTypes = { enabled = true },
                 functionLikeReturnTypes = { enabled = true },
                 enumMemberValues = { enabled = true },
-              }
+              },
             },
           },
         },
         emmet_language_server = {
-          filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact" },
+          filetypes = { 'html', 'css', 'scss', 'javascriptreact', 'typescriptreact' },
           init_options = {
-            showExpandedAbbreviation = "always",
+            showExpandedAbbreviation = 'always',
             showAbbreviationSuggestions = true,
             showSuggestionsAsSnippets = false,
           },
@@ -185,7 +185,7 @@ return {
             Lua = {
               diagnostics = {
                 globals = {
-                  "vim",
+                  'vim',
                 },
               },
               workspace = {
@@ -195,18 +195,18 @@ return {
                 enable = true,
               },
               completion = {
-                callSnippet = "Replace",
+                callSnippet = 'Replace',
               },
               doc = {
-                privateName = { "^_" },
+                privateName = { '^_' },
               },
               hint = {
                 enable = true,
                 setType = false,
                 paramType = true,
-                paramName = "Disable",
-                semicolon = "Disable",
-                arrayIndex = "Disable",
+                paramName = 'Disable',
+                semicolon = 'Disable',
+                arrayIndex = 'Disable',
               },
             },
           },
@@ -218,7 +218,7 @@ return {
         -- passing config.capabilities to blink.cmp merges with the capabilities in your
         -- `opts[server].capabilities, if you've defined it
         -- Second arg true: merge vim.lsp.protocol.make_client_capabilities() so textDocument.semanticTokens is advertised (Cursor-like TS highlighting).
-        config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities, true)
+        config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities, true)
 
         -- add foldingRange capabilities to each server
         config.capabilities.textDocument.foldingRange = {
@@ -233,7 +233,7 @@ return {
         -- Use the new vim.lsp.config API instead of lspconfig
         vim.lsp.config[server] = config
       end
-      require("ufo").setup()
+      require('ufo').setup()
     end,
   },
 }

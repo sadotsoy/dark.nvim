@@ -1,16 +1,16 @@
 return {
   {
     -- Tiny plugin to enhance Neovim's native comments
-    "folke/ts-comments.nvim",
+    'folke/ts-comments.nvim',
     opts = {},
-    event = "VeryLazy",
+    event = 'VeryLazy',
   },
   {
     -- ✅ Highlight, list and search todo comments in your projects
     -- TODO, HACK, WARN, PERF, NOTE, TEST
-    "folke/todo-comments.nvim",
-    cmd = { "TodoFzfLua" },
-    event = "VeryLazy",
+    'folke/todo-comments.nvim',
+    cmd = { 'TodoFzfLua' },
+    event = 'VeryLazy',
     opts = {
       signs = true,
     },
@@ -18,8 +18,8 @@ return {
   },
   {
     -- A better annotation generator for Neovim
-    "danymat/neogen",
-    cmd = "Neogen",
+    'danymat/neogen',
+    cmd = 'Neogen',
     config = true,
     keys = keys.neogen,
     -- Uncomment next line if you want to follow only stable versions
@@ -27,24 +27,24 @@ return {
   },
   {
     -- Add/change/delete surrounding delimiter pairs with ease. Written with ❤️ in Lua.
-    "kylechui/nvim-surround",
-    event = { "BufReadPost", "BufNewFile" },
+    'kylechui/nvim-surround',
+    event = { 'BufReadPost', 'BufNewFile' },
     config = true,
   },
   {
     -- Performant, batteries-included completion plugin for Neovim with advanced features
-    "saghen/blink.cmp",
+    'saghen/blink.cmp',
     lazy = false, -- lazy loading handled internally
     -- optional: provides snippets for the snippet source
     -- dependencies = "rafamadriz/friendly-snippets",
     -- allows extending the providers array elsewhere in your config
     -- without having to redefine it
     opts_extend = {
-      "sources.default",
+      'sources.default',
     },
 
     -- use a release tag to download pre-built binaries
-    version = "v0.*",
+    version = 'v0.*',
 
     ---@module "blink.cmp"
     ---@type blink.cmp.Config
@@ -56,16 +56,16 @@ return {
       -- see the "default configuration" section below for full documentation on how to define
       -- your own keymap.
       keymap = {
-        preset = "default",
-        ["<Up>"] = { "select_prev", "fallback" },
-        ["<Down>"] = { "select_next", "fallback" },
-        ["<C-l>"] = { "hide" },
-        ["<C-e>"] = {
-          "show",
-          "show_documentation",
-          "hide_documentation",
+        preset = 'default',
+        ['<Up>'] = { 'select_prev', 'fallback' },
+        ['<Down>'] = { 'select_next', 'fallback' },
+        ['<C-l>'] = { 'hide' },
+        ['<C-e>'] = {
+          'show',
+          'show_documentation',
+          'hide_documentation',
         },
-        ["<Tab>"] = {
+        ['<Tab>'] = {
           function(cmp)
             if cmp.snippet_active() then
               return cmp.accept()
@@ -73,8 +73,8 @@ return {
               return cmp.select_and_accept()
             end
           end,
-          "snippet_forward",
-          "fallback",
+          'snippet_forward',
+          'fallback',
         },
       },
       ---@diagnostic disable-next-line: missing-fields
@@ -85,21 +85,21 @@ return {
         use_nvim_cmp_as_default = false,
         -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- adjusts spacing to ensure icons are aligned
-        nerd_font_variant = "mono",
+        nerd_font_variant = 'mono',
       },
       sources = {
         default = {
-          "lsp",
-          "path",
-          "snippets",
-          "buffer",
-          "lazydev",
+          'lsp',
+          'path',
+          'snippets',
+          'buffer',
+          'lazydev',
         },
         providers = {
-          lsp = { fallbacks = { "lazydev" } },
+          lsp = { fallbacks = { 'lazydev' } },
           lazydev = {
-            name = "LazyDev",
-            module = "lazydev.integrations.blink",
+            name = 'LazyDev',
+            module = 'lazydev.integrations.blink',
             -- make lazydev completions top priority (see `:h blink.cmp`)
             score_offset = 100,
           },
@@ -111,24 +111,24 @@ return {
   },
   {
     -- Faster LuaLS setup for Neovim
-    "folke/lazydev.nvim",
-    ft = "lua", -- only load on lua files
+    'folke/lazydev.nvim',
+    ft = 'lua', -- only load on lua files
     opts = {
       library = {
         -- See the configuration section for more details
         -- Load {X} types when the `X` word is found
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        { path = "snacks.nvim",        words = { "Snacks" } },
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+        { path = 'snacks.nvim', words = { 'Snacks' } },
         -- Load the wezterm types when the `wezterm` module is required
         -- Needs `justinsgithub/wezterm-types` to be installed
-        { path = "wezterm-types",      mods = { "wezterm" } },
+        { path = 'wezterm-types', mods = { 'wezterm' } },
       },
     },
   },
   {
     -- autopairs for neovim written in lua
     'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    config = true
-  }
+    event = 'InsertEnter',
+    config = true,
+  },
 }

@@ -1,49 +1,49 @@
-local git_utils = require("util.git")
+local git_utils = require('util.git')
 
 return {
   {
     -- Fugitive.vim: A Git wrapper so awesome, it should be illegal
-    "tpope/vim-fugitive",
+    'tpope/vim-fugitive',
   },
   {
     -- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
-    "sindrets/diffview.nvim",
+    'sindrets/diffview.nvim',
   },
   {
     -- Git integration for buffers
-    "lewis6991/gitsigns.nvim",
-    event = "VeryLazy",
+    'lewis6991/gitsigns.nvim',
+    event = 'VeryLazy',
     opts = {
       signs = {
-        add = { text = "▎" },
-        change = { text = "▎" },
-        delete = { text = "" },
-        topdelete = { text = "" },
-        changedelete = { text = "▎" },
-        untracked = { text = "▎" },
+        add = { text = '▎' },
+        change = { text = '▎' },
+        delete = { text = '' },
+        topdelete = { text = '' },
+        changedelete = { text = '▎' },
+        untracked = { text = '▎' },
       },
       signs_staged = {
-        add = { text = "▎" },
-        change = { text = "▎" },
-        delete = { text = "" },
-        topdelete = { text = "" },
-        changedelete = { text = "▎" },
+        add = { text = '▎' },
+        change = { text = '▎' },
+        delete = { text = '' },
+        topdelete = { text = '' },
+        changedelete = { text = '▎' },
       },
       on_attach = git_utils.on_attach_git_signs,
     },
   },
   {
-    "gitsigns.nvim",
+    'gitsigns.nvim',
     opts = function()
       Snacks.toggle({
-        name = "Git Signs",
+        name = 'Git Signs',
         get = function()
-          return require("gitsigns.config").config.signcolumn
+          return require('gitsigns.config').config.signcolumn
         end,
         set = function(state)
-          require("gitsigns").toggle_signs(state)
+          require('gitsigns').toggle_signs(state)
         end,
-      }):map("<leader>uG")
+      }):map('<leader>uG')
     end,
   },
   -- {

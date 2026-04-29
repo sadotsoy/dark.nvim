@@ -338,6 +338,31 @@ local keys = {
     { '<leader>aa', '<cmd>ClaudeCodeDiffAccept<cr>', desc = 'Accept diff' },
     { '<leader>ad', '<cmd>ClaudeCodeDiffDeny<cr>', desc = 'Deny diff' },
   },
+  linting = {
+    {
+      '<leader>lf',
+      function()
+        local ft = vim.bo.filetype
+        local oxlint_fts = { javascript = true, javascriptreact = true, typescript = true, typescriptreact = true }
+        if not oxlint_fts[ft] then
+          vim.notify('oxlint not configured for ft: ' .. ft, vim.log.levels.WARN)
+          return
+        end
+        local file = vim.fn.expand('%:p')
+        vim.fn.jobstart({ 'oxlint', '--fix', file }, {
+          on_exit = function(_, code)
+            if code < 2 then
+              vim.schedule(function()
+                vim.cmd('edit')
+                require('lint').try_lint()
+              end)
+            end
+          end,
+        })
+      end,
+      desc = 'Lint: oxlint fix buffer',
+    },
+  },
   undotree = {
     {
       '<leader>acu',

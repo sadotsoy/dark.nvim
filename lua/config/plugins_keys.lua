@@ -1,4 +1,4 @@
-local root = require("util.editor")
+local root = require('util.editor')
 
 ---@class PluginKey
 ---@field desc string
@@ -127,89 +127,89 @@ local keys = {
     }
   },
   treesitter = {
-    { "<c-space>", desc = "Increment Selection" },
-    { "<bs>",      desc = "Decrement Selection", mode = "x" },
+    { '<c-space>', desc = 'Increment Selection' },
+    { '<bs>', desc = 'Decrement Selection', mode = 'x' },
   },
   mason = {
-    { "<leader>cm", "<cmd>Mason<cr>", desc = "Open mason" },
+    { '<leader>cm', '<cmd>Mason<cr>', desc = 'Open mason' },
   },
   fzflua = {
-    { "<c-j>", "<c-j>", ft = "fzf", mode = "t", nowait = true },
-    { "<c-k>", "<c-k>", ft = "fzf", mode = "t", nowait = true },
+    { '<c-j>', '<c-j>', ft = 'fzf', mode = 't', nowait = true },
+    { '<c-k>', '<c-k>', ft = 'fzf', mode = 't', nowait = true },
     --- configs
     {
-      "<leader>f,",
-      "<cmd>FzfLua files cwd=~/.config<CR>",
-      desc = "[,] find config files",
+      '<leader>f,',
+      '<cmd>FzfLua files cwd=~/.config<CR>',
+      desc = '[,] find config files',
     },
     -- find
     {
-      "<leader>ff",
-      "<cmd>FzfLua files<CR>",
-      desc = "find e Files (root)",
+      '<leader>ff',
+      '<cmd>FzfLua files<CR>',
+      desc = 'find e Files (root)',
     },
     {
-      "<leader>fF",
-      "<cmd>FzfLua files root=true<cr>",
-      desc = "find Files (cwd)",
+      '<leader>fF',
+      '<cmd>FzfLua files root=true<cr>',
+      desc = 'find Files (cwd)',
     },
     {
-      "<leader>fg",
-      "<cmd>FzfLua git_files<cr>",
-      desc = "find git Files (git-files)",
+      '<leader>fg',
+      '<cmd>FzfLua git_files<cr>',
+      desc = 'find git Files (git-files)',
     },
     {
-      "<leader>fr",
-      "<cmd>FzfLua oldfiles<cr>",
-      desc = "find recent Files",
+      '<leader>fr',
+      '<cmd>FzfLua oldfiles<cr>',
+      desc = 'find recent Files',
     },
     -- git
-    { "<leader>gc", "<cmd>FzfLua git_commits<CR>", desc = "git commits" },
-    { "<leader>gs", "<cmd>FzfLua git_status<CR>",  desc = "git status" },
+    { '<leader>gc', '<cmd>FzfLua git_commits<CR>', desc = 'git commits' },
+    { '<leader>gs', '<cmd>FzfLua git_status<CR>', desc = 'git status' },
     -- search
-    { '<leader>s"', "<cmd>FzfLua registers<cr>",   desc = "[s] registers" },
-    { "<leader>sa", "<cmd>FzfLua autocmds<cr>",    desc = "Auto Commands" },
+    { '<leader>s"', '<cmd>FzfLua registers<cr>', desc = '[s] registers' },
+    { '<leader>sa', '<cmd>FzfLua autocmds<cr>', desc = 'Auto Commands' },
     -- { "<leader>sb", "<cmd>FzfLua grep_curbuf<cr>", desc = "Grep current buffer" },
-    { "<leader>sC", "<cmd>FzfLua commands<cr>",    desc = "Commands" },
+    { '<leader>sC', '<cmd>FzfLua commands<cr>', desc = 'Commands' },
     {
-      "<leader>sd",
-      "<cmd>FzfLua diagnostics_document<cr>",
-      desc = "Document Diagnostics",
+      '<leader>sd',
+      '<cmd>FzfLua diagnostics_document<cr>',
+      desc = 'Document Diagnostics',
     },
     {
-      "<leader>sD",
-      "<cmd>FzfLua diagnostics_workspace<cr>",
-      desc = "Workspace Diagnostics",
+      '<leader>sD',
+      '<cmd>FzfLua diagnostics_workspace<cr>',
+      desc = 'Workspace Diagnostics',
     },
-    { "<leader>sh", "<cmd>FzfLua help_tags<cr>", desc = "Help Pages" },
+    { '<leader>sh', '<cmd>FzfLua help_tags<cr>', desc = 'Help Pages' },
     {
-      "<leader>sH",
-      "<cmd>FzfLua highlights<cr>",
-      desc = "Search Highlight Groups",
+      '<leader>sH',
+      '<cmd>FzfLua highlights<cr>',
+      desc = 'Search Highlight Groups',
     },
-    { "<leader>sj", "<cmd>FzfLua jumps<cr>",     desc = "Jumplist" },
-    { "<leader>sk", "<cmd>FzfLua keymaps<cr>",   desc = "Key Maps" },
-    { "<leader>sl", "<cmd>FzfLua loclist<cr>",   desc = "Location List" },
-    { "<leader>sM", "<cmd>FzfLua man_pages<cr>", desc = "Man Pages" },
-    { "<leader>sm", "<cmd>FzfLua marks<cr>",     desc = "Jump to Mark" },
-    { "<leader>sR", "<cmd>FzfLua resume<cr>",    desc = "Resume" },
-    { "<leader>sq", "<cmd>FzfLua quickfix<cr>",  desc = "Quickfix List" },
+    { '<leader>sj', '<cmd>FzfLua jumps<cr>', desc = 'Jumplist' },
+    { '<leader>sk', '<cmd>FzfLua keymaps<cr>', desc = 'Key Maps' },
+    { '<leader>sl', '<cmd>FzfLua loclist<cr>', desc = 'Location List' },
+    { '<leader>sM', '<cmd>FzfLua man_pages<cr>', desc = 'Man Pages' },
+    { '<leader>sm', '<cmd>FzfLua marks<cr>', desc = 'Jump to Mark' },
+    { '<leader>sR', '<cmd>FzfLua resume<cr>', desc = 'Resume' },
+    { '<leader>sq', '<cmd>FzfLua quickfix<cr>', desc = 'Quickfix List' },
   },
   grugfar = {
     {
-      "<leader>sr",
+      '<leader>sr',
       function()
-        local grug = require("grug-far")
-        local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+        local grug = require('grug-far')
+        local ext = vim.bo.buftype == '' and vim.fn.expand('%:e')
         grug.open({
           transient = true,
           prefills = {
-            filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+            filesFilter = ext and ext ~= '' and '*.' .. ext or nil,
           },
         })
       end,
-      mode = { "n", "v" },
-      desc = "Search and Replace",
+      mode = { 'n', 'v' },
+      desc = 'Search and Replace',
     },
   },
   --stylua: ignore
@@ -222,118 +222,132 @@ local keys = {
   },
   wichkey = {
     {
-      "<leader>?",
+      '<leader>?',
       function()
-        require("which-key").show({ global = false })
+        require('which-key').show({ global = false })
       end,
-      desc = "Buffer Local Keymaps (which-key)",
+      desc = 'Buffer Local Keymaps (which-key)',
     },
   },
   todocomment = {
     {
-      "]t",
+      ']t',
       function()
-        require("todo-comments").jump_next()
+        require('todo-comments').jump_next()
       end,
-      desc = "Next Todo Comment",
+      desc = 'Next Todo Comment',
     },
     {
-      "[t",
+      '[t',
       function()
-        require("todo-comments").jump_prev()
+        require('todo-comments').jump_prev()
       end,
-      desc = "Previous Todo Comment",
+      desc = 'Previous Todo Comment',
     },
     {
-      "<leader>st",
+      '<leader>st',
       function()
-        require("todo-comments.fzf").todo()
+        require('todo-comments.fzf').todo()
       end,
-      desc = "Search todos",
+      desc = 'Search todos',
     },
     {
-      "<leader>sT",
+      '<leader>sT',
       function()
-        require("todo-comments.fzf").todo({ keywords = { "TODO", "FIX", "FIXME", "BUG" } })
+        require('todo-comments.fzf').todo({ keywords = { 'TODO', 'FIX', 'FIXME', 'BUG' } })
       end,
-      desc = "Search todos code",
+      desc = 'Search todos code',
     },
   },
   markdown = {
     {
-      "<leader>cX",
-      "<cmd>MarkdownPreviewToggle<CR>",
-      desc = "Markdown Preview",
+      '<leader>cX',
+      '<cmd>MarkdownPreviewToggle<CR>',
+      desc = 'Markdown Preview',
     },
   },
   dark_present = {
     {
-      "<leader>cp",
-      "<cmd>DarkPresent<CR>",
-      desc = "DarkPresent markdwon",
+      '<leader>cp',
+      '<cmd>DarkPresent<CR>',
+      desc = 'DarkPresent markdwon',
     },
   },
   neogen = {
     {
-      "<leader>cn",
+      '<leader>cn',
       function()
-        require("neogen").generate()
+        require('neogen').generate()
       end,
-      desc = "Generate Annotations (Neogen)",
+      desc = 'Generate Annotations (Neogen)',
     },
   },
   conform = {
     {
-      "<leader>cf",
+      '<leader>cf',
       function()
-        require("conform").format({ async = true })
+        local ts_fts = {
+          javascript = true,
+          javascriptreact = true,
+          typescript = true,
+          typescriptreact = true,
+        }
+        local function fmt()
+          require('conform').format({ async = true, lsp_format = 'fallback' })
+        end
+        if ts_fts[vim.bo.filetype] then
+          pcall(vim.cmd, 'VtsExec organize_imports')
+          vim.defer_fn(fmt, 200)
+        else
+          fmt()
+        end
       end,
-      mode = "",
-      desc = "Format buffer",
+      mode = { 'n', 'v' },
+      desc = 'Format buffer',
     },
   },
   oil = {
     {
-      "-",
-      "<cmd>Oil<CR>",
-      desc = "Open parent directory",
+      '-',
+      '<cmd>Oil<CR>',
+      desc = 'Open parent directory',
     },
     {
-      "<space>-",
+      '<space>-',
       function()
-        require("oil").toggle_float()
+        require('oil').toggle_float()
       end,
-      desc = "Open parent floating window",
+      desc = 'Open parent floating window',
     },
   },
   claudecode = {
-    { "<leader>a", nil, desc = "AI/Claude Code" },
-    { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
-    { "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
-    { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
-    { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
-    { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
-    { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
-    { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
+    { '<leader>a', nil, desc = 'AI/Claude Code' },
+    { '<leader>ac', '<cmd>ClaudeCode<cr>', desc = 'Toggle Claude' },
+    { '<leader>af', '<cmd>ClaudeCodeFocus<cr>', desc = 'Focus Claude' },
+    { '<leader>ar', '<cmd>ClaudeCode --resume<cr>', desc = 'Resume Claude' },
+    { '<leader>aC', '<cmd>ClaudeCode --continue<cr>', desc = 'Continue Claude' },
+    { '<leader>am', '<cmd>ClaudeCodeSelectModel<cr>', desc = 'Select Claude model' },
+    { '<leader>ab', '<cmd>ClaudeCodeAdd %<cr>', desc = 'Add current buffer' },
+    { '<leader>as', '<cmd>ClaudeCodeSend<cr>', mode = 'v', desc = 'Send to Claude' },
     {
-      "<leader>as",
-      "<cmd>ClaudeCodeTreeAdd<cr>",
-      desc = "Add file",
-      ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw" },
+      '<leader>as',
+      '<cmd>ClaudeCodeTreeAdd<cr>',
+      desc = 'Add file',
+      ft = { 'NvimTree', 'neo-tree', 'oil', 'minifiles', 'netrw' },
     },
-    { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
-    { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
+    { '<leader>aa', '<cmd>ClaudeCodeDiffAccept<cr>', desc = 'Accept diff' },
+    { '<leader>ad', '<cmd>ClaudeCodeDiffDeny<cr>', desc = 'Deny diff' },
   },
   undotree = {
     {
-      "<leader>acu",
+      '<leader>acu',
       vim.cmd.UndotreeToggle,
-      desc = "UndoTree: toggle",
-    }
+      desc = 'UndoTree: toggle',
+    },
   },
   fyler = {
-    { "__", "<cmd>Fyler<cr>", desc = "Explorer" }
-  }
+    { '__', '<cmd>Fyler<cr>', desc = 'Explorer' },
+  },
 }
 
 return keys

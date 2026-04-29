@@ -6,11 +6,18 @@ return {
 			-- Event to trigger linters
 			events = { "BufWritePost", "BufReadPost", "InsertLeave" },
 			linters_by_ft = {
+				c = { "cpplint" },
+				cpp = { "cpplint" },
+				css = { "stylelint" },
 				fish = { "fish" },
-				javascript = { "eslint_d", "oxlint" },
-				typescript = { "eslint_d", "oxlint" },
-				typescriptreact = { "eslint_d", "oxlint" },
-				javascriptreact = { "eslint_d", "oxlint" },
+				go = { "golangcilint" },
+				javascript = { "oxlint" },
+				javascriptreact = { "oxlint" },
+				lua = { "selene" },
+				markdown = { "markdownlint-cli2" },
+				scss = { "stylelint" },
+				typescript = { "oxlint" },
+				typescriptreact = { "oxlint" },
 			},
 		},
 		config = function(_, opts)

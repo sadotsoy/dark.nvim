@@ -8,9 +8,11 @@ local servers = {
   "clangd",
   "cssls",
   "vtsls",
-  "eslint",
   "lua_ls",
   "emmet_language_server",
+  "gopls",
+  "marksman",
+  "html",
 }
 
 return {
@@ -73,9 +75,46 @@ return {
     opts = {
       servers = {
         bashls = {},
-        clangd = {},
+        clangd = {
+          cmd = {
+            "clangd",
+            "--background-index",
+            "--clang-tidy",
+            "--header-insertion=iwyu",
+            "--completion-style=detailed",
+            "--function-arg-placeholders",
+          },
+        },
         cssls = {},
-        eslint = {},
+        html = {},
+        marksman = {},
+        gopls = {
+          settings = {
+            gopls = {
+              gofumpt = true,
+              usePlaceholders = true,
+              staticcheck = true,
+              analyses = {
+                unusedparams = true,
+                shadow = true,
+                nilness = true,
+                unusedwrite = true,
+                useany = true,
+              },
+              hints = {
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                compositeLiteralTypes = true,
+                constantValues = true,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = true,
+              },
+              completeUnimported = true,
+              semanticTokens = true,
+            },
+          },
+        },
         vtsls = {
           -- explicitly add default filetypes, so that we can extend
           -- them in related extras

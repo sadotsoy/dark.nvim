@@ -9,12 +9,18 @@ return {
 		---@type conform.setupOpts
 		opts = {
 			formatters_by_ft = {
+				c = { "clang-format" },
+				cpp = { "clang-format" },
+				css = { "prettierd" },
 				fish = { "fish_indent" },
+				go = { "goimports", "gofumpt" },
+				html = { "prettierd" },
 				javascript = { "prettierd" },
 				javascriptreact = { "prettierd" },
 				json = { "prettierd" },
 				lua = { "stylua" },
 				markdown = { "mdformat" },
+				scss = { "prettierd" },
 				sh = { "shfmt" },
 				typescript = { "prettierd" },
 				typescriptreact = { "prettierd" },
